@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGriddedCoverage.h"
+#import <GeoPackage/GPKGGriddedCoverage.h>
 
 NSString * const GPKG_CDGC_TABLE_NAME = @"gpkg_2d_gridded_coverage_ancillary";
 NSString * const GPKG_CDGC_COLUMN_PK = @"id";
@@ -32,8 +32,8 @@ NSString * const GPKG_CDGC_COLUMN_QUANTITY_DEFINITION = @"quantity_definition";
     }
 }
 
--(enum GPKGGriddedCoverageDataType) griddedCoverageDataType{
-    enum GPKGGriddedCoverageDataType value = -1;
+-(GPKGGriddedCoverageDataType) griddedCoverageDataType{
+    GPKGGriddedCoverageDataType value = -1;
     
     if(self.datatype != nil){
         value = [GPKGGriddedCoverageDataTypes fromName:self.datatype];
@@ -42,7 +42,7 @@ NSString * const GPKG_CDGC_COLUMN_QUANTITY_DEFINITION = @"quantity_definition";
     return value;
 }
 
--(void) setGriddedCoverageDataType: (enum GPKGGriddedCoverageDataType) dataType{
+-(void) setGriddedCoverageDataType: (GPKGGriddedCoverageDataType) dataType{
     self.datatype = [GPKGGriddedCoverageDataTypes name:dataType];
 }
 
@@ -58,8 +58,8 @@ NSString * const GPKG_CDGC_COLUMN_QUANTITY_DEFINITION = @"quantity_definition";
     return self.precision != nil ? [self.precision doubleValue] : 1.0;
 }
 
--(enum GPKGGriddedCoverageEncodingType) gridCellEncodingType{
-    enum GPKGGriddedCoverageEncodingType value = -1;
+-(GPKGGriddedCoverageEncodingType) gridCellEncodingType{
+    GPKGGriddedCoverageEncodingType value = -1;
     
     if(self.gridCellEncoding != nil){
         value = [GPKGGriddedCoverageEncodingTypes fromName:self.gridCellEncoding];
@@ -68,7 +68,7 @@ NSString * const GPKG_CDGC_COLUMN_QUANTITY_DEFINITION = @"quantity_definition";
     return value;
 }
 
--(void) setGridCellEncodingType: (enum GPKGGriddedCoverageEncodingType) encodingType{
+-(void) setGridCellEncodingType: (GPKGGriddedCoverageEncodingType) encodingType{
     self.gridCellEncoding = [GPKGGriddedCoverageEncodingTypes name:encodingType];
 }
 

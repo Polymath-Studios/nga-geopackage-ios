@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGContentsIdDao.h"
-#import "GPKGContentsDao.h"
+#import <GeoPackage/GPKGContentsIdDao.h>
+#import <GeoPackage/GPKGContentsDao.h>
 
 @implementation GPKGContentsIdDao
 

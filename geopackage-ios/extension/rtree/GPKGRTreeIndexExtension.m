@@ -6,10 +6,10 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGRTreeIndexExtension.h"
-#import "GPKGProperties.h"
-#import "GPKGIOUtils.h"
-#import "SFPProjectionGeometryUtils.h"
+#import <GeoPackage/GPKGRTreeIndexExtension.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGIOUtils.h>
+#import <SimpleFeaturesProjections/SimpleFeaturesProjections.h>
 
 NSString * const GPKG_RTREE_INDEX_EXTENSION_NAME = @"rtree_index";
 NSString * const GPKG_RTREE_INDEX_PREFIX = @"rtree_";

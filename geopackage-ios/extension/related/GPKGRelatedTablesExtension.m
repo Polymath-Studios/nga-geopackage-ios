@@ -6,10 +6,10 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGRelatedTablesExtension.h"
-#import "GPKGProperties.h"
-#import "GPKGUserCustomTableReader.h"
-#import "GPKGGeoPackageConstants.h"
+#import <GeoPackage/GPKGRelatedTablesExtension.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGUserCustomTableReader.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
 
 NSString * const GPKG_EXTENSION_RELATED_TABLES_NAME_NO_AUTHOR = @"related_tables";
 NSString * const GPKG_PROP_EXTENSION_RELATED_TABLES_DEFINITION = @"geopackage.extensions.extended_relations";
@@ -129,7 +129,7 @@ NSString * const GPKG_PROP_EXTENSION_RELATED_TABLES_DEFINITION = @"geopackage.ex
     return relationships;
 }
 
--(GPKGExtendedRelation *) addRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andMappingTableName: (NSString *) mappingTableName andRelation: (enum GPKGRelationType) relationType{
+-(GPKGExtendedRelation *) addRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andMappingTableName: (NSString *) mappingTableName andRelation: (GPKGRelationType) relationType{
     return [self addRelationshipWithBaseTable:baseTableName andRelatedTable:relatedTableName andMappingTableName:mappingTableName andRelationName:[GPKGRelationTypes name:relationType]];
 }
 
@@ -146,7 +146,7 @@ NSString * const GPKG_PROP_EXTENSION_RELATED_TABLES_DEFINITION = @"geopackage.ex
     return extendedRelation;
 }
 
--(GPKGExtendedRelation *) addRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andUserMappingTable: (GPKGUserMappingTable *) userMappingTable andRelation: (enum GPKGRelationType) relationType{
+-(GPKGExtendedRelation *) addRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andUserMappingTable: (GPKGUserMappingTable *) userMappingTable andRelation: (GPKGRelationType) relationType{
     return [self addRelationshipWithBaseTable:baseTableName andRelatedTable:relatedTableName andUserMappingTable:userMappingTable andRelationName:[GPKGRelationTypes name:relationType]];
 }
 
@@ -285,7 +285,7 @@ NSString * const GPKG_PROP_EXTENSION_RELATED_TABLES_DEFINITION = @"geopackage.ex
     }
     
     // Verify spec defined relation types
-    enum GPKGRelationType relationType = [GPKGRelationTypes fromName:relationName];
+    GPKGRelationType relationType = [GPKGRelationTypes fromName:relationName];
     if ((int)relationType >= 0) {
         [self validateRelationshipWithBaseTable:baseTableName andRelatedTable:relatedTableName andRelation:relationType];
     }
@@ -303,7 +303,7 @@ NSString * const GPKG_PROP_EXTENSION_RELATED_TABLES_DEFINITION = @"geopackage.ex
  * @param relationType
  *            relation type
  */
--(void) validateRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andRelation: (enum GPKGRelationType) relationType{
+-(void) validateRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andRelation: (GPKGRelationType) relationType{
     
     if ((int)relationType >= 0) {
         
@@ -367,7 +367,7 @@ NSString * const GPKG_PROP_EXTENSION_RELATED_TABLES_DEFINITION = @"geopackage.ex
     return created;
 }
 
--(void) removeRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andRelation: (enum GPKGRelationType) relationType{
+-(void) removeRelationshipWithBaseTable: (NSString *) baseTableName andRelatedTable: (NSString *) relatedTableName andRelation: (GPKGRelationType) relationType{
     [self removeRelationshipWithBaseTable:baseTableName andRelatedTable:relatedTableName andRelationName:[GPKGRelationTypes name:relationType]];
 }
 

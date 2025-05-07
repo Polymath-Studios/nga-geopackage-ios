@@ -6,10 +6,10 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgUtils.h"
-#import "GPKGDgiwgConstants.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGDgiwgMetadata.h"
+#import <GeoPackage/GPKGDgiwgUtils.h>
+#import <GeoPackage/GPKGDgiwgConstants.h>
+#import <GeoPackage/GPKGMetadataExtension.h>
+#import <GeoPackage/GPKGDgiwgMetadata.h>
 
 @implementation GPKGDgiwgUtils
 
@@ -119,7 +119,7 @@
 
 }
 
-+(GPKGGeometryColumns *) createFeaturesWithGeoPackage: (GPKGGeoPackage *) geoPackage andTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andDataType: (enum GPKGDgiwgDataType) dataType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andSRS: (GPKGSpatialReferenceSystem *) srs{
++(GPKGGeometryColumns *) createFeaturesWithGeoPackage: (GPKGGeoPackage *) geoPackage andTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andDataType: (GPKGDgiwgDataType) dataType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andSRS: (GPKGSpatialReferenceSystem *) srs{
     
     [geoPackage createGeometryColumnsTable];
 
@@ -228,14 +228,14 @@
     return [self createGeoPackageMetadata:metadata withGeoPackage:geoPackage andScope:GPKG_MST_DATASET andURI:uri];
 }
 
-+(GPKGMetadataReference *) createGeoPackageMetadata: (NSString *) metadata withGeoPackage: (GPKGGeoPackage *) geoPackage andScope: (enum GPKGMetadataScopeType) scope andURI: (NSString *) uri{
++(GPKGMetadataReference *) createGeoPackageMetadata: (NSString *) metadata withGeoPackage: (GPKGGeoPackage *) geoPackage andScope: (GPKGMetadataScopeType) scope andURI: (NSString *) uri{
     GPKGMetadata *md = [GPKGDgiwgMetadata createMetadata:metadata withScope:scope andURI:uri];
     GPKGMetadataReference *reference = [GPKGDgiwgMetadata createGeoPackageMetadataReference];
     [self createMetadataWithGeoPackage:geoPackage andMetadata:md andReference:reference];
     return reference;
 }
 
-+(GPKGMetadataReference *) createMetadata: (NSString *) metadata withGeoPackage: (GPKGGeoPackage *) geoPackage andScope: (enum GPKGMetadataScopeType) scope andURI: (NSString *) uri andReference: (GPKGMetadataReference *) reference{
++(GPKGMetadataReference *) createMetadata: (NSString *) metadata withGeoPackage: (GPKGGeoPackage *) geoPackage andScope: (GPKGMetadataScopeType) scope andURI: (NSString *) uri andReference: (GPKGMetadataReference *) reference{
     GPKGMetadata *md = [GPKGDgiwgMetadata createMetadata:metadata withScope:scope andURI:uri];
     [self createMetadataWithGeoPackage:geoPackage andMetadata:md andReference:reference];
     return reference;

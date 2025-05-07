@@ -7,11 +7,8 @@
 //
 
 #import "GPKGCoverageDataTestUtils.h"
-#import "PROJProjectionFactory.h"
 #import "GPKGTestUtils.h"
-#import "GPKGUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
+@import Projections;
 
 @implementation GPKGCoverageDataTestUtils
 

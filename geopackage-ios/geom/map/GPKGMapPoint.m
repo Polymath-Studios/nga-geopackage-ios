@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMapPoint.h"
+#import <GeoPackage/GPKGMapPoint.h>
 
 @implementation GPKGMapPoint
 

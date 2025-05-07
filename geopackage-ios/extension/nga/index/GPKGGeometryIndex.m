@@ -6,7 +6,7 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryIndex.h"
+#import <GeoPackage/GPKGGeometryIndex.h>
 
 NSString * const GPKG_GI_TABLE_NAME = @"nga_geometry_index";
 NSString * const GPKG_GI_COLUMN_PK1 = @"table_name";

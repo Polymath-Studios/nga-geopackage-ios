@@ -6,16 +6,16 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTableMetadata.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGFeatureTableMetadata.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 NSString * const GPKG_FTM_DEFAULT_COLUMN_NAME = @"geometry";
 
 @implementation GPKGFeatureTableMetadata
 
-static enum GPKGContentsDataType defaultDataType = GPKG_CDT_FEATURES;
+static GPKGContentsDataType defaultDataType = GPKG_CDT_FEATURES;
 
-static enum SFGeometryType defaultGeometryType = SF_GEOMETRY;
+static SFGeometryType defaultGeometryType = SF_GEOMETRY;
 
 +(GPKGFeatureTableMetadata *) create{
     return [[GPKGFeatureTableMetadata alloc] init];
@@ -299,8 +299,8 @@ static enum SFGeometryType defaultGeometryType = SF_GEOMETRY;
     return columnName;
 }
 
--(enum SFGeometryType) geometryType{
-    enum SFGeometryType geometryType = SF_NONE;
+-(SFGeometryType) geometryType{
+    SFGeometryType geometryType = SF_NONE;
     if (self.geometryColumns != nil) {
         geometryType = [self.geometryColumns geometryType];
     }

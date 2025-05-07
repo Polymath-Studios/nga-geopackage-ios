@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageMetadata.h"
+#import <GeoPackage/GPKGGeoPackageMetadata.h>
 
 NSString * const GPKG_GPM_TABLE_NAME = @"geopackage";
 NSString * const GPKG_GPM_COLUMN_PK = @"geopackage_id";

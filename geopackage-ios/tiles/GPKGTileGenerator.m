@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileGenerator.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGUtils.h"
-#import "GPKGImageConverter.h"
-#import "GPKGTileTableScaling.h"
+#import <GeoPackage/GPKGTileGenerator.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGImageConverter.h>
+#import <GeoPackage/GPKGTileTableScaling.h>
 
 @implementation GPKGTileGenerator
 

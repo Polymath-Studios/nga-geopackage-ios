@@ -6,11 +6,10 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageTileRetriever.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGTileCreator.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGGeoPackageTileRetriever.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGTileCreator.h>
+#import <Projections/Projections.h>
 
 @interface GPKGGeoPackageTileRetriever ()
 

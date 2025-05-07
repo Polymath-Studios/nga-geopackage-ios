@@ -8,9 +8,9 @@
 
 #import "GPKGDgiwgGeoPackageManagerTestCase.h"
 #import "GPKGTestUtils.h"
-#import "GPKGDgiwgGeoPackageFactory.h"
 #import "GPKGDgiwgGeoPackageTestCase.h"
-#import "GPKGIOUtils.h"
+
+@import GeoPackage;
 
 @implementation GPKGDgiwgGeoPackageManagerTestCase
 

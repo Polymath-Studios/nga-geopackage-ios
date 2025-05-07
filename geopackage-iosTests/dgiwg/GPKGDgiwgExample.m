@@ -8,18 +8,11 @@
 
 #import "GPKGDgiwgExample.h"
 #import "GPKGDgiwgExampleCreate.h"
-#import "GPKGDgiwgGeoPackageFactory.h"
 #import "GPKGTestUtils.h"
 #import "GPKGTestConstants.h"
-#import "GPKGIOUtils.h"
-#import "GPKGDgiwgConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGSchemaExtension.h"
-#import "GPKGCoverageDataTiff.h"
-#import "GPKGUtils.h"
-#import "GPKGRelatedTablesExtension.h"
-#import "GPKGDublinCoreMetadata.h"
+#import "GPKGBundleHelper.h"
+
+@import GeoPackage;
 
 @implementation GPKGDgiwgExample
 
@@ -279,7 +272,7 @@ static NSString *TILE_MAPPING_TABLE = @"nga_features_tiles";
  * @return metadata
  */
 +(NSString *) metadataWithName: (NSString *) name{
-    NSString *metadataPath  = [[[NSBundle bundleForClass:[GPKGDgiwgExample class]] resourcePath] stringByAppendingPathComponent:name];
+    NSString *metadataPath = [GPKGBundleHelper pathForResource:name];
     NSData *metadataData = [[NSFileManager defaultManager] contentsAtPath:metadataPath];
     NSString *metadata = [[NSString alloc] initWithData:metadataData encoding:NSUTF8StringEncoding];
     return metadata;
@@ -377,7 +370,7 @@ static NSString *TILE_MAPPING_TABLE = @"nga_features_tiles";
     
     GPKGTileDao *tileDao = [geoPackage tileDaoWithTileMatrixSet:tileMatrixSet];
     
-    NSString *resourcePath  = [[NSBundle bundleForClass:[GPKGDgiwgExample class]] resourcePath];
+    NSString *resourcePath = [GPKGBundleHelper resourcePath];
     
     GPKGTileGrid *tileGrid = totalTileGrid;
     
@@ -711,7 +704,7 @@ static NSString *TILE_MAPPING_TABLE = @"nga_features_tiles";
 
     GPKGMediaRow *mediaRow = [mediaDao newRow];
 
-    NSString *mediaPath  = [[[NSBundle bundleForClass:[GPKGDgiwgExample class]] resourcePath] stringByAppendingPathComponent:file];
+    NSString *mediaPath  = [GPKGBundleHelper pathForResource:file];
     NSData *mediaData = [[NSFileManager defaultManager] contentsAtPath:mediaPath];
 
     [mediaRow setData:mediaData];

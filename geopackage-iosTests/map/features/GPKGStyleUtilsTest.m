@@ -7,9 +7,9 @@
 //
 
 #import "GPKGStyleUtilsTest.h"
-#import "GPKGImageConverter.h"
-#import "GPKGStyleUtils.h"
 #import "GPKGTestUtils.h"
+
+@import GeoPackage;
 
 @implementation GPKGStyleUtilsTest
 

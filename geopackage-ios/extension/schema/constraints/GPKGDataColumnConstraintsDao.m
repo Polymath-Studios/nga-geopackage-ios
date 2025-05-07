@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGDataColumnConstraintsDao.h"
-#import "GPKGDataColumnsDao.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGDataColumnConstraintsDao.h>
+#import <GeoPackage/GPKGDataColumnsDao.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGDataColumnConstraintsDao
 
@@ -189,7 +189,7 @@
 }
 
 -(GPKGDataColumnConstraints *) queryByUniqueConstraintName: (NSString *) constraintName
-                                         andConstraintType: (enum GPKGDataColumnConstraintType) constraintType
+                                         andConstraintType: (GPKGDataColumnConstraintType) constraintType
                                                   andValue: (NSString *) value{
     
     GPKGDataColumnConstraints *dataColumnConstraints = [[GPKGDataColumnConstraints alloc] init];

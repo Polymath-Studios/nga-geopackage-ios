@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGCompressFormats.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGCompressFormats.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_CF_JPEG_NAME = @"jpeg";
 NSString * const GPKG_CF_PNG_NAME = @"png";
@@ -15,7 +15,7 @@ NSString * const GPKG_CF_NONE_NAME = @"none";
 
 @implementation GPKGCompressFormats
 
-+(NSString *) name: (enum GPKGCompressFormat) compressFormat{
++(NSString *) name: (GPKGCompressFormat) compressFormat{
     NSString *name = nil;
     
     switch(compressFormat){
@@ -33,8 +33,8 @@ NSString * const GPKG_CF_NONE_NAME = @"none";
     return name;
 }
 
-+(enum GPKGCompressFormat) fromName: (NSString *) name{
-    enum GPKGCompressFormat value = -1;
++(GPKGCompressFormat) fromName: (NSString *) name{
+    GPKGCompressFormat value = -1;
     
     if(name != nil){
         name = [name lowercaseString];
@@ -46,7 +46,7 @@ NSString * const GPKG_CF_NONE_NAME = @"none";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGCompressFormat)[enumValue intValue];
+            value = (GPKGCompressFormat)[enumValue intValue];
         }
     }
     

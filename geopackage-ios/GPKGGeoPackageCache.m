@@ -6,7 +6,7 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageCache.h"
+#import <GeoPackage/GPKGGeoPackageCache.h>
 
 @interface GPKGGeoPackageCache()
 

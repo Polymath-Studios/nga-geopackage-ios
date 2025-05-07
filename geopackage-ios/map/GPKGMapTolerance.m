@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 NGA. All rights reserved.
 //
 
-#import "GPKGMapTolerance.h"
+#import <GeoPackage/GPKGMapTolerance.h>
 
 @implementation GPKGMapTolerance
 

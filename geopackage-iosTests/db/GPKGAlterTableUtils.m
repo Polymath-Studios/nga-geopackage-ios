@@ -8,19 +8,9 @@
 
 #import "GPKGAlterTableUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGFeatureIndexManager.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGSQLiteMaster.h"
-#import "GPKGFeatureTileTableLinker.h"
-#import "GPKGFeatureTableStyles.h"
-#import "GPKGTileTableScaling.h"
-#import "GPKGCoverageData.h"
 #import "GPKGAttributesUtils.h"
-#import "GPKGUniqueConstraint.h"
-#import "GPKGRawConstraint.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGSchemaExtension.h"
+
+@import Projections;
 
 @implementation GPKGAlterTableUtils
 

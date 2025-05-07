@@ -8,7 +8,6 @@
 
 #import "GPKGTileTestUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
 #import "GPKGGeoPackageGeometryDataUtils.h"
 
 @implementation GPKGTileTestUtils

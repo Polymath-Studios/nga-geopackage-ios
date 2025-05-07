@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGContents.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGContents.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 NSString * const GPKG_CON_TABLE_NAME = @"gpkg_contents";
 NSString * const GPKG_CON_COLUMN_PK = @"table_name";
@@ -24,8 +24,8 @@ NSString * const GPKG_CON_COLUMN_SRS_ID = @"srs_id";
 
 @implementation GPKGContents
 
--(enum GPKGContentsDataType) contentsDataType{
-    enum GPKGContentsDataType value = -1;
+-(GPKGContentsDataType) contentsDataType{
+    GPKGContentsDataType value = -1;
     
     if(self.dataType != nil){
         value = [GPKGContentsDataTypes fromName:self.dataType];
@@ -34,11 +34,11 @@ NSString * const GPKG_CON_COLUMN_SRS_ID = @"srs_id";
     return value;
 }
 
--(void) setContentsDataType: (enum GPKGContentsDataType) dataType{
+-(void) setContentsDataType: (GPKGContentsDataType) dataType{
     self.dataType = [GPKGContentsDataTypes name:dataType];
 }
 
--(void) setDataType: (NSString *) name asContentsDataType: (enum GPKGContentsDataType) dataType{
+-(void) setDataType: (NSString *) name asContentsDataType: (GPKGContentsDataType) dataType{
     [self setDataType:name];
     [GPKGContentsDataTypes setName:name asType:dataType];
 }

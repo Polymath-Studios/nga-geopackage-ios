@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGManualFeatureQueryResults.h"
+#import <GeoPackage/GPKGManualFeatureQueryResults.h>
 
 @interface GPKGManualFeatureQueryResults ()
 

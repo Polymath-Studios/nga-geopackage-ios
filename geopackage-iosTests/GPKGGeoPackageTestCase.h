@@ -7,7 +7,7 @@
 //
 
 #import "GPKGBaseTestCase.h"
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGGeoPackageTestCase : GPKGBaseTestCase
 

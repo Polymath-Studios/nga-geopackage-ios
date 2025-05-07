@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageValidate.h"
-#import "GPKGGeoPackageConstants.h"
+#import <GeoPackage/GPKGGeoPackageValidate.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
 
 @implementation GPKGGeoPackageValidate
 

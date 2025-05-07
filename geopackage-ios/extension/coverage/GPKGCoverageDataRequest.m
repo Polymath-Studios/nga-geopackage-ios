@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataRequest.h"
+#import <GeoPackage/GPKGCoverageDataRequest.h>
 
 @interface GPKGCoverageDataRequest()
 

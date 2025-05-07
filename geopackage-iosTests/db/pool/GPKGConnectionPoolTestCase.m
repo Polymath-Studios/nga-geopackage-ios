@@ -8,7 +8,8 @@
 
 #import "GPKGConnectionPoolTestCase.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionConstants.h"
+
+@import Projections;
 
 @implementation GPKGConnectionPoolTestCase
 

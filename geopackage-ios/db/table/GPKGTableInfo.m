@@ -6,9 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGTableInfo.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGDateConverter.h"
+#import <GeoPackage/GPKGTableInfo.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGDateConverter.h>
 
 NSString * const GPKG_TI_CID = @"cid";
 int const GPKG_TI_CID_INDEX = 0;
@@ -152,7 +152,7 @@ NSString * const GPKG_TI_DEFAULT_NULL = @"NULL";
             }
         }
         
-        enum GPKGDataType dataType = [self dataType:type];
+        GPKGDataType dataType = [self dataType:type];
         NSObject *defaultValue = [self defaultValue:defaultValueString withDataType:dataType];
         
         GPKGTableColumn *tableColumn = [[GPKGTableColumn alloc] initWithIndex:index andName:name andType:type andDataType:dataType andMax:max andNotNull:notNull andDefaultValueString:defaultValueString andDefaultValue:defaultValue andPrimaryKey:primaryKey];
@@ -167,9 +167,9 @@ NSString * const GPKG_TI_DEFAULT_NULL = @"NULL";
     return tableInfo;
 }
 
-+(enum GPKGDataType) dataType: (NSString *) type{
++(GPKGDataType) dataType: (NSString *) type{
     
-    enum GPKGDataType dataType = [GPKGDataTypes fromName:type];
+    GPKGDataType dataType = [GPKGDataTypes fromName:type];
     
     if ((int)dataType < 0) {
         
@@ -186,7 +186,7 @@ NSString * const GPKG_TI_DEFAULT_NULL = @"NULL";
     return [self defaultValue:defaultValue withDataType:[self dataType:type]];
 }
 
-+(NSObject *) defaultValue: (NSString *) defaultValue withDataType: (enum GPKGDataType) type{
++(NSObject *) defaultValue: (NSString *) defaultValue withDataType: (GPKGDataType) type{
     
     NSObject *value = defaultValue;
     

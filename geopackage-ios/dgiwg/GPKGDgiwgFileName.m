@@ -6,9 +6,9 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgFileName.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGDateConverter.h"
+#import <GeoPackage/GPKGDgiwgFileName.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGDateConverter.h>
 
 NSString * const GPKG_DGIWG_FN_DELIMITER_ELEMENTS = @"_";
 NSString * const GPKG_DGIWG_FN_DELIMITER_WORDS = @"-";

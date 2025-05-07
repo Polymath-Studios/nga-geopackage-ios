@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMetadataScope.h"
+#import <GeoPackage/GPKGMetadataScope.h>
 
 @implementation GPKGMetadataScope
 

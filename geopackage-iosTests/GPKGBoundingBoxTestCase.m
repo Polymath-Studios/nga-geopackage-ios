@@ -8,8 +8,7 @@
 
 #import "GPKGBoundingBoxTestCase.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
+#import <Projections/Projections.h>
 
 @implementation GPKGBoundingBoxTestCase
 

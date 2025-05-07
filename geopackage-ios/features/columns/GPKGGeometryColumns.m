@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryColumns.h"
+#import <GeoPackage/GPKGGeometryColumns.h>
 
 NSString * const GPKG_GC_TABLE_NAME = @"gpkg_geometry_columns";
 NSString * const GPKG_GC_COLUMN_PK1 = @"table_name";
@@ -20,11 +20,11 @@ NSString * const GPKG_GC_COLUMN_M = @"m";
 
 @implementation GPKGGeometryColumns
 
--(enum SFGeometryType) geometryType{
+-(SFGeometryType) geometryType{
     return [SFGeometryTypes fromName:self.geometryTypeName];
 }
 
--(void) setGeometryType: (enum SFGeometryType) geometryType{
+-(void) setGeometryType: (SFGeometryType) geometryType{
     self.geometryTypeName = [SFGeometryTypes name:geometryType];
 }
 

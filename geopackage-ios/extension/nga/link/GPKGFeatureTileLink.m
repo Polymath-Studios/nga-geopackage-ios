@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTileLink.h"
+#import <GeoPackage/GPKGFeatureTileLink.h>
 
 NSString * const GPKG_FTL_TABLE_NAME = @"nga_feature_tile_link";
 NSString * const GPKG_FTL_COLUMN_PK1 = @"feature_table_name";

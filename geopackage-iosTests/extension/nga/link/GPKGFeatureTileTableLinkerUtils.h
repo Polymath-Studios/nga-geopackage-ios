@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGFeatureTileTableLinkerUtils : NSObject
 

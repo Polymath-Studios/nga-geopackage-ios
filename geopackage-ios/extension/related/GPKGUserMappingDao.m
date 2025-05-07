@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserMappingDao.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGUserMappingDao.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @implementation GPKGUserMappingDao
 

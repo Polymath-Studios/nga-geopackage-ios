@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMapShape.h"
-#import "GPKGMultiPoint.h"
-#import "GPKGMultiPolyline.h"
-#import "GPKGMultiPolygon.h"
-#import "GPKGMultiPolylinePoints.h"
-#import "GPKGMultiPolygonPoints.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGMapShape.h>
+#import <GeoPackage/GPKGMultiPoint.h>
+#import <GeoPackage/GPKGMultiPolyline.h>
+#import <GeoPackage/GPKGMultiPolygon.h>
+#import <GeoPackage/GPKGMultiPolylinePoints.h>
+#import <GeoPackage/GPKGMultiPolygonPoints.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGMapShape
 
--(instancetype) initWithGeometryType: (enum SFGeometryType) geometryType andShapeType: (enum GPKGMapShapeType) shapeType andShape: (NSObject *) shape{
+-(instancetype) initWithGeometryType: (SFGeometryType) geometryType andShapeType: (GPKGMapShapeType) shapeType andShape: (NSObject *) shape{
     self = [super init];
     if(self != nil){
         self.geometryType = geometryType;

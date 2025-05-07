@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureIndexLocation.h"
+#import <GeoPackage/GPKGFeatureIndexLocation.h>
 
 @interface GPKGFeatureIndexLocation ()
 
@@ -58,12 +58,12 @@
     NSUInteger count = 0;
     while (count < len) {
         
-        enum GPKGFeatureIndexType type = GPKG_FIT_NONE;
+        GPKGFeatureIndexType type = GPKG_FIT_NONE;
         
         // Find the next indexed type
         while(self.index < self.order.count){
             NSString *nextTypeName = [self.order objectAtIndex:self.index++];
-            enum GPKGFeatureIndexType nextType = [GPKGFeatureIndexTypes fromName:nextTypeName];
+            GPKGFeatureIndexType nextType = [GPKGFeatureIndexTypes fromName:nextTypeName];
             if([self.manager isIndexedWithFeatureIndexType:nextType]){
                 type = nextType;
                 break;

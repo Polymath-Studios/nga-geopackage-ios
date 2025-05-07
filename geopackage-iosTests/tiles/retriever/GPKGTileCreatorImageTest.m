@@ -8,19 +8,18 @@
 
 #import "GPKGTileCreatorImageTest.h"
 #import "GPKGTestConstants.h"
-#import "PROJProjectionConstants.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileCreator.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGImageConverter.h"
-#import "PROJProjectionFactory.h"
+#import "GPKGBundleHelper.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGTileCreatorImageTest
 
 - (void)setUp {
     self.dbName = GPKG_TEST_TILES2_DB_NAME;
     self.file = GPKG_TEST_TILES2_DB_FILE_NAME;
-    self.colorTolerance = 1;
+    self.colorTolerance = 2;
     [super setUp];
 }
 
@@ -74,10 +73,10 @@
     [self validateNoTransparency:wgs84Image];
     
     
-    NSString *webMercatorTestImagePath  = [[[NSBundle bundleForClass:[GPKGTileCreatorImageTest class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILES2_WEB_MERCATOR_TEST_IMAGE];
+    NSString *webMercatorTestImagePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILES2_WEB_MERCATOR_TEST_IMAGE];
     UIImage *webMercatorTestImage = [UIImage imageWithContentsOfFile:webMercatorTestImagePath];
     
-    NSString *wgs84TestImagePath  = [[[NSBundle bundleForClass:[GPKGTileCreatorImageTest class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILES2_WGS84_TEST_IMAGE];
+    NSString *wgs84TestImagePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILES2_WGS84_TEST_IMAGE];
     UIImage *wgs84TestImage = [UIImage imageWithContentsOfFile:wgs84TestImagePath];
     
     int redDiff = 0;

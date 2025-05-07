@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGExtendedRelation.h"
-#import "GPKGRelationTypes.h"
+#import <GeoPackage/GPKGExtendedRelation.h>
+#import <GeoPackage/GPKGRelationTypes.h>
 
 NSString * const GPKG_ER_TABLE_NAME = @"gpkgext_relations";
 NSString * const GPKG_ER_COLUMN_PK = @"id";
@@ -30,8 +30,8 @@ NSString * const GPKG_ER_COLUMN_MAPPING_TABLE_NAME = @"mapping_table_name";
     self.id = nil;
 }
 
--(enum GPKGRelationType) relationType{
-    enum GPKGRelationType value = -1;
+-(GPKGRelationType) relationType{
+    GPKGRelationType value = -1;
     
     if(self.relationName != nil){
         value = [GPKGRelationTypes fromName:self.relationName];

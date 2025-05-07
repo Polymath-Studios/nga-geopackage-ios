@@ -6,9 +6,9 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGBoundedOverlay.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
+#import <GeoPackage/GPKGBoundedOverlay.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
 
 @implementation GPKGBoundedOverlay
 

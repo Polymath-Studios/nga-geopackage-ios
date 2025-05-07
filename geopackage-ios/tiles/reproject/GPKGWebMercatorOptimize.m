@@ -6,10 +6,9 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGWebMercatorOptimize.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
+#import <GeoPackage/GPKGWebMercatorOptimize.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGWebMercatorOptimize
 

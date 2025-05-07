@@ -6,12 +6,12 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGAlterTable.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGUserCustomTableReader.h"
-#import "GPKGRawConstraint.h"
-#import "GPKGSQLiteMaster.h"
-#import "GPKGRTreeIndexExtension.h"
+#import <GeoPackage/GPKGAlterTable.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGUserCustomTableReader.h>
+#import <GeoPackage/GPKGRawConstraint.h>
+#import <GeoPackage/GPKGSQLiteMaster.h>
+#import <GeoPackage/GPKGRTreeIndexExtension.h>
 
 @implementation GPKGAlterTable
 

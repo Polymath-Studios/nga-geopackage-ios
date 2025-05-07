@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGUserCustomColumns.h"
-#import "GPKGUserCustomColumn.h"
+#import <GeoPackage/GPKGUserCustomColumns.h>
+#import <GeoPackage/GPKGUserCustomColumn.h>
 
 @implementation GPKGUserCustomColumns
 

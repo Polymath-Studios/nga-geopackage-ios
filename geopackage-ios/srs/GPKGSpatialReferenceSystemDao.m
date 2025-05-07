@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGSpatialReferenceSystemDao.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "GPKGCrsWktExtension.h"
+#import <GeoPackage/GPKGSpatialReferenceSystemDao.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
 
 @interface GPKGSpatialReferenceSystemDao()
 

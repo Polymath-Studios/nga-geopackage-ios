@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGDublinCoreTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGDublinCoreTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 /**
  *  Dublin Core Metadata Type names
@@ -27,7 +27,7 @@ NSString * const GPKG_DCM_ID_NAME = @"id";
 
 @implementation GPKGDublinCoreTypes
 
-+(NSString *) name: (enum GPKGDublinCoreType) dublinCoreType{
++(NSString *) name: (GPKGDublinCoreType) dublinCoreType{
     NSString *name = nil;
     
     switch(dublinCoreType){
@@ -54,8 +54,8 @@ NSString * const GPKG_DCM_ID_NAME = @"id";
     return name;
 }
 
-+(enum GPKGDublinCoreType) fromName: (NSString *) name{
-    enum GPKGDublinCoreType value = -1;
++(GPKGDublinCoreType) fromName: (NSString *) name{
+    GPKGDublinCoreType value = -1;
     
     if(name != nil){
         name = [name lowercaseString];
@@ -70,14 +70,14 @@ NSString * const GPKG_DCM_ID_NAME = @"id";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGDublinCoreType)[enumValue intValue];
+            value = (GPKGDublinCoreType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
-+(NSArray<NSString *> *) synonyms: (enum GPKGDublinCoreType) dublinCoreType{
++(NSArray<NSString *> *) synonyms: (GPKGDublinCoreType) dublinCoreType{
     NSMutableArray<NSString *> *synonyms = [NSMutableArray array];
     
     switch(dublinCoreType){

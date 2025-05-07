@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileRow.h"
-#import "GPKGImageConverter.h"
+#import <GeoPackage/GPKGTileRow.h>
+#import <GeoPackage/GPKGImageConverter.h>
 
 @implementation GPKGTileRow
 
@@ -101,11 +101,11 @@
     return [GPKGImageConverter toImage:[self tileData] withScale:scale];
 }
 
--(void) setTileDataWithImage: (UIImage *) image andFormat: (enum GPKGCompressFormat) format{
+-(void) setTileDataWithImage: (UIImage *) image andFormat: (GPKGCompressFormat) format{
     [self setTileData:[GPKGImageConverter toData:image andFormat:format]];
 }
 
--(void) setTileDataWithImage: (UIImage *) image andFormat: (enum GPKGCompressFormat) format andQuality: (CGFloat) quality{
+-(void) setTileDataWithImage: (UIImage *) image andFormat: (GPKGCompressFormat) format andQuality: (CGFloat) quality{
     [self setTileData:[GPKGImageConverter toData:image andFormat:format andQuality:quality]];
 }
 

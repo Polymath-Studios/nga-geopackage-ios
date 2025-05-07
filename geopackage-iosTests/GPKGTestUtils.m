@@ -7,10 +7,8 @@
 //
 
 #import "GPKGTestUtils.h"
-#import "GPKGUtils.h"
-#import "GPKGDateConverter.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGSchemaExtension.h"
+
+@import Projections;
 
 #define ARC4RANDOM_MAX      0x100000000
 
@@ -74,6 +72,12 @@ NSString * const GPKG_GEOPACKAGE_TEST_INTEGER_COLUMN = @"test_integer";
 +(void)assertEqualIntWithValue:(int) value andValue2: (int) value2{
     if(value != value2){
         [NSException raise:@"Assert Equal int" format:@"Value 1: '%d' is not equal to Value 2: '%d'", value, value2];
+    }
+}
+
++(void)assertEqualIntegerWithValue:(NSInteger) value andValue2: (NSInteger) value2{
+    if(value != value2){
+        [NSException raise:@"Assert Equal int" format:@"Value 1: '%ld' is not equal to Value 2: '%ld'", value, value2];
     }
 }
 
@@ -277,7 +281,7 @@ NSString * const GPKG_GEOPACKAGE_TEST_INTEGER_COLUMN = @"test_integer";
                             geometry = [self createPolygonWithHasZ:hasZ andHasM:hasM];
                             break;
                         default:
-                            [NSException raise:@"Not implemented" format:@"Not implemented for geometry type: %u", column.geometryType];
+                            [NSException raise:@"Not implemented" format:@"Not implemented for geometry type: %ld", (long)column.geometryType];
                     }
                     
                     GPKGGeometryData *geometryData = [GPKGGeometryData createWithSrsId:geometryColumns.srsId andGeometry:geometry];

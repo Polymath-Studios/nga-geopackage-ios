@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageTableCreator.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGSpatialReferenceSystemDao.h"
-#import "GPKGGeometryColumns.h"
-#import "GPKGTileMatrix.h"
-#import "GPKGDataColumns.h"
-#import "GPKGMetadataReference.h"
-#import "GPKGExtensions.h"
-#import "GPKGGriddedCoverage.h"
-#import "GPKGGriddedTile.h"
-#import "GPKGExtendedRelation.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGGeoPackageTableCreator.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGSpatialReferenceSystemDao.h>
+#import <GeoPackage/GPKGGeometryColumns.h>
+#import <GeoPackage/GPKGTileMatrix.h>
+#import <GeoPackage/GPKGDataColumns.h>
+#import <GeoPackage/GPKGMetadataReference.h>
+#import <GeoPackage/GPKGExtensions.h>
+#import <GeoPackage/GPKGGriddedCoverage.h>
+#import <GeoPackage/GPKGGriddedTile.h>
+#import <GeoPackage/GPKGExtendedRelation.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @implementation GPKGGeoPackageTableCreator
 

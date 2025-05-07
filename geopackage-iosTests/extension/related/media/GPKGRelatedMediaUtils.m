@@ -9,10 +9,9 @@
 #import "GPKGRelatedMediaUtils.h"
 #import "GPKGTestUtils.h"
 #import "GPKGRelatedTablesUtils.h"
-#import "GPKGRelatedTablesExtension.h"
 #import "GPKGTestConstants.h"
-#import "GPKGImageConverter.h"
 #import "GPKGGeoPackageGeometryDataUtils.h"
+#import "GPKGBundleHelper.h"
 
 @implementation GPKGRelatedMediaUtils
 
@@ -105,7 +104,7 @@
     [self validateContents:mediaTable.contents withTable:mediaTable];
 
     // Insert media table rows
-    NSString *mediaPath  = [[[NSBundle bundleForClass:[GPKGRelatedMediaUtils class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILE_FILE_NAME];
+    NSString *mediaPath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILE_FILE_NAME];
     NSData *mediaData = [[NSFileManager defaultManager] contentsAtPath:mediaPath];
     NSString *contentType = @"image/png";
     UIImage *mediaImage = [GPKGImageConverter toImage:mediaData];

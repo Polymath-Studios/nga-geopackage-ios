@@ -6,11 +6,11 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGMapUtils.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
+#import <GeoPackage/GPKGMapUtils.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
 
 @implementation GPKGMapUtils
 

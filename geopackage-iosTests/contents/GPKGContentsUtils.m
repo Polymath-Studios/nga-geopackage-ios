@@ -8,7 +8,6 @@
 
 #import "GPKGContentsUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGDateConverter.h"
 
 @implementation GPKGContentsUtils
 

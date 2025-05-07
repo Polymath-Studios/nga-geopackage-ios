@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGPolygonHolePoints.h"
-#import "GPKGUtils.h"
-#import "GPKGMapShapePoints.h"
+#import <GeoPackage/GPKGPolygonHolePoints.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGMapShapePoints.h>
 
 @implementation GPKGPolygonHolePoints
 

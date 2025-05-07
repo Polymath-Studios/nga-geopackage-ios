@@ -7,11 +7,11 @@
 //
 
 #import "GPKGCrsWktExtensionTest.h"
-#import "GPKGCrsWktExtension.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <Projections/Projections.h>
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGCrsWktExtensionTest
 

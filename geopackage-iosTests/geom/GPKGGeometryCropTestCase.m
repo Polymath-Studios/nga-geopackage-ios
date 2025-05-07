@@ -7,11 +7,11 @@
 //
 
 #import "GPKGGeometryCropTestCase.h"
-#import "GPKGGeometryCrop.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "SFGeometryUtils.h"
 #import "GPKGTestUtils.h"
+
+@import Projections;
+@import SimpleFeatures;
+@import GeoPackage;
 
 @implementation GPKGGeometryCropTestCase
 

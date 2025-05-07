@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGRowPaginatedResults.h"
+#import <GeoPackage/GPKGRowPaginatedResults.h>
 
 @interface GPKGRowPaginatedResults ()
 

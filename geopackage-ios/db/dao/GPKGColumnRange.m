@@ -6,7 +6,7 @@
 //  Copyright © 2024 NGA. All rights reserved.
 //
 
-#import "GPKGColumnRange.h"
+#import <GeoPackage/GPKGColumnRange.h>
 
 @implementation GPKGColumnRange
 

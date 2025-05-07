@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureShape.h"
+#import <GeoPackage/GPKGFeatureShape.h>
 
 @interface GPKGFeatureShape ()
 

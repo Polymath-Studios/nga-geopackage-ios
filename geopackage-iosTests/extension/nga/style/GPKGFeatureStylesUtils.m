@@ -8,10 +8,11 @@
 
 #import "GPKGFeatureStylesUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGFeatureTableStyles.h"
 #import "GPKGTestConstants.h"
-#import "SFGeometryUtils.h"
-#import "GPKGExtensionManager.h"
+#import "GPKGBundleHelper.h"
+
+@import SimpleFeatures;
+
 
 @implementation GPKGFeatureStylesUtils
 
@@ -143,7 +144,7 @@
             [createTableIcons setDefaultIcon:tableIconDefault];
             NSMutableDictionary<NSNumber *, GPKGIconRow *> *geometryTypeTableIcons = [self randomIconsWithGeometryTypes:childGeometryTypes];
             GPKGIconRow *baseGeometryTypeIcon = [self randomIcon];
-            [geometryTypeTableIcons setObject:baseGeometryTypeIcon forKey:[NSNumber numberWithInt:geometryType]];
+            [geometryTypeTableIcons setObject:baseGeometryTypeIcon forKey:[NSNumber numberWithInteger:geometryType]];
             for(NSNumber *geometryTypeNumber in [geometryTypeTableIcons allKeys]){
                 [createTableIcons setIcon:[geometryTypeTableIcons objectForKey:geometryTypeNumber] forGeometryType:[geometryTypeNumber intValue]];
             }
@@ -461,7 +462,7 @@
     
     NSMutableArray<NSNumber *> *geometryTypes = [NSMutableArray array];
     if(geometryType != SF_NONE && geometryType >= 0){
-        [geometryTypes addObject:[NSNumber numberWithInt:geometryType]];
+        [geometryTypes addObject:[NSNumber numberWithInteger:geometryType]];
         [geometryTypes addObjectsFromArray:[SFGeometryUtils parentHierarchyOfType:geometryType]];
     }
     [geometryTypes addObject:[NSNumber numberWithInt:SF_NONE]];
@@ -548,7 +549,7 @@
     
     NSMutableArray<NSNumber *> *geometryTypes = [NSMutableArray array];
     if(geometryType != SF_NONE && geometryType >= 0){
-        [geometryTypes addObject:[NSNumber numberWithInt:geometryType]];
+        [geometryTypes addObject:[NSNumber numberWithInteger:geometryType]];
         [geometryTypes addObjectsFromArray:[SFGeometryUtils parentHierarchyOfType:geometryType]];
     }
     [geometryTypes addObject:[NSNumber numberWithInt:SF_NONE]];
@@ -615,7 +616,7 @@
 +(GPKGIconRow *) randomIcon{
     GPKGIconRow *iconRow = [[GPKGIconRow alloc] init];
     
-    NSString *iconImagePath  = [[[NSBundle bundleForClass:[GPKGFeatureStylesUtils class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_ICON_POINT_IMAGE];
+    NSString *iconImagePath = [GPKGBundleHelper pathForResource:GPKG_TEST_ICON_POINT_IMAGE];
     UIImage *iconImage = [UIImage imageWithContentsOfFile:iconImagePath];
     
     [iconRow setDataWithImage:iconImage andFormat:GPKG_CF_PNG];
@@ -656,7 +657,7 @@
         for(NSNumber *typeNumber in [geometryTypes allKeys]){
             enum SFGeometryType type = (enum SFGeometryType) [typeNumber intValue];
             if ([GPKGTestUtils randomDouble] < .5) {
-                [rowMap setObject:[self randomStyleWithRandomStyles:randomStyles] forKey:[NSNumber numberWithInt:type]];
+                [rowMap setObject:[self randomStyleWithRandomStyles:randomStyles] forKey:[NSNumber numberWithInteger:type]];
             }
             NSMutableDictionary *childGeometryTypes = [geometryTypes objectForKey:typeNumber];
             NSMutableDictionary *childRowMap = [self randomStylesWithGeometryTypes:childGeometryTypes andRandomSyles:randomStyles];
@@ -672,7 +673,7 @@
         for(NSNumber *typeNumber in [geometryTypes allKeys]){
             enum SFGeometryType type = (enum SFGeometryType) [typeNumber intValue];
             if ([GPKGTestUtils randomDouble] < .5) {
-                [rowMap setObject:[self randomIconWithRandomIcons:randomIcons] forKey:[NSNumber numberWithInt:type]];
+                [rowMap setObject:[self randomIconWithRandomIcons:randomIcons] forKey:[NSNumber numberWithInteger:type]];
             }
             NSMutableDictionary *childGeometryTypes = [geometryTypes objectForKey:typeNumber];
             NSMutableDictionary *childRowMap = [self randomIconsWithGeometryTypes:childGeometryTypes andRandomIcons:randomIcons];
@@ -877,10 +878,10 @@
             
             GPKGIcons *createTableIcons = [[GPKGIcons alloc] init];
             [createTableIcons setDefaultIcon:tableIconDefault];
-            GPKGIconRow *baseGeometryTypeIcon = [geometryTypeTableIcons objectForKey:[NSNumber numberWithInt:geometryType]];
+            GPKGIconRow *baseGeometryTypeIcon = [geometryTypeTableIcons objectForKey:[NSNumber numberWithInteger:geometryType]];
             if(baseGeometryTypeIcon == nil){
                 baseGeometryTypeIcon = [self randomIcon];
-                [geometryTypeTableIcons setObject:baseGeometryTypeIcon forKey:[NSNumber numberWithInt:geometryType]];
+                [geometryTypeTableIcons setObject:baseGeometryTypeIcon forKey:[NSNumber numberWithInteger:geometryType]];
             }
             for(NSNumber *geometryTypeNumber in [geometryTypeTableIcons allKeys]){
                 [createTableIcons setIcon:[geometryTypeTableIcons objectForKey:geometryTypeNumber] forGeometryType:[geometryTypeNumber intValue]];

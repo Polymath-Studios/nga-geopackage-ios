@@ -8,11 +8,11 @@
 
 #import "GPKGDgiwgGeoPackageTestCase.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGDgiwgGeoPackageFactory.h"
 #import "GPKGDgiwgGeoPackageManagerTestCase.h"
 #import "GPKGTestConstants.h"
-#import "GPKGGeoPackageConstants.h"
+#import "GPKGBundleHelper.h"
+
+@import GeoPackage;
 
 @implementation GPKGDgiwgGeoPackageTestCase
 
@@ -47,7 +47,7 @@
     GPKGTileGrid *tileGrid = [GPKGTileBoundingBoxUtils tileGridWithTotalBoundingBox:bounds andMatrixWidth:matrixWidth andMatrixHeight:matrixHeight andBoundingBox:informativeBounds];
     GPKGBoundingBox *tileBounds = [GPKGTileBoundingBoxUtils boundingBoxWithTotalBoundingBox:bounds andTileMatrixWidth:matrixWidth andTileMatrixHeight:matrixHeight andTileGrid:tileGrid];
     
-    NSString *tilePath  = [[[NSBundle bundleForClass:[GPKGDgiwgGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILE_FILE_NAME];
+    NSString *tilePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILE_FILE_NAME];
     NSData *tileData = [[NSFileManager defaultManager] contentsAtPath:tilePath];
     
     for(int zoom = minZoom; zoom <= maxZoom; zoom++){
@@ -117,7 +117,7 @@
     
     GPKGTileDao *tileDao = [geoPackage tileDaoWithTileMatrixSet:tileMatrixSet];
     
-    NSString *tilePath  = [[[NSBundle bundleForClass:[GPKGDgiwgGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILE_FILE_NAME];
+    NSString *tilePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILE_FILE_NAME];
     NSData *tileData = [[NSFileManager defaultManager] contentsAtPath:tilePath];
     
     for(int zoom = minZoom; zoom <= maxZoom; zoom++){
@@ -241,7 +241,7 @@
     
     GPKGTileDao *tileDao = [geoPackage tileDaoWithTileMatrixSet:tileMatrixSet];
     
-    NSString *tilePath  = [[[NSBundle bundleForClass:[GPKGDgiwgGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILE_FILE_NAME];
+    NSString *tilePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILE_FILE_NAME];
     NSData *tileData = [[NSFileManager defaultManager] contentsAtPath:tilePath];
     
     for(int zoom = minZoom; zoom <= maxZoom; zoom++){
@@ -328,7 +328,7 @@
 }
 
 +(NSString *) metadata{
-    NSString *metadataPath  = [[[NSBundle bundleForClass:[GPKGDgiwgGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_DGIWG_METADATA_2];
+    NSString *metadataPath = [GPKGBundleHelper pathForResource:GPKG_TEST_DGIWG_METADATA_2];
     NSData *metadataData = [[NSFileManager defaultManager] contentsAtPath:metadataPath];
     NSString *metadata = [NSString stringWithUTF8String:[metadataData bytes]];
     if(metadata == nil){
@@ -350,7 +350,7 @@
     int minZoom = 0;
     int maxZoom = 1;
 
-    NSString *tilePath  = [[[NSBundle bundleForClass:[GPKGDgiwgGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILE_FILE_NAME];
+    NSString *tilePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILE_FILE_NAME];
     NSData *tileData = [[NSFileManager defaultManager] contentsAtPath:tilePath];
 
     for(GPKGDgiwgCoordinateReferenceSystems *crs in [GPKGDgiwgCoordinateReferenceSystems coordinateReferenceSystemsForContentsType:GPKG_CDT_TILES]){

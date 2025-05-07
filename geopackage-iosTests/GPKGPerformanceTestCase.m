@@ -7,9 +7,10 @@
 //
 
 #import "GPKGPerformanceTestCase.h"
-#import "GPKGGeoPackageFactory.h"
-#import "PROJProjectionConstants.h"
 #import "GPKGTestUtils.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGPerformanceTestCase
 

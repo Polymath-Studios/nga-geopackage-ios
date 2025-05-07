@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGUserTable.h"
+#import <GeoPackage/GPKGUserTable.h>
 
 @interface GPKGUserTable()
 
@@ -170,7 +170,7 @@
     return [_constraints has];
 }
 
--(BOOL) hasConstraintsOfType: (enum GPKGConstraintType) type{
+-(BOOL) hasConstraintsOfType: (GPKGConstraintType) type{
     return [_constraints hasType:type];
 }
 
@@ -178,7 +178,7 @@
     return _constraints;
 }
 
--(NSArray<GPKGConstraint *> *) constraintsOfType: (enum GPKGConstraintType) type{
+-(NSArray<GPKGConstraint *> *) constraintsOfType: (GPKGConstraintType) type{
     return [_constraints ofType:type];
 }
 
@@ -186,11 +186,11 @@
     return [_constraints clear];
 }
 
--(NSArray<GPKGConstraint *> *) clearConstraintsOfType: (enum GPKGConstraintType) type{
+-(NSArray<GPKGConstraint *> *) clearConstraintsOfType: (GPKGConstraintType) type{
     return [_constraints clearType:type];
 }
 
--(NSArray *) columnsOfType: (enum GPKGDataType) type{
+-(NSArray *) columnsOfType: (GPKGDataType) type{
     return [self.userColumns columnsOfType:type];
 }
 

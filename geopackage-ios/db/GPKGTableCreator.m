@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTableCreator.h"
-#import "GPKGIOUtils.h"
+#import <GeoPackage/GPKGTableCreator.h>
+#import <GeoPackage/GPKGIOUtils.h>
 
 NSString * const GPKG_RESOURCES_TABLES = @"geopackage.tables";
 

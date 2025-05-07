@@ -7,13 +7,11 @@
 //
 
 #import "GPKGCreateCoverageDataTiffGeoPackageTestCase.h"
-#import "GPKGGeoPackageFactory.h"
 #import "GPKGTestConstants.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGCoverageDataTiff.h"
 #import "GPKGGeoPackageGeometryDataUtils.h"
-#import "GPKGUtils.h"
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGCreateCoverageDataTiffGeoPackageTestCase
 

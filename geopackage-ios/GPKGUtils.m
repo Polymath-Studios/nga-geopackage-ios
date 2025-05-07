@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGUtils.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 @implementation GPKGUtils
 

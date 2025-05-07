@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGBaseExtension.h"
+#import <GeoPackage/GPKGBaseExtension.h>
 
 @implementation GPKGBaseExtension
 
@@ -27,7 +27,7 @@
     return self;
 }
 
--(GPKGExtensions *) extensionCreateWithName: (NSString *) extensionName andTableName: (NSString *) tableName andColumnName: (NSString *) columnName andDefinition: (NSString *) definition andScope: (enum GPKGExtensionScopeType) scopeType{
+-(GPKGExtensions *) extensionCreateWithName: (NSString *) extensionName andTableName: (NSString *) tableName andColumnName: (NSString *) columnName andDefinition: (NSString *) definition andScope: (GPKGExtensionScopeType) scopeType{
     
     GPKGExtensions *extension = [self extensionWithName:extensionName andTableName:tableName andColumnName:columnName];
     

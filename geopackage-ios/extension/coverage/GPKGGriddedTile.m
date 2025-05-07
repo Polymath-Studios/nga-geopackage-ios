@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGriddedTile.h"
+#import <GeoPackage/GPKGGriddedTile.h>
 
 NSString * const GPKG_CDGT_TABLE_NAME = @"gpkg_2d_gridded_tile_ancillary";
 NSString * const GPKG_CDGT_COLUMN_PK = @"id";

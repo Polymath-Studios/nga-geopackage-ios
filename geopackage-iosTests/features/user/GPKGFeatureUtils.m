@@ -9,7 +9,7 @@
 #import "GPKGFeatureUtils.h"
 #import "GPKGTestUtils.h"
 #import "GPKGGeoPackageGeometryDataUtils.h"
-#import "PROJProjectionConstants.h"
+#import <Projections/Projections.h>
 
 @implementation GPKGFeatureUtils
 

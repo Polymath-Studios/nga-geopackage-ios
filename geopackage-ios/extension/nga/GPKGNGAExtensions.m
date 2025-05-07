@@ -6,15 +6,15 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGNGAExtensions.h"
-#import "GPKGFeatureTableIndex.h"
-#import "GPKGFeatureTileTableLinker.h"
-#import "GPKGTileTableScaling.h"
-#import "GPKGPropertiesExtension.h"
-#import "GPKGFeatureStyleExtension.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGUserCustomTableReader.h"
-#import "GPKGAlterTable.h"
+#import <GeoPackage/GPKGNGAExtensions.h>
+#import <GeoPackage/GPKGFeatureTableIndex.h>
+#import <GeoPackage/GPKGFeatureTileTableLinker.h>
+#import <GeoPackage/GPKGTileTableScaling.h>
+#import <GeoPackage/GPKGPropertiesExtension.h>
+#import <GeoPackage/GPKGFeatureStyleExtension.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGUserCustomTableReader.h>
+#import <GeoPackage/GPKGAlterTable.h>
 
 NSString * const GPKG_NGA_EXTENSION_AUTHOR = @"nga";
 

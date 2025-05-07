@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMetadataReferenceDao.h"
-#import "GPKGDateConverter.h"
+#import <GeoPackage/GPKGMetadataReferenceDao.h>
+#import <GeoPackage/GPKGDateConverter.h>
 
 @implementation GPKGMetadataReferenceDao
 

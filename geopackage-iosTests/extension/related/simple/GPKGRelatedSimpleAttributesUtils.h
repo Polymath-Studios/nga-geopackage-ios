@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGRelatedSimpleAttributesUtils : NSObject
 

@@ -4,9 +4,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 8.0.7 (TBD)
+## 9.0.0 (6-6-2025) 
 
-* TBD
+* Updated to Swift Package Manager and removes Cocoapods (Deprecated)
+* Breaking code changes to support exporting C enum values to Swift via `NS_ENUM`
+* Updated to use SimpleFeatures (5.0.0) to expose missing `NS_ENUM` symbols
 
 ## [8.0.6](https://github.com/ngageoint/geopackage-ios/releases/tag/8.0.6) (04-16-2024)
 

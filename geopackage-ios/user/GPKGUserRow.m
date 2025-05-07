@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGUserRow.h"
-#import "GPKGUtils.h"
-#import "GPKGDateConverter.h"
+#import <GeoPackage/GPKGUserRow.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGDateConverter.h>
 
 @implementation GPKGUserRow
 
@@ -131,11 +131,11 @@
     return [self databaseValueWithIndex:[_columns columnIndexWithColumnName:columnName]];
 }
 
--(enum GPKGDataType) dataTypeWithIndex: (int) index{
+-(GPKGDataType) dataTypeWithIndex: (int) index{
     return [self columnWithIndex:index].dataType;
 }
 
--(enum GPKGDataType) dataTypeWithColumnName: (NSString *) columnName{
+-(GPKGDataType) dataTypeWithColumnName: (NSString *) columnName{
     return [self columnWithColumnName:columnName].dataType;
 }
 
@@ -289,7 +289,7 @@
     
     if(_columns.valueValidation){
         
-        enum GPKGDataType dataType = column.dataType;
+        GPKGDataType dataType = column.dataType;
         if ((int)dataType < 0) {
             [NSException raise:@"Missing Data Type" format:@"Column is missing a data type. Column: %@, Value: %@, Type: '%@', Actual Type: %@", column.name, value, column.type, NSStringFromClass([[valueTypes objectAtIndex:0] class])];
         }

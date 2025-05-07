@@ -7,7 +7,7 @@
 //
 
 #import "GPKGCreateGeoPackageTestCase.h"
-#import "GPKGFeatureTiles.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGFeatureTileUtils : GPKGCreateGeoPackageTestCase
 

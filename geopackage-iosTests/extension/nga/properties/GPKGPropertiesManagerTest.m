@@ -8,10 +8,9 @@
 
 #import "GPKGPropertiesManagerTest.h"
 #import "GPKGTestUtils.h"
-#import "GPKGPropertiesManager.h"
-#import "GPKGPropertyNames.h"
-#import "GPKGGeoPackageFactory.h"
 #import "GPKGTestSetupTeardown.h"
+
+@import GeoPackage;
 
 @implementation GPKGPropertiesManagerTest
 

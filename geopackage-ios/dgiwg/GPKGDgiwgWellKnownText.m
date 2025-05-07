@@ -6,11 +6,10 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgWellKnownText.h"
-#import "GPKGIOUtils.h"
-#import "GPKGUTMZone.h"
-#import "CRSKeyword.h"
-#import "CRSPrimeMeridians.h"
+#import <GeoPackage/GPKGDgiwgWellKnownText.h>
+#import <GeoPackage/GPKGIOUtils.h>
+#import <GeoPackage/GPKGUTMZone.h>
+#import <CoordinateReferenceSystems/CoordinateReferenceSystems.h>
 
 NSString * const GPKG_DGIWG_RESOURCES_WKT = @"dgiwg.wkt";
 
@@ -122,7 +121,7 @@ static NSString *LAMBERT_CONFORMAL_CONIC_2SP_DESCRIPTION = @"LAMBERT_CONFORMAL_C
     return wkt;
 }
 
-+(NSString *) lambertConicConformal1SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (enum CRSType) crsType andGeoDatum: (enum CRSGeoDatumType) geoDatum andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andScaleFactor: (double) scaleFactor andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
++(NSString *) lambertConicConformal1SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (CRSType) crsType andGeoDatum: (CRSGeoDatumType) geoDatum andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andScaleFactor: (double) scaleFactor andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
     
     NSString *propertyWKT = [NSString stringWithString:[self readProperty:EPSG_LAMBERT_CONFORMAL_CONIC_1SP]];
     NSString *wkt = [self lambertConicConformalWithWKT:propertyWKT andEPSG:epsg andName:name andCRS:crsType andGeoDatum:geoDatum andLatitudeOfOrigin:latitudeOfOrigin andCentralMeridian:centralMeridian andFalseEasting:falseEasting andFalseNorthing:falseNorthing];
@@ -132,7 +131,7 @@ static NSString *LAMBERT_CONFORMAL_CONIC_2SP_DESCRIPTION = @"LAMBERT_CONFORMAL_C
     return wkt;
 }
 
-+(NSString *) lambertConicConformal2SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (enum CRSType) crsType andGeoDatum: (enum CRSGeoDatumType) geoDatum andStandardParallel1: (double) standardParallel1 andStandardParallel2: (double) standardParallel2 andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
++(NSString *) lambertConicConformal2SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (CRSType) crsType andGeoDatum: (CRSGeoDatumType) geoDatum andStandardParallel1: (double) standardParallel1 andStandardParallel2: (double) standardParallel2 andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
     
     NSString *propertyWKT = [NSString stringWithString:[self readProperty:EPSG_LAMBERT_CONFORMAL_CONIC_2SP]];
     NSString *wkt = [self lambertConicConformalWithWKT:propertyWKT andEPSG:epsg andName:name andCRS:crsType andGeoDatum:geoDatum andLatitudeOfOrigin:latitudeOfOrigin andCentralMeridian:centralMeridian andFalseEasting:falseEasting andFalseNorthing:falseNorthing];
@@ -167,7 +166,7 @@ static NSString *LAMBERT_CONFORMAL_CONIC_2SP_DESCRIPTION = @"LAMBERT_CONFORMAL_C
  *            false northing
  * @return well-known text
  */
-+(NSString *) lambertConicConformalWithWKT: (NSString *) wkt andEPSG: (int) epsg andName: (NSString *) name andCRS: (enum CRSType) crsType andGeoDatum: (enum CRSGeoDatumType) geoDatum andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
++(NSString *) lambertConicConformalWithWKT: (NSString *) wkt andEPSG: (int) epsg andName: (NSString *) name andCRS: (CRSType) crsType andGeoDatum: (CRSGeoDatumType) geoDatum andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
     
     NSString *crsKeyword;
     switch(crsType){

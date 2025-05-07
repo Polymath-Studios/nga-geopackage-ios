@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMultiPolyline.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGMultiPolyline.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGMultiPolyline
 

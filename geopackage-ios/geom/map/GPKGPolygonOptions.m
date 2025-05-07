@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGPolygonOptions.h"
+#import <GeoPackage/GPKGPolygonOptions.h>
 
 @implementation GPKGPolygonOptions
 

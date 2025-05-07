@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGRawConstraint.h"
-#import "GPKGConstraintParser.h"
+#import <GeoPackage/GPKGRawConstraint.h>
+#import <GeoPackage/GPKGConstraintParser.h>
 
 @implementation GPKGRawConstraint
 
@@ -15,11 +15,11 @@
     return [self initWithType:[GPKGConstraintParser typeForSQL:sql] andSql:sql];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andSql: (NSString *) sql{
+-(instancetype) initWithType: (GPKGConstraintType) type andSql: (NSString *) sql{
     return [self initWithType:type andName:[GPKGConstraintParser nameForSQL:sql] andSql:sql];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andName: (NSString *) name andSql: (NSString *) sql{
+-(instancetype) initWithType: (GPKGConstraintType) type andName: (NSString *) name andSql: (NSString *) sql{
     return [self initWithType:type andName:name andOrder:nil andSql:sql];
 }
 
@@ -27,11 +27,11 @@
     return [self initWithType:[GPKGConstraintParser typeForSQL:sql] andOrder:order andSql:sql];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andOrder: (NSNumber *) order andSql: (NSString *) sql{
+-(instancetype) initWithType: (GPKGConstraintType) type andOrder: (NSNumber *) order andSql: (NSString *) sql{
     return [self initWithType:type andName:nil andOrder:order andSql:sql];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andName: (NSString *) name andOrder: (NSNumber *) order andSql: (NSString *) sql{
+-(instancetype) initWithType: (GPKGConstraintType) type andName: (NSString *) name andOrder: (NSNumber *) order andSql: (NSString *) sql{
     self = [super initWithType:type andName:name andOrder:order];
     if(self != nil){
         self.sql = sql;

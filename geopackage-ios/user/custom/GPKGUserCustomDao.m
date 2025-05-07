@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserCustomDao.h"
-#import "GPKGUserCustomTableReader.h"
+#import <GeoPackage/GPKGUserCustomDao.h>
+#import <GeoPackage/GPKGUserCustomTableReader.h>
 
 @implementation GPKGUserCustomDao
 

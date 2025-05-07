@@ -6,11 +6,11 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgGeoPackage.h"
-#import "GPKGDgiwgValidate.h"
-#import "GPKGDgiwgUtils.h"
-#import "GPKGRTreeIndexExtension.h"
-#import "GPKGDgiwgMetadata.h"
+#import <GeoPackage/GPKGDgiwgGeoPackage.h>
+#import <GeoPackage/GPKGDgiwgValidate.h>
+#import <GeoPackage/GPKGDgiwgUtils.h>
+#import <GeoPackage/GPKGRTreeIndexExtension.h>
+#import <GeoPackage/GPKGDgiwgMetadata.h>
 
 @interface GPKGDgiwgGeoPackage()
 
@@ -130,55 +130,55 @@
     return [GPKGDgiwgUtils createTileMatrixWithGeoPackage:self andTable:table andZoom:zoom andWidth:matrixWidth andHeight:matrixHeight andPixelX:pixelXSize andPixelY:pixelYSize];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andGeometryType: (enum SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andGeometryType: (SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     return [self createFeaturesWithTable:table andGeometryType:geometryType andColumns:nil andCRS:crs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andGeometryType: (enum SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andGeometryType: (SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     return [self createFeaturesWithTable:table andIdentifier:table andDescription:table andGeometryType:geometryType andColumns:columns andCRS:crs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andGeometryType: (enum SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andGeometryType: (SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     return [self createFeaturesWithTable:table andIdentifier:identifier andDescription:description andGeometryType:geometryType andColumns:nil andCRS:crs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andGeometryType: (enum SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andGeometryType: (SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     GPKGSpatialReferenceSystem *srs = [crs createFeaturesSpatialReferenceSystem];
-    enum GPKGDgiwgDataType dataType = [[[crs featuresDataTypes] firstObject] intValue];
+    GPKGDgiwgDataType dataType = [[[crs featuresDataTypes] firstObject] intValue];
     return [self createFeaturesWithTable:table andIdentifier:identifier andDescription:description andBounds:[crs bounds] andGeometryType:geometryType andDataType:dataType andColumns:columns andSRS:srs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     return [self createFeaturesWithTable:table andBounds:bounds andGeometryType:geometryType andColumns:nil andCRS:crs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     return [self createFeaturesWithTable:table andIdentifier:table andDescription:table andBounds:bounds andGeometryType:geometryType andColumns:columns andCRS:crs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     return [self createFeaturesWithTable:table andIdentifier:identifier andDescription:description andBounds:bounds andGeometryType:geometryType andColumns:nil andCRS:crs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andCRS: (GPKGDgiwgCoordinateReferenceSystems *) crs{
     GPKGSpatialReferenceSystem *srs = [crs createFeaturesSpatialReferenceSystem];
-    enum GPKGDgiwgDataType dataType = [[[crs featuresDataTypes] firstObject] intValue];
+    GPKGDgiwgDataType dataType = [[[crs featuresDataTypes] firstObject] intValue];
     return [self createFeaturesWithTable:table andIdentifier:identifier andDescription:description andBounds:bounds andGeometryType:geometryType andDataType:dataType andColumns:columns andSRS:srs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andDataType: (enum GPKGDgiwgDataType) dataType andSRS: (GPKGSpatialReferenceSystem *) srs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andDataType: (GPKGDgiwgDataType) dataType andSRS: (GPKGSpatialReferenceSystem *) srs{
     return [self createFeaturesWithTable:table andBounds:bounds andGeometryType:geometryType andDataType:dataType andColumns:nil andSRS:srs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andDataType: (enum GPKGDgiwgDataType) dataType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andSRS: (GPKGSpatialReferenceSystem *) srs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andDataType: (GPKGDgiwgDataType) dataType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andSRS: (GPKGSpatialReferenceSystem *) srs{
     return [self createFeaturesWithTable:table andIdentifier:table andDescription:table andBounds:bounds andGeometryType:geometryType andDataType:dataType andColumns:columns andSRS:srs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andDataType: (enum GPKGDgiwgDataType) dataType andSRS: (GPKGSpatialReferenceSystem *) srs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andDataType: (GPKGDgiwgDataType) dataType andSRS: (GPKGSpatialReferenceSystem *) srs{
     return [self createFeaturesWithTable:table andIdentifier:identifier andDescription:description andBounds:bounds andGeometryType:geometryType andDataType:dataType andColumns:nil andSRS:srs];
 }
 
--(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (enum SFGeometryType) geometryType andDataType: (enum GPKGDgiwgDataType) dataType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andSRS: (GPKGSpatialReferenceSystem *) srs{
+-(GPKGGeometryColumns *) createFeaturesWithTable: (NSString *) table andIdentifier: (NSString *) identifier andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andGeometryType: (SFGeometryType) geometryType andDataType: (GPKGDgiwgDataType) dataType andColumns: (NSArray<GPKGFeatureColumn *> *) columns andSRS: (GPKGSpatialReferenceSystem *) srs{
 
     GPKGGeometryColumns *geometryColumns = [GPKGDgiwgUtils createFeaturesWithGeoPackage:self andTable:table andIdentifier:identifier andDescription:description andBounds:bounds andGeometryType:geometryType andDataType:dataType andColumns:columns andSRS:srs];
 
@@ -212,11 +212,11 @@
     return [GPKGDgiwgUtils createGeoPackageDatasetMetadata:metadata withGeoPackage:self andURI:uri];
 }
 
--(GPKGMetadataReference *) createGeoPackageMetadata: (NSString *) metadata withScope: (enum GPKGMetadataScopeType) scope andURI: (NSString *) uri{
+-(GPKGMetadataReference *) createGeoPackageMetadata: (NSString *) metadata withScope: (GPKGMetadataScopeType) scope andURI: (NSString *) uri{
     return [GPKGDgiwgUtils createGeoPackageMetadata:metadata withGeoPackage:self andScope:scope andURI:uri];
 }
 
--(GPKGMetadataReference *) createMetadata: (NSString *) metadata withScope: (enum GPKGMetadataScopeType) scope andURI: (NSString *) uri andReference: (GPKGMetadataReference *) reference{
+-(GPKGMetadataReference *) createMetadata: (NSString *) metadata withScope: (GPKGMetadataScopeType) scope andURI: (NSString *) uri andReference: (GPKGMetadataReference *) reference{
     return [GPKGDgiwgUtils createMetadata:metadata withGeoPackage:self andScope:scope andURI:uri andReference:reference];
 }
 

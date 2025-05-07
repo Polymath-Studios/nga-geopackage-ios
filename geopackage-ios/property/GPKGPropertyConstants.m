@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 NSString * const GPKG_PROP_DIVIDER = @".";
 NSString * const GPKG_PROP_DIR_GEOPACKAGE = @"geopackage.dir.geopackage";

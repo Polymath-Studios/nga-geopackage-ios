@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGTableMapping.h"
+#import <GeoPackage/GPKGTableMapping.h>
 
 @interface GPKGTableMapping ()
 

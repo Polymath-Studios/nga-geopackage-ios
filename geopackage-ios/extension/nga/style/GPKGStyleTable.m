@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleTable.h"
+#import <GeoPackage/GPKGStyleTable.h>
 
 NSString * const GPKG_ST_TABLE_NAME = @"nga_style";
 NSString * const GPKG_ST_COLUMN_ID = @"id";

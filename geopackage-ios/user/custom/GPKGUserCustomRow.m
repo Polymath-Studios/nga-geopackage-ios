@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserCustomRow.h"
+#import <GeoPackage/GPKGUserCustomRow.h>
 
 @implementation GPKGUserCustomRow
 

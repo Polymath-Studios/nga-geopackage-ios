@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileTableReader.h"
+#import <GeoPackage/GPKGTileTableReader.h>
 
 @implementation GPKGTileTableReader
 

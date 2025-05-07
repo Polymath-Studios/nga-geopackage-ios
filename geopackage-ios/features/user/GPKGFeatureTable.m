@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTable.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGFeatureTable.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 @implementation GPKGFeatureTable
 

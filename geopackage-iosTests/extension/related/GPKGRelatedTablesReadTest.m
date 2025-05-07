@@ -8,8 +8,9 @@
 
 #import "GPKGRelatedTablesReadTest.h"
 #import "GPKGTestConstants.h"
-#import "GPKGRelatedTablesExtension.h"
 #import "GPKGTestUtils.h"
+
+@import GeoPackage;
 
 @implementation GPKGRelatedTablesReadTest
 

@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgValidationKey.h"
+#import <GeoPackage/GPKGDgiwgValidationKey.h>
 
 @implementation GPKGDgiwgValidationKey
 

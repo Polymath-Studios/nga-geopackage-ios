@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGPolyline.h"
+#import <GeoPackage/GPKGPolyline.h>
 
 @implementation GPKGPolyline
 

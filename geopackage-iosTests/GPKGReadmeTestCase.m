@@ -6,23 +6,13 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
+@import GeoPackage;
+
 #import "GPKGReadmeTestCase.h"
-#import "GPKGGeoPackageFactory.h"
 #import "GPKGTestConstants.h"
-#import "GPKGSchemaExtension.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGMapShapeConverter.h"
-#import "GPKGOverlayFactory.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGUrlTileGenerator.h"
-#import "GPKGFeatureTileGenerator.h"
-#import "PROJProjectionConstants.h"
+#import <Projections/Projections.h>
 #import "GPKGManagerTestCase.h"
-#import "GPKGGeoPackageTileRetriever.h"
-#import "GPKGImageConverter.h"
-#import "GPKGTileCreator.h"
-#import "GPKGNumberFeaturesTile.h"
-#import "GPKGFeatureOverlayQuery.h"
+#import "GPKGBundleHelper.h"
 
 @implementation GPKGReadmeTestCase
 
@@ -31,7 +21,8 @@
  */
 -(void) testGeoPackage{
     [[GPKGGeoPackageFactory manager] delete:GPKG_TEST_IMPORT_DB_NAME];
-    [self testGeoPackageWithFile:[[[NSBundle bundleForClass:[GPKGManagerTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_DB_FILE_NAME]
+    NSString *filepath = [GPKGBundleHelper pathForResource:GPKG_TEST_IMPORT_DB_FILE_NAME];
+    [self testGeoPackageWithFile:filepath
                       andMapView:[[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)]];
 }
 

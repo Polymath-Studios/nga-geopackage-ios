@@ -7,14 +7,13 @@
 //
 
 #import "GPKGFeatureTableIndexUtils.h"
-#import "GPKGFeatureTableIndex.h"
 #import "GPKGTestUtils.h"
 #import "GPKGTestGeoPackageProgress.h"
-#import "PROJProjectionConstants.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGExtensionManager.h"
-#import "GPKGNGAExtensions.h"
-#import "SFPProjectionGeometryUtils.h"
+
+@import Projections;
+@import GeoPackage;
+@import SimpleFeaturesProjections;
+
 
 @implementation GPKGFeatureTableIndexUtils
 

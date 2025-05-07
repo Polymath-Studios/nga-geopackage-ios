@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGContentsIdTableCreator.h"
-#import "GPKGContentsId.h"
+#import <GeoPackage/GPKGContentsIdTableCreator.h>
+#import <GeoPackage/GPKGContentsId.h>
 
 @implementation GPKGContentsIdTableCreator
 

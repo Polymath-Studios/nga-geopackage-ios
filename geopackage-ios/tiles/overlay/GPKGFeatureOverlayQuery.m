@@ -6,13 +6,12 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureOverlayQuery.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "GPKGMapUtils.h"
+#import <GeoPackage/GPKGFeatureOverlayQuery.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <GeoPackage/GPKGMapUtils.h>
 
 @interface GPKGFeatureOverlayQuery ()
 

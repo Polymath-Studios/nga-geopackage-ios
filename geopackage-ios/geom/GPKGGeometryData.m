@@ -6,16 +6,14 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryData.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGGeometryExtensions.h"
-#import "SFWBGeometryReader.h"
-#import "SFWBGeometryWriter.h"
-#import "SFPointFiniteFilter.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "SFWTGeometryWriter.h"
-#import "SFWTGeometryReader.h"
+#import <GeoPackage/GPKGGeometryData.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGGeometryExtensions.h>
+#import <SimpleFeaturesWKB/SimpleFeaturesWKB.h>
+#import <SimpleFeaturesWKT/SimpleFeaturesWKT.h>
+#import <SimpleFeatures/SimpleFeatures.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 @interface GPKGGeometryData()
 

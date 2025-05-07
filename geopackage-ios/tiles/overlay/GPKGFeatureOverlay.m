@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureOverlay.h"
-#import "GPKGGeoPackageOverlay.h"
+#import <GeoPackage/GPKGFeatureOverlay.h>
+#import <GeoPackage/GPKGGeoPackageOverlay.h>
 
 @interface GPKGFeatureOverlay ()
 

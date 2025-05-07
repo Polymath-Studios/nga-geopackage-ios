@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGColumnConstraints.h"
+#import <GeoPackage/GPKGColumnConstraints.h>
 
 @implementation GPKGColumnConstraints
 

@@ -7,11 +7,9 @@
 //
 
 #import "GPKGWebPExtensionTest.h"
-#import "GPKGWebPExtension.h"
 #import "GPKGTestUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGExtensionManager.h"
+
+@import GeoPackage;
 
 @implementation GPKGWebPExtensionTest
 

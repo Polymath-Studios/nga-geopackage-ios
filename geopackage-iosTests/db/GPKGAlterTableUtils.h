@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 /**
  * Alter Table test utils

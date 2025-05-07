@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGTileScalingTableCreator.h"
-#import "GPKGTileScaling.h"
+#import <GeoPackage/GPKGTileScalingTableCreator.h>
+#import <GeoPackage/GPKGTileScaling.h>
 
 @implementation GPKGTileScalingTableCreator
 

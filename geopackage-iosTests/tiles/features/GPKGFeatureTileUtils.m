@@ -7,7 +7,7 @@
 //
 
 #import "GPKGFeatureTileUtils.h"
-#import "PROJProjectionConstants.h"
+#import <Projections/Projections.h>
 
 @implementation GPKGFeatureTileUtils
 

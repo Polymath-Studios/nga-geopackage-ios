@@ -7,11 +7,10 @@
 //
 
 #import "GPKGFeaturePreviewTestUtils.h"
-#import "GPKGSqlUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGFeaturePreview.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileUtils.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGFeaturePreviewTestUtils
 

@@ -6,9 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileDaoUtils.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGTileDaoUtils.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGTileDaoUtils
 

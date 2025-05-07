@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMetadataReference.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGMetadataReference.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_MR_TABLE_NAME = @"gpkg_metadata_reference";
 NSString * const GPKG_MR_COLUMN_REFERENCE_SCOPE = @"reference_scope";
@@ -26,8 +26,8 @@ NSString * const GPKG_RST_ROW_COL_NAME = @"row/col";
 
 @implementation GPKGMetadataReference
 
--(enum GPKGReferenceScopeType) referenceScopeType{
-    enum GPKGReferenceScopeType value = -1;
+-(GPKGReferenceScopeType) referenceScopeType{
+    GPKGReferenceScopeType value = -1;
     
     if(self.referenceScope != nil){
         NSDictionary *scopeTypes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -40,14 +40,14 @@ NSString * const GPKG_RST_ROW_COL_NAME = @"row/col";
                                     ];
         NSNumber *enumValue = [GPKGUtils objectForKey:self.referenceScope inDictionary:scopeTypes];
         if(enumValue != nil){
-            value = (enum GPKGReferenceScopeType)[enumValue intValue];
+            value = (GPKGReferenceScopeType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
--(void) setReferenceScopeType: (enum GPKGReferenceScopeType) referenceScopeType{
+-(void) setReferenceScopeType: (GPKGReferenceScopeType) referenceScopeType{
     
     switch(referenceScopeType){
         case GPKG_RST_GEOPACKAGE:
@@ -85,7 +85,7 @@ NSString * const GPKG_RST_ROW_COL_NAME = @"row/col";
 
 -(void) setColumnName:(NSString *)columnName{
     if(self.referenceScope != nil && self.columnName != nil){
-        enum GPKGReferenceScopeType scopeType = [self referenceScopeType];
+        GPKGReferenceScopeType scopeType = [self referenceScopeType];
         if(scopeType == GPKG_RST_GEOPACKAGE || scopeType == GPKG_RST_TABLE || scopeType == GPKG_RST_ROW){
             [NSException raise:@"Illegal Argument" format:@"The column name must be null for %@ reference scope", self.referenceScope];
         }
@@ -95,7 +95,7 @@ NSString * const GPKG_RST_ROW_COL_NAME = @"row/col";
 
 -(void) setRowIdValue:(NSNumber *)rowIdValue{
     if(self.referenceScope != nil && self.rowIdValue != nil){
-        enum GPKGReferenceScopeType scopeType = [self referenceScopeType];
+        GPKGReferenceScopeType scopeType = [self referenceScopeType];
         if(scopeType == GPKG_RST_GEOPACKAGE || scopeType == GPKG_RST_TABLE || scopeType == GPKG_RST_COLUMN){
             [NSException raise:@"Illegal Argument" format:@"The row id must be null for %@ reference scope", self.referenceScope];
         }

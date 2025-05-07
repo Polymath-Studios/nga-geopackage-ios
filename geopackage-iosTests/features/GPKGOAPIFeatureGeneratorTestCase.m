@@ -7,10 +7,9 @@
 //
 
 #import "GPKGOAPIFeatureGeneratorTestCase.h"
-#import "GPKGGeoPackageFactory.h"
-#import "GPKGOAPIFeatureGenerator.h"
 #import "GPKGTestUtils.h"
-#import "GPKGFeatureIndexManager.h"
+
+@import GeoPackage;
 
 @implementation GPKGOAPIFeatureGeneratorTestCase
 
@@ -20,7 +19,7 @@
  * @throws SQLException upon failure
  */
 -(void) testOpenData1h{
-    
+    XCTSkip("Server endpoint is down");
     [self testServer:@"http://beta.fmi.fi/data/3/wfs/sofp" withCollection:@"opendata_1h" andLimit:[NSNumber numberWithInt:30] andTotalLimit:[NSNumber numberWithInt:15] andBoundingBox:[[GPKGBoundingBox alloc] initWithMinLongitudeDouble:20.0 andMinLatitudeDouble:60.0 andMaxLongitudeDouble:22.0 andMaxLatitudeDouble:62.0] andTime:@"20190519T140000" andPeriod:@"20190619T140000"];
     
 }
@@ -31,7 +30,8 @@
  * @throws SQLException upon failure
  */
 -(void) testLakes{
-    
+    XCTSkip("Server endpoint is down");
+
     [self testServer:@"https://demo.pygeoapi.io/master" withCollection:@"lakes" andLimit:[NSNumber numberWithInt:30] andTotalLimit:[NSNumber numberWithInt:25] andBoundingBox:nil andTime:nil andPeriod:nil];
     
 }
@@ -42,7 +42,8 @@
  * @throws SQLException upon failure
  */
 -(void) testFlurstueck{
-    
+    XCTSkip("Server endpoint is down");
+
         [self testServer:@"https://www.ldproxy.nrw.de/kataster" withCollection:@"flurstueck" andLimit:[NSNumber numberWithInt:15] andTotalLimit:[NSNumber numberWithInt:1000] andBoundingBox:[[GPKGBoundingBox alloc] initWithMinLongitudeDouble:8.683250427246094 andMinLatitudeDouble:51.47780990600586 andMaxLongitudeDouble:9.093862533569336 andMaxLatitudeDouble:51.520809173583984] andTime:nil andPeriod:nil];
     
 }
@@ -53,7 +54,8 @@
  * @throws SQLException upon failure
  */
 -(void) testRakennus{
-    
+    XCTSkip("Server endpoint is down");
+
     [self testServer:@"https://beta-paikkatieto.maanmittauslaitos.fi/maastotiedot/wfs3/v1" withCollection:@"rakennus" andLimit:[NSNumber numberWithInt:1000] andTotalLimit:[NSNumber numberWithInt:10000] andBoundingBox:nil andTime:nil andPeriod:nil];
     
 }
@@ -64,9 +66,9 @@
  * @throws SQLException upon failure
  */
 -(void) testMAGE{
-    
+    XCTSkip("Server endpoint is down");
+
     [self testServer:@"https://mageogc.geointservices.io/api/ogc/features" withCollection:@"event:1:observations" andName:@"mage" andLimit:nil andTotalLimit:nil andBoundingBox:nil andTime:nil andPeriod:nil];
-    
 }
 
 /**

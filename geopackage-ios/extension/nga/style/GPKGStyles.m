@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyles.h"
-#import "SFGeometryUtils.h"
+#import <GeoPackage/GPKGStyles.h>
+#import <SimpleFeatures/SimpleFeatures.h>
 
 @interface GPKGStyles ()
 
@@ -46,15 +46,15 @@
     [self setStyle:styleRow forGeometryType:SF_NONE];
 }
 
--(void) setStyle: (GPKGStyleRow *) styleRow forGeometryType: (enum SFGeometryType) geometryType{
+-(void) setStyle: (GPKGStyleRow *) styleRow forGeometryType: (SFGeometryType) geometryType{
     if (styleRow != nil) {
         [styleRow setTableStyle:self.tableStyles];
     }
     if (geometryType != SF_NONE && geometryType >= 0) {
         if (styleRow != nil) {
-            [self.styles setObject:styleRow forKey:[NSNumber numberWithInt:geometryType]];
+            [self.styles setObject:styleRow forKey:[NSNumber numberWithInteger:geometryType]];
         } else {
-            [self.styles removeObjectForKey:[NSNumber numberWithInt:geometryType]];
+            [self.styles removeObjectForKey:[NSNumber numberWithInteger:geometryType]];
         }
     } else {
         self.defaultStyleRow = styleRow;
@@ -73,12 +73,12 @@
     return [self styleForGeometryType:SF_NONE];
 }
 
--(GPKGStyleRow *) styleForGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGStyleRow *) styleForGeometryType: (SFGeometryType) geometryType{
 
     GPKGStyleRow *styleRow = nil;
     
     if (geometryType != SF_NONE && geometryType >= 0 && self.styles.count > 0) {
-        styleRow = [self.styles objectForKey:[NSNumber numberWithInt:geometryType]];
+        styleRow = [self.styles objectForKey:[NSNumber numberWithInteger:geometryType]];
         if(styleRow == nil){
             NSArray<NSNumber *> *geometryTypes = [SFGeometryUtils parentHierarchyOfType:geometryType];
             for(NSNumber *geometryTypeNumber in geometryTypes){

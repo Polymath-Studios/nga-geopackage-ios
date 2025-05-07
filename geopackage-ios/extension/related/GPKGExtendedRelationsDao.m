@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGExtendedRelationsDao.h"
+#import <GeoPackage/GPKGExtendedRelationsDao.h>
 
 @implementation GPKGExtendedRelationsDao
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGIOUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGIOUtils.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 /**
  * Copy stream buffer chunk size in bytes
@@ -23,22 +23,10 @@ static int COPY_BUFFER_SIZE = 8192;
 }
 
 +(NSString *) resourcePathWithName: (NSString *) name andType: (NSString *) type{
-    
-    NSString *resource = [NSString stringWithFormat:@"%@/%@", GPKG_BUNDLE_NAME, name];
-    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
-    if(resourcePath == nil){
-        resourcePath = [[NSBundle bundleForClass:[self class]] pathForResource:resource ofType:type];
-        if(resourcePath == nil){
-            resourcePath = [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:type];
-            if(resourcePath == nil){
-                resourcePath = [[NSBundle mainBundle] pathForResource:name ofType:type];
-            }
-        }
-    }
+    NSString *resourcePath = [SWIFTPM_MODULE_BUNDLE pathForResource:name ofType:type];
     if(resourcePath == nil){
         [NSException raise:@"Resource Not Found" format:@"Failed to find resource '%@' of type '%@'", name, type];
     }
-    
     return resourcePath;
 }
 

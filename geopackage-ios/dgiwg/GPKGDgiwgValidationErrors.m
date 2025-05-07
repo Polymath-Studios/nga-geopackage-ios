@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgValidationErrors.h"
+#import <GeoPackage/GPKGDgiwgValidationErrors.h>
 
 @interface GPKGDgiwgValidationErrors()
 

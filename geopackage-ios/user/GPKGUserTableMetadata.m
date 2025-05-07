@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGUserTableMetadata.h"
-#import "GPKGUserTable.h"
+#import <GeoPackage/GPKGUserTableMetadata.h>
+#import <GeoPackage/GPKGUserTable.h>
 
 NSString * const GPKG_UTM_DEFAULT_ID_COLUMN_NAME = @"id";
 

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureIndexer.h"
-#import "GPKGGeometryColumnsDao.h"
-#import "GPKGUserRowSync.h"
-#import "GPKGFeatureIndexMetadataResults.h"
-#import "GPKGFeatureIndexerIdResultSet.h"
+#import <GeoPackage/GPKGFeatureIndexer.h>
+#import <GeoPackage/GPKGGeometryColumnsDao.h>
+#import <GeoPackage/GPKGUserRowSync.h>
+#import <GeoPackage/GPKGFeatureIndexMetadataResults.h>
+#import <GeoPackage/GPKGFeatureIndexerIdResultSet.h>
 
 @interface GPKGFeatureIndexer()
 

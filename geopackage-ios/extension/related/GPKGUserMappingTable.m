@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserMappingTable.h"
+#import <GeoPackage/GPKGUserMappingTable.h>
 
 NSString * const GPKG_UMT_COLUMN_BASE_ID = @"base_id";
 NSString * const GPKG_UMT_COLUMN_RELATED_ID = @"related_id";

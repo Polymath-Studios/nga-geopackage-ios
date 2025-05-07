@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleRow.h"
+#import <GeoPackage/GPKGStyleRow.h>
 
 NSString *const colorPattern = @"^#([0-9a-fA-F]{3}){1,2}$";
 

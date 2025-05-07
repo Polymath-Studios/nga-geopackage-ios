@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGObjectResultSet.h"
+#import <GeoPackage/GPKGObjectResultSet.h>
 
 @interface GPKGObjectResultSet ()
 

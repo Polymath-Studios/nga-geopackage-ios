@@ -6,13 +6,13 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTableIndex.h"
-#import "GPKGProperties.h"
-#import "GPKGUserRowSync.h"
-#import "GPKGSqlLiteQueryBuilder.h"
-#import "GPKGGeometryIndexTableCreator.h"
-#import "GPKGNGAExtensions.h"
-#import "SFPProjectionGeometryUtils.h"
+#import <GeoPackage/GPKGFeatureTableIndex.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGUserRowSync.h>
+#import <GeoPackage/GPKGSqlLiteQueryBuilder.h>
+#import <GeoPackage/GPKGGeometryIndexTableCreator.h>
+#import <GeoPackage/GPKGNGAExtensions.h>
+#import <SimpleFeaturesProjections/SimpleFeaturesProjections.h>
 
 NSString * const GPKG_EXTENSION_GEOMETRY_INDEX_NAME_NO_AUTHOR = @"geometry_index";
 NSString * const GPKG_PROP_EXTENSION_GEOMETRY_INDEX_DEFINITION = @"geopackage.extensions.geometry_index";

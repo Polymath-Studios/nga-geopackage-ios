@@ -6,12 +6,11 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGAttributesTableMetadata.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGAttributesTableMetadata.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 @implementation GPKGAttributesTableMetadata
-
-static enum GPKGContentsDataType defaultDataType = GPKG_CDT_ATTRIBUTES;
+static GPKGContentsDataType defaultDataType = GPKG_CDT_ATTRIBUTES;
 
 +(GPKGAttributesTableMetadata *) create{
     return [[GPKGAttributesTableMetadata alloc] init];

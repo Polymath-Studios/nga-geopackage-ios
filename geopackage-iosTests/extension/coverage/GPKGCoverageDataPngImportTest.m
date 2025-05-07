@@ -8,12 +8,14 @@
 
 #import "GPKGCoverageDataPngImportTest.h"
 #import "GPKGCoverageDataPngTestUtils.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
 #import "GPKGTestUtils.h"
-#import "GPKGCoverageDataPng.h"
-#import "GPKGTileBoundingBoxUtils.h"
+//#import "GPKGCoverageDataPng.h"
+//#import "GPKGTileBoundingBoxUtils.h"
+
 #import "GPKGCoverageDataTestUtils.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGCoverageDataPngImportTest
 

@@ -7,9 +7,11 @@
 //
 
 #import "GPKGManagerTestCase.h"
-#import "GPKGGeoPackageFactory.h"
 #import "GPKGTestConstants.h"
 #import "GPKGTestUtils.h"
+#import "GPKGBundleHelper.h"
+
+@import GeoPackage;
 
 @implementation GPKGManagerTestCase
 
@@ -68,7 +70,7 @@
     [GPKGTestUtils assertFalse:[[manager databases] containsObject:GPKG_TEST_DB_NAME]];
     
     // Import
-    NSString *importFile  = [[[NSBundle bundleForClass:[GPKGManagerTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_DB_FILE_NAME];
+    NSString *importFile = [GPKGBundleHelper pathForResource:GPKG_TEST_IMPORT_DB_FILE_NAME];
     [GPKGTestUtils assertTrue:[manager importGeoPackageFromPath:importFile]];
     [GPKGTestUtils assertTrue:[manager exists:GPKG_TEST_IMPORT_DB_NAME]];
     [GPKGTestUtils assertTrue:[[manager databases] containsObject:GPKG_TEST_IMPORT_DB_NAME]];
@@ -103,7 +105,7 @@
     [GPKGTestUtils assertFalse:[[manager databases] containsObject:GPKG_TEST_IMPORT_DB_NAME]];
     
     // Try to import file with no extension
-    NSString *noFileExtension  = [[[NSBundle bundleForClass:[GPKGManagerTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_DB_NAME];
+    NSString *noFileExtension = [GPKGBundleHelper pathForResource:GPKG_TEST_IMPORT_DB_NAME];
     @try {
         [manager importGeoPackageFromPath:noFileExtension];
         [NSException raise:@"No Extension" format:@"GeoPackage without extension did not throw an exception"];
@@ -113,8 +115,8 @@
     }
     
     // Try to import file with invalid extension
-    NSString *invalidFileExtension  = [[[NSBundle bundleForClass:[GPKGManagerTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_DB_NAME];
-    invalidFileExtension = [invalidFileExtension stringByAppendingString:@".invalid"];
+    NSString *invalidFile = [GPKG_TEST_IMPORT_DB_NAME stringByAppendingPathExtension:@"invalid"];
+    NSString *invalidFileExtension = [GPKGBundleHelper pathForResource:invalidFile];
     @try {
         [manager importGeoPackageFromPath:invalidFileExtension];
         [NSException raise:@"Invalid Extension" format:@"GeoPackage with invalid extension did not throw an exception"];
@@ -124,7 +126,7 @@
     }
 
     // Try to import corrupt database
-    NSString *loadCorruptFileLocation  = [[[NSBundle bundleForClass:[GPKGManagerTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_CORRUPT_DB_FILE_NAME];
+    NSString *loadCorruptFileLocation = [GPKGBundleHelper pathForResource:GPKG_TEST_IMPORT_CORRUPT_DB_FILE_NAME];
     @try {
         [manager importGeoPackageFromPath:loadCorruptFileLocation];
         [NSException raise:@"Corrupted GeoPackage" format:@"Corrupted GeoPackage did not throw an exception"];

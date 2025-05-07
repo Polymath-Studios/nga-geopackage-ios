@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGUniqueConstraint.h"
+#import <GeoPackage/GPKGUniqueConstraint.h>
 
 NSString * const GPKG_UNIQUE = @"UNIQUE";
 

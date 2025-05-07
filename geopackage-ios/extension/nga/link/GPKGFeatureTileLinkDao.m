@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTileLinkDao.h"
+#import <GeoPackage/GPKGFeatureTileLinkDao.h>
 
 @implementation GPKGFeatureTileLinkDao
 

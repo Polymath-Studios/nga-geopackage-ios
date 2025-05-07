@@ -8,10 +8,9 @@
 
 #import "GPKGGeoPackageGeometryDataUtils.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionConstants.h"
-#import "SFWBGeometryCodes.h"
-#import "SFWBGeometryWriter.h"
-#import "SFWBGeometryReader.h"
+
+@import Projections;
+@import SimpleFeaturesWKB;
 
 @implementation GPKGGeoPackageGeometryDataUtils
 
@@ -312,13 +311,13 @@ static NSString *COLUMN_NAME = @"geom";
                 [self compareTriangleWithExpected:(SFTriangle *)expected andActual:(SFTriangle *)actual andDelta:delta];
                 break;
             default:
-                [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %d", geometryType];
+                [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %ld", geometryType];
         }
     }
 }
 
 +(void) compareBaseGeometryAttributesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual{
-    [GPKGTestUtils assertEqualIntWithValue:expected.geometryType andValue2:actual.geometryType];
+    [GPKGTestUtils assertEqualIntegerWithValue:expected.geometryType andValue2:actual.geometryType];
     [GPKGTestUtils assertEqualBoolWithValue:expected.hasZ andValue2:actual.hasZ];
     [GPKGTestUtils assertEqualBoolWithValue:expected.hasM andValue2:actual.hasM];
     [GPKGTestUtils assertEqualIntWithValue:[SFWBGeometryCodes codeFromGeometry:expected] andValue2:[SFWBGeometryCodes codeFromGeometry:actual]];

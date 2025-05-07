@@ -6,8 +6,8 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureIndexTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGFeatureIndexTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_FIT_METADATA_NAME = @"METADATA";
 NSString * const GPKG_FIT_GEOPACKAGE_NAME = @"GEOPACKAGE";
@@ -16,7 +16,7 @@ NSString * const GPKG_FIT_NONE_NAME = @"NONE";
 
 @implementation GPKGFeatureIndexTypes
 
-+(NSString *) name: (enum GPKGFeatureIndexType) featureIndexType{
++(NSString *) name: (GPKGFeatureIndexType) featureIndexType{
     NSString *name = nil;
     
     switch(featureIndexType){
@@ -37,8 +37,8 @@ NSString * const GPKG_FIT_NONE_NAME = @"NONE";
     return name;
 }
 
-+(enum GPKGFeatureIndexType) fromName: (NSString *) name{
-    enum GPKGFeatureIndexType value = -1;
++(GPKGFeatureIndexType) fromName: (NSString *) name{
+    GPKGFeatureIndexType value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -51,7 +51,7 @@ NSString * const GPKG_FIT_NONE_NAME = @"NONE";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGFeatureIndexType)[enumValue intValue];
+            value = (GPKGFeatureIndexType)[enumValue intValue];
         }
     }
     

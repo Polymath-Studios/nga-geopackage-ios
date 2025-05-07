@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGTileUtils.h"
+#import <GeoPackage/GPKGTileUtils.h>
 #import <UIKit/UIKit.h>
 
 int const GPKG_TU_TILE_DP = 256;

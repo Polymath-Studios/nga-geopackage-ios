@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGGriddedCoverageEncodingTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGGriddedCoverageEncodingTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_GCET_CENTER_NAME = @"grid-value-is-center";
 NSString * const GPKG_GCET_AREA_NAME = @"grid-value-is-area";
@@ -15,7 +15,7 @@ NSString * const GPKG_GCET_CORNER_NAME = @"grid-value-is-corner";
 
 @implementation GPKGGriddedCoverageEncodingTypes
 
-+(NSString *) name: (enum GPKGGriddedCoverageEncodingType) griddedCoverageEncodingType{
++(NSString *) name: (GPKGGriddedCoverageEncodingType) griddedCoverageEncodingType{
     NSString *name = nil;
     
     switch(griddedCoverageEncodingType){
@@ -33,8 +33,8 @@ NSString * const GPKG_GCET_CORNER_NAME = @"grid-value-is-corner";
     return name;
 }
 
-+(enum GPKGGriddedCoverageEncodingType) fromName: (NSString *) name{
-    enum GPKGGriddedCoverageEncodingType value = -1;
++(GPKGGriddedCoverageEncodingType) fromName: (NSString *) name{
+    GPKGGriddedCoverageEncodingType value = -1;
     
     if(name != nil){
         name = [name lowercaseString];
@@ -46,7 +46,7 @@ NSString * const GPKG_GCET_CORNER_NAME = @"grid-value-is-corner";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGGriddedCoverageEncodingType)[enumValue intValue];
+            value = (GPKGGriddedCoverageEncodingType)[enumValue intValue];
         }
     }
     

@@ -6,9 +6,9 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataPng.h"
-#import "GPKGImageConverter.h"
-#import "GPKGCoverageDataPngImage.h"
+#import <GeoPackage/GPKGCoverageDataPng.h>
+#import <GeoPackage/GPKGImageConverter.h>
+#import <GeoPackage/GPKGCoverageDataPngImage.h>
 
 @implementation GPKGCoverageDataPng
 

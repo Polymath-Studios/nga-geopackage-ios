@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMetadata.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGMetadata.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_M_TABLE_NAME = @"gpkg_metadata";
 NSString * const GPKG_M_COLUMN_PK = @"id";
@@ -40,8 +40,8 @@ NSString * const GPKG_MST_STYLE_NAME = @"style";
 
 @implementation GPKGMetadata
 
--(enum GPKGMetadataScopeType) metadataScopeType{
-    enum GPKGMetadataScopeType value = -1;
+-(GPKGMetadataScopeType) metadataScopeType{
+    GPKGMetadataScopeType value = -1;
     
     if(self.scope != nil){
         NSDictionary *scopeTypes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -69,20 +69,20 @@ NSString * const GPKG_MST_STYLE_NAME = @"style";
                                          ];
         NSNumber *enumValue = [GPKGUtils objectForKey:self.scope inDictionary:scopeTypes];
         if(enumValue != nil){
-            value = (enum GPKGMetadataScopeType)[enumValue intValue];
+            value = (GPKGMetadataScopeType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
--(void) setMetadataScopeType: (enum GPKGMetadataScopeType) scopeType{
+-(void) setMetadataScopeType: (GPKGMetadataScopeType) scopeType{
     
     GPKGMetadataScope *scope = [GPKGMetadata fromScopeType:scopeType];
     self.scope = scope.name;
 }
 
-+(GPKGMetadataScope *) fromScopeType: (enum GPKGMetadataScopeType) type{
++(GPKGMetadataScope *) fromScopeType: (GPKGMetadataScopeType) type{
     
     GPKGMetadataScope *scope = [[GPKGMetadataScope alloc] init];
     

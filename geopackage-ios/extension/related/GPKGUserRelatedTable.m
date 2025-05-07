@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserRelatedTable.h"
+#import <GeoPackage/GPKGUserRelatedTable.h>
 
 @interface GPKGUserRelatedTable ()
 

@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGNGATableCreator.h"
+#import <GeoPackage/GPKGNGATableCreator.h>
 
 NSString * const GPKG_NGA_TABLES = @"nga";
 

@@ -8,8 +8,8 @@
 
 #import "GPKGTileBoundingBoxUtilsTestCase.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionConstants.h"
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGTileBoundingBoxUtilsTestCase
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureRow.h"
+#import <GeoPackage/GPKGFeatureRow.h>
 
 @implementation GPKGFeatureRow
 
@@ -70,9 +70,9 @@
     return geometry;
 }
 
--(enum SFGeometryType) geometryType{
+-(SFGeometryType) geometryType{
     SFGeometry *geometry = [self geometryValue];
-    enum SFGeometryType geometryType = SF_NONE;
+    SFGeometryType geometryType = SF_NONE;
     if(geometry != nil){
         geometryType = geometry.geometryType;
     }

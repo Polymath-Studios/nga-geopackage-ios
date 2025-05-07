@@ -6,10 +6,10 @@
 //
 //
 
-#import "GPKGConnectionPool.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGConnectionPool.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 #import <os/log.h>
 
 @interface GPKGConnectionPool()

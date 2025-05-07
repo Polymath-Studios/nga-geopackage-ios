@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageOverlay.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGGeoPackageTileRetriever.h"
-#import "GPKGTileUtils.h"
+#import <GeoPackage/GPKGGeoPackageOverlay.h>
+#import <GeoPackage/GPKGGeoPackageTileRetriever.h>
+#import <GeoPackage/GPKGTileUtils.h>
+#import <Projections/Projections.h>
 
 @interface GPKGGeoPackageOverlay ()
 

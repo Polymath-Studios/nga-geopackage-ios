@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGOverlayFactory.h"
-#import "GPKGXYZOverlay.h"
-#import "GPKGGeoPackageOverlay.h"
-#import "GPKGFeatureTileTableLinker.h"
+#import <GeoPackage/GPKGOverlayFactory.h>
+#import <GeoPackage/GPKGXYZOverlay.h>
+#import <GeoPackage/GPKGGeoPackageOverlay.h>
+#import <GeoPackage/GPKGFeatureTileTableLinker.h>
 
 @implementation GPKGOverlayFactory
 

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGContentsDao.h"
-#import "GPKGDateConverter.h"
-#import "GPKGUtils.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGCrsWktExtension.h"
+#import <GeoPackage/GPKGContentsDao.h>
+#import <GeoPackage/GPKGDateConverter.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
 
 @implementation GPKGContentsDao
 
@@ -133,7 +133,7 @@
 -(void) validateObject: (NSObject*) object{
     
     GPKGContents *validateObject = (GPKGContents*) object;
-    enum GPKGContentsDataType dataType = [validateObject contentsDataType];
+    GPKGContentsDataType dataType = [validateObject contentsDataType];
     
     if((int)dataType >= 0){
         switch (dataType) {
@@ -162,7 +162,7 @@
     }
 }
 
--(void) verifyTiles: (enum GPKGContentsDataType) dataType{
+-(void) verifyTiles: (GPKGContentsDataType) dataType{
     
     // Tiles require Tile Matrix Set table (Spec Requirement 37)
     GPKGTileMatrixSetDao *tileMatrixSetDao = [self tileMatrixSetDao];
@@ -177,7 +177,7 @@
     }
 }
 
--(NSArray<NSString *> *) tablesByType: (enum GPKGContentsDataType) dataType{
+-(NSArray<NSString *> *) tablesByType: (GPKGContentsDataType) dataType{
     return [self tablesByTypeName:[GPKGContentsDataTypes name:dataType]];
 }
 
@@ -193,7 +193,7 @@
     return [self tableNames:[self contentsWithColumn:GPKG_CON_COLUMN_TABLE_NAME andTypeNames:dataTypes]];
 }
 
--(GPKGResultSet *) contentsByType: (enum GPKGContentsDataType) dataType{
+-(GPKGResultSet *) contentsByType: (GPKGContentsDataType) dataType{
     return [self contentsByTypeName:[GPKGContentsDataTypes name:dataType]];
 }
 

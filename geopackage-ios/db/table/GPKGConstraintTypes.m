@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGConstraintTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGConstraintTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_CT_PRIMARY_KEY_NAME = @"PRIMARY_KEY";
 NSString * const GPKG_CT_UNIQUE_NAME = @"UNIQUE";
@@ -58,7 +58,7 @@ static NSMutableDictionary<NSString *, NSNumber *> *columnLookup = nil;
 }
 
 +(void) addConstraint: (NSNumber *) typeNumber toLookup: (NSMutableDictionary<NSString *, NSNumber *> *) lookup{
-    enum GPKGConstraintType type = [typeNumber intValue];
+    GPKGConstraintType type = [typeNumber intValue];
     NSString *name = [GPKGConstraintTypes name:type];
     NSArray<NSString *> *parts = [name componentsSeparatedByString:@"_"];
     [lookup setObject:typeNumber forKey:[parts objectAtIndex:0]];
@@ -67,7 +67,7 @@ static NSMutableDictionary<NSString *, NSNumber *> *columnLookup = nil;
     }
 }
 
-+(NSString *) name: (enum GPKGConstraintType) type{
++(NSString *) name: (GPKGConstraintType) type{
     NSString *name = nil;
     
     switch(type){
@@ -100,8 +100,8 @@ static NSMutableDictionary<NSString *, NSNumber *> *columnLookup = nil;
     return name;
 }
 
-+(enum GPKGConstraintType) fromName: (NSString *) name{
-    enum GPKGConstraintType value = -1;
++(GPKGConstraintType) fromName: (NSString *) name{
+    GPKGConstraintType value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -118,23 +118,23 @@ static NSMutableDictionary<NSString *, NSNumber *> *columnLookup = nil;
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGConstraintType)[enumValue intValue];
+            value = (GPKGConstraintType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
-+(enum GPKGConstraintType) tableTypeOfValue: (NSString *) value{
++(GPKGConstraintType) tableTypeOfValue: (NSString *) value{
     return [self typeOfValue:value fromLookup:tableLookup];
 }
 
-+(enum GPKGConstraintType) columnTypeOfValue: (NSString *) value{
++(GPKGConstraintType) columnTypeOfValue: (NSString *) value{
     return [self typeOfValue:value fromLookup:columnLookup];
 }
 
-+(enum GPKGConstraintType) typeOfValue: (NSString *) value fromLookup: (NSMutableDictionary<NSString *, NSNumber *> *) lookup{
-    enum GPKGConstraintType type = -1;
++(GPKGConstraintType) typeOfValue: (NSString *) value fromLookup: (NSMutableDictionary<NSString *, NSNumber *> *) lookup{
+    GPKGConstraintType type = -1;
     NSNumber *typeNumber = [lookup objectForKey:[value uppercaseString]];
     if(typeNumber != nil){
         type = [typeNumber intValue];
@@ -142,8 +142,8 @@ static NSMutableDictionary<NSString *, NSNumber *> *columnLookup = nil;
     return type;
 }
 
-+(enum GPKGConstraintType) typeOfValue: (NSString *) value{
-    enum GPKGConstraintType type = [self tableTypeOfValue:value];
++(GPKGConstraintType) typeOfValue: (NSString *) value{
+    GPKGConstraintType type = [self tableTypeOfValue:value];
     if ((int)type < 0) {
         type = [self columnTypeOfValue:value];
     }

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageMetadataDao.h"
-#import "GPKGTableMetadataDao.h"
+#import <GeoPackage/GPKGGeoPackageMetadataDao.h>
+#import <GeoPackage/GPKGTableMetadataDao.h>
 
 @implementation GPKGGeoPackageMetadataDao
 

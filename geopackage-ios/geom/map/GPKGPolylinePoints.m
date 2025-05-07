@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGPolylinePoints.h"
-#import "GPKGUtils.h"
-#import "GPKGMapShapeConverter.h"
+#import <GeoPackage/GPKGPolylinePoints.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGMapShapeConverter.h>
 
 @implementation GPKGPolylinePoints
 

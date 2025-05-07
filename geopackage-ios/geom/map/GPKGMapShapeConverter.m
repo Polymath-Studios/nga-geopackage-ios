@@ -6,13 +6,12 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMapShapeConverter.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGUtils.h"
-#import "GPKGPolygonOrientations.h"
-#import "GPKGGeometryUtils.h"
-#import "SFGeometryUtils.h"
-#import "SFPProjectionGeometryUtils.h"
+#import <GeoPackage/GPKGMapShapeConverter.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGGeometryUtils.h>
+#import <SimpleFeatures/SimpleFeatures.h>
+#import <SimpleFeaturesProjections/SimpleFeaturesProjections.h>
 
 @interface GPKGMapShapeConverter ()
 
@@ -515,7 +514,7 @@
     
     // Close the ring if needed and determine orientation
     [self closePolygonRingWithPoints: points];
-    enum GPKGPolygonOrientation ringOrientation = [self orientationWithPoints: points];
+    GPKGPolygonOrientation ringOrientation = [self orientationWithPoints: points];
     
     // Reverse the order as needed to match the desired orientation
     if(self.exteriorOrientation != GPKG_PO_UNSPECIFIED && self.exteriorOrientation != ringOrientation){
@@ -536,7 +535,7 @@
     }
 }
 
--(enum GPKGPolygonOrientation) orientationWithPoints: (NSMutableArray *) points{
+-(GPKGPolygonOrientation) orientationWithPoints: (NSMutableArray *) points{
     return [GPKGGeometryUtils computeSignedAreaOfDegreesPath:points] >= 0 ? GPKG_PO_COUNTERCLOCKWISE : GPKG_PO_CLOCKWISE;
 }
 
@@ -839,7 +838,7 @@
     
     GPKGMapShape *shape = nil;
     
-    enum SFGeometryType geometryType = geometry.geometryType;
+    SFGeometryType geometryType = geometry.geometryType;
     switch (geometryType) {
         case SF_POINT:
             shape = [[GPKGMapShape alloc] initWithGeometryType:geometryType andShapeType:GPKG_MST_POINT andShape:[self toMapPointWithPoint:(SFPoint *) geometry]];
@@ -903,7 +902,7 @@
     
     GPKGMapShape *addedShape = nil;
     
-    enum SFGeometryType geometryType = geometry.geometryType;
+    SFGeometryType geometryType = geometry.geometryType;
     switch (geometryType) {
         case SF_POINT:
             addedShape = [[GPKGMapShape alloc] initWithGeometryType:geometryType andShapeType:GPKG_MST_POINT andShape:[GPKGMapShapeConverter addMapPoint:[self toMapPointWithPoint:(SFPoint *) geometry] toMapView:mapView]];

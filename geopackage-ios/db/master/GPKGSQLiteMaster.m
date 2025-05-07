@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGSQLiteMaster.h"
-#import "GPKGConstraintParser.h"
+#import <GeoPackage/GPKGSQLiteMaster.h>
+#import <GeoPackage/GPKGConstraintParser.h>
 
 NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
 
@@ -71,7 +71,7 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return [self.columnIndices allKeys];
 }
 
--(enum GPKGSQLiteMasterType) typeAtRow: (int) row{
+-(GPKGSQLiteMasterType) typeAtRow: (int) row{
     return [GPKGSQLiteMasterTypes fromName:[self typeStringAtRow:row]];
 }
 
@@ -95,7 +95,7 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return (NSString *)[self valueAtRow:row forColumn:GPKG_SMC_SQL];
 }
 
--(NSObject *) valueAtRow: (int) row forColumn: (enum GPKGSQLiteMasterColumn) column{
+-(NSObject *) valueAtRow: (int) row forColumn: (GPKGSQLiteMasterColumn) column{
     return [self valueInRow:[self row:row] forColumn:column];
 }
 
@@ -112,11 +112,11 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return [self.results objectAtIndex:row];
 }
 
--(NSObject *) valueInRow: (GPKGRow *) row forColumn: (enum GPKGSQLiteMasterColumn) column{
+-(NSObject *) valueInRow: (GPKGRow *) row forColumn: (GPKGSQLiteMasterColumn) column{
     return [row valueAtIndex:[self columnIndex:column]];
 }
 
--(int) columnIndex: (enum GPKGSQLiteMasterColumn) column{
+-(int) columnIndex: (GPKGSQLiteMasterColumn) column{
     NSNumber *index = [self.columnIndices objectForKey:[NSNumber numberWithInteger:column]];
     if(index == nil){
         [NSException raise:@"Index Out Of Bounds" format:@"Column does not exist in row values: %@", [GPKGSQLiteMasterColumns name:column]];
@@ -135,11 +135,11 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return constraints;
 }
 
-+(NSArray *) columnsFromColumn: (enum GPKGSQLiteMasterColumn) column{
++(NSArray *) columnsFromColumn: (GPKGSQLiteMasterColumn) column{
     return [NSArray arrayWithObject:[NSNumber numberWithInteger:column]];
 }
 
-+(NSArray *) typesFromType: (enum GPKGSQLiteMasterType) type{
++(NSArray *) typesFromType: (GPKGSQLiteMasterType) type{
     return [NSArray arrayWithObject:[NSNumber numberWithInteger:type]];
 }
 
@@ -167,7 +167,7 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return [self queryWithConnection:db andColumns:columns andTypes:nil andTable:tableName];
 }
 
-+(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andType: (enum GPKGSQLiteMasterType) type{
++(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andType: (GPKGSQLiteMasterType) type{
     return [self queryWithConnection:db andType:type andTable:nil];
 }
 
@@ -175,7 +175,7 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return [self queryWithConnection:db andTypes:types andTable:nil];
 }
 
-+(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andType: (enum GPKGSQLiteMasterType) type andTable: (NSString *) tableName{
++(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andType: (GPKGSQLiteMasterType) type andTable: (NSString *) tableName{
     return [self queryWithConnection:db andColumns:[GPKGSQLiteMasterColumns values] andType:type andTable:tableName];
 }
 
@@ -183,19 +183,19 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return [self queryWithConnection:db andColumns:[GPKGSQLiteMasterColumns values] andTypes:types andTable: tableName];
 }
 
-+(int) countWithConnection: (GPKGConnection *) db andType: (enum GPKGSQLiteMasterType) type{
++(int) countWithConnection: (GPKGConnection *) db andType: (GPKGSQLiteMasterType) type{
     return [self countWithConnection:db andTypes:[self typesFromType:type]];
 }
 
-+(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andColumns: (NSArray<NSNumber *> *) columns andType: (enum GPKGSQLiteMasterType) type{
++(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andColumns: (NSArray<NSNumber *> *) columns andType: (GPKGSQLiteMasterType) type{
     return [self queryWithConnection:db andColumns:columns andTypes:[self typesFromType:type]];
 }
 
-+(int) countWithConnection: (GPKGConnection *) db andType: (enum GPKGSQLiteMasterType) type andTable: (NSString *) tableName{
++(int) countWithConnection: (GPKGConnection *) db andType: (GPKGSQLiteMasterType) type andTable: (NSString *) tableName{
     return [self countWithConnection:db andTypes:[self typesFromType:type] andTable:tableName];
 }
 
-+(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andColumns: (NSArray<NSNumber *> *) columns andType: (enum GPKGSQLiteMasterType) type andTable: (NSString *) tableName{
++(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andColumns: (NSArray<NSNumber *> *) columns andType: (GPKGSQLiteMasterType) type andTable: (NSString *) tableName{
     return [self queryWithConnection:db andColumns:columns andTypes:[self typesFromType:type] andTable:tableName];
 }
 
@@ -235,15 +235,15 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
     return [self queryWithConnection:db andColumns:columns andTypes:nil andQuery:query];
 }
 
-+(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andType: (enum GPKGSQLiteMasterType) type andQuery: (GPKGSQLiteMasterQuery *) query{
++(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andType: (GPKGSQLiteMasterType) type andQuery: (GPKGSQLiteMasterQuery *) query{
     return [self queryWithConnection:db andColumns:[GPKGSQLiteMasterColumns values] andType:type andQuery:query];
 }
 
-+(int) countWithConnection: (GPKGConnection *) db andType: (enum GPKGSQLiteMasterType) type andQuery: (GPKGSQLiteMasterQuery *) query{
++(int) countWithConnection: (GPKGConnection *) db andType: (GPKGSQLiteMasterType) type andQuery: (GPKGSQLiteMasterQuery *) query{
     return [self countWithConnection:db andTypes:[self typesFromType:type] andQuery:query];
 }
 
-+(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andColumns: (NSArray<NSNumber *> *) columns andType: (enum GPKGSQLiteMasterType) type andQuery: (GPKGSQLiteMasterQuery *) query{
++(GPKGSQLiteMaster *) queryWithConnection: (GPKGConnection *) db andColumns: (NSArray<NSNumber *> *) columns andType: (GPKGSQLiteMasterType) type andQuery: (GPKGSQLiteMasterQuery *) query{
     return [self queryWithConnection:db andColumns:columns andTypes:[self typesFromType:type] andQuery:query];
 }
 
@@ -262,7 +262,7 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
             if(i > 0){
                 [sql appendString:@", "];
             }
-            enum GPKGSQLiteMasterColumn column = [[columns objectAtIndex:i] intValue];
+            GPKGSQLiteMasterColumn column = [[columns objectAtIndex:i] intValue];
             [sql appendFormat:@"%@", [[GPKGSQLiteMasterColumns name:column] lowercaseString]];
         }
         
@@ -297,7 +297,7 @@ NSString * const GPKG_SM_TABLE_NAME = @"sqlite_master";
                     [sql appendString:@", "];
                 }
                 [sql appendString:@"?"];
-                enum GPKGSQLiteMasterType type = [[types objectAtIndex:i] intValue];
+                GPKGSQLiteMasterType type = [[types objectAtIndex:i] intValue];
                 [args addObject:[[GPKGSQLiteMasterTypes name:type] lowercaseString]];
             }
             [sql appendString:@")"];

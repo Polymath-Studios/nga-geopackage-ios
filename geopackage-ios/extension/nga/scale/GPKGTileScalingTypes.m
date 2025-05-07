@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGTileScalingTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGTileScalingTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_TSC_IN_NAME = @"in";
 NSString * const GPKG_TSC_OUT_NAME = @"out";
@@ -18,7 +18,7 @@ NSString * const GPKG_TSC_CLOSEST_OUT_IN_NAME = @"closest_out_in";
 
 @implementation GPKGTileScalingTypes
 
-+(NSString *) name: (enum GPKGTileScalingType) tileScalingType{
++(NSString *) name: (GPKGTileScalingType) tileScalingType{
     NSString *name = nil;
     
     switch(tileScalingType){
@@ -45,8 +45,8 @@ NSString * const GPKG_TSC_CLOSEST_OUT_IN_NAME = @"closest_out_in";
     return name;
 }
 
-+(enum GPKGTileScalingType) fromName: (NSString *) name{
-    enum GPKGTileScalingType value = -1;
++(GPKGTileScalingType) fromName: (NSString *) name{
+    GPKGTileScalingType value = -1;
     
     if(name != nil){
         name = [name lowercaseString];
@@ -61,7 +61,7 @@ NSString * const GPKG_TSC_CLOSEST_OUT_IN_NAME = @"closest_out_in";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGTileScalingType)[enumValue intValue];
+            value = (GPKGTileScalingType)[enumValue intValue];
         }
     }
     

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGTileTestUtils : NSObject
 

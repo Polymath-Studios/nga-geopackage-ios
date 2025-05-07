@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMetadataDb.h"
-#import "GPKGIOUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGGeoPackageMetadataTableCreator.h"
+#import <GeoPackage/GPKGMetadataDb.h>
+#import <GeoPackage/GPKGIOUtils.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGGeoPackageMetadataTableCreator.h>
 
 @implementation GPKGMetadataDb
 

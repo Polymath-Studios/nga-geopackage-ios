@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleCache.h"
-#import "GPKGStyleUtils.h"
+#import <GeoPackage/GPKGStyleCache.h>
+#import <GeoPackage/GPKGStyleUtils.h>
 
 @interface GPKGStyleCache ()
 

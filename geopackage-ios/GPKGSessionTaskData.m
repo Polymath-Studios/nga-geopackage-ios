@@ -6,7 +6,7 @@
 //
 //
 
-#import "GPKGSessionTaskData.h"
+#import <GeoPackage/GPKGSessionTaskData.h>
 
 @implementation GPKGSessionTaskData
 

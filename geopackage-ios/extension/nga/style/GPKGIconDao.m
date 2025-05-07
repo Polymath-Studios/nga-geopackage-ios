@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGIconDao.h"
+#import <GeoPackage/GPKGIconDao.h>
 
 @implementation GPKGIconDao
 

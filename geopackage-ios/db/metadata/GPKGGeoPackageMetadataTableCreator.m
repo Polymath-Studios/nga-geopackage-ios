@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageMetadataTableCreator.h"
-#import "GPKGGeoPackageMetadata.h"
-#import "GPKGTableMetadata.h"
-#import "GPKGGeometryMetadata.h"
+#import <GeoPackage/GPKGGeoPackageMetadataTableCreator.h>
+#import <GeoPackage/GPKGGeoPackageMetadata.h>
+#import <GeoPackage/GPKGTableMetadata.h>
+#import <GeoPackage/GPKGGeometryMetadata.h>
 
 NSString * const GPKG_METADATA_TABLES = @"metadata";
 

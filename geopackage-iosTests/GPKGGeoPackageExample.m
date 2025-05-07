@@ -8,33 +8,12 @@
 
 #import "GPKGGeoPackageExample.h"
 #import "GPKGTestUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGGeoPackageFactory.h"
-#import "GPKGIOUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGDateConverter.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGFeatureTileGenerator.h"
-#import "GPKGGeometryExtensions.h"
-#import "GPKGWebPExtension.h"
-#import "GPKGCrsWktExtension.h"
-#import "GPKGCoverageDataPng.h"
-#import "GPKGCoverageDataTiff.h"
 #import "GPKGRelatedTablesUtils.h"
-#import "GPKGDublinCoreMetadata.h"
-#import "GPKGExtensionManager.h"
-#import "GPKGNGAExtensions.h"
-#import "GPKGSchemaExtension.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGFeatureTileTableLinker.h"
-#import "GPKGTileTableScaling.h"
-#import "GPKGPropertiesExtension.h"
-#import "GPKGPropertyNames.h"
-#import "CLRColorConstants.h"
-#import "GPKGFeaturePreview.h"
-#import "GPKGImageConverter.h"
-#import "GPKGTileReprojection.h"
+#import "GPKGBundleHelper.h"
+
+@import Projections;
+@import GeoPackage;
+@import Color;
 
 @implementation GPKGGeoPackageExample
 
@@ -720,7 +699,7 @@ static NSString *DATETIME_COLUMN = @"datetime";
     
     GPKGTileMatrixDao *tileMatrixDao = [geoPackage tileMatrixDao];
     
-    NSString *resourcePath  = [[NSBundle bundleForClass:[GPKGGeoPackageExample class]] resourcePath];
+    NSString *resourcePath  = [GPKGBundleHelper resourcePath];
     
     GPKGTileGrid *tileGrid = totalTileGrid;
     
@@ -1078,7 +1057,7 @@ static int dataColumnConstraintIndex = 0;
                 }
                 break;
             default:
-                [NSException raise:@"Geometry Type" format:@"Unexpected Geometry Type: %u", geometryType];
+                [NSException raise:@"Geometry Type" format:@"Unexpected Geometry Type: %ld", geometryType];
         }
         
         [geometries addObject:geometry];
@@ -1448,7 +1427,7 @@ static int dataColumnConstraintIndex = 0;
     GPKGUserMappingDao *userMappingDao = [relatedTables mappingDaoForRelation:relation];
     
     GPKGMediaRow *mediaRow = [mediaDao newRow];
-    NSString *mediaPath  = [[[NSBundle bundleForClass:[GPKGGeoPackageExample class]] resourcePath] stringByAppendingPathComponent:file];
+    NSString *mediaPath = [GPKGBundleHelper pathForResource:file];
     NSData *mediaData = [[NSFileManager defaultManager] contentsAtPath:mediaPath];
     [mediaRow setData:mediaData];
     [mediaRow setContentType:contentType];
@@ -1758,7 +1737,7 @@ static int dataColumnConstraintIndex = 0;
 
     NSMutableArray<GPKGIconRow *> *icons = [NSMutableArray array];
     
-    NSString *buildingPath  = [[[NSBundle bundleForClass:[GPKGGeoPackageExample class]] resourcePath] stringByAppendingPathComponent:@"building.png"];
+    NSString *buildingPath = [GPKGBundleHelper pathForResource:@"building.png"];
     GPKGIconRow *icon1 = [[GPKGIconRow alloc] init];
     [icon1 setName:@"Building"];
     [icon1 setDescription:@"Building Icon"];
@@ -1769,7 +1748,7 @@ static int dataColumnConstraintIndex = 0;
     [icon1 setAnchorVValue:1.0];
     [icons addObject:icon1];
     
-    NSString *collegePath  = [[[NSBundle bundleForClass:[GPKGGeoPackageExample class]] resourcePath] stringByAppendingPathComponent:@"college.png"];
+    NSString *collegePath = [GPKGBundleHelper pathForResource:@"college.png"];
     GPKGIconRow *icon2 = [[GPKGIconRow alloc] init];
     [icon2 setName:@"College"];
     [icon2 setDescription:@"College Icon"];
@@ -1779,7 +1758,7 @@ static int dataColumnConstraintIndex = 0;
     [icon2 setHeightValue:44.0];
     [icons addObject:icon2];
 
-    NSString *tractorPath  = [[[NSBundle bundleForClass:[GPKGGeoPackageExample class]] resourcePath] stringByAppendingPathComponent:@"tractor.png"];
+    NSString *tractorPath = [GPKGBundleHelper pathForResource:@"tractor.png"];
     GPKGIconRow *icon3 = [[GPKGIconRow alloc] init];
     [icon3 setName:@"Tractor"];
     [icon3 setDescription:@"Tractor Icon"];

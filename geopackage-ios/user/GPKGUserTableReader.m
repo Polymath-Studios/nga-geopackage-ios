@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGUserTableReader.h"
-#import "GPKGSQLiteMaster.h"
-#import "GPKGTableInfo.h"
-#import "GPKGDataColumnsDao.h"
+#import <GeoPackage/GPKGUserTableReader.h>
+#import <GeoPackage/GPKGSQLiteMaster.h>
+#import <GeoPackage/GPKGTableInfo.h>
+#import <GeoPackage/GPKGDataColumnsDao.h>
 
 @implementation GPKGUserTableReader
 

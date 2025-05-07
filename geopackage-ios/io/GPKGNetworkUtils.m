@@ -6,7 +6,7 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "GPKGNetworkUtils.h"
+#import <GeoPackage/GPKGNetworkUtils.h>
 
 @implementation GPKGNetworkUtils
 

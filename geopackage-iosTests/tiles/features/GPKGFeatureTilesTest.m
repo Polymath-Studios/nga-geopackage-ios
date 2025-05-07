@@ -8,8 +8,9 @@
 
 #import "GPKGFeatureTilesTest.h"
 #import "GPKGFeatureTileUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
 #import "GPKGTestUtils.h"
+
+@import GeoPackage;
 
 @implementation GPKGFeatureTilesTest
 

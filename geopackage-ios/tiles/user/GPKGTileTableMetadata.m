@@ -6,12 +6,12 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGTileTableMetadata.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGTileTableMetadata.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 @implementation GPKGTileTableMetadata
 
-static enum GPKGContentsDataType defaultDataType = GPKG_CDT_TILES;
+static GPKGContentsDataType defaultDataType = GPKG_CDT_TILES;
 
 +(GPKGTileTableMetadata *) create{
     return [[GPKGTileTableMetadata alloc] init];

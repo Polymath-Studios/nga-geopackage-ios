@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGMediaRow.h"
-#import "GPKGImageConverter.h"
+#import <GeoPackage/GPKGMediaRow.h>
+#import <GeoPackage/GPKGImageConverter.h>
 
 @implementation GPKGMediaRow
 
@@ -56,11 +56,11 @@
     return [GPKGImageConverter toImage:[self data] withScale:scale];
 }
 
--(void) setDataWithImage: (UIImage *) image andFormat: (enum GPKGCompressFormat) format{
+-(void) setDataWithImage: (UIImage *) image andFormat: (GPKGCompressFormat) format{
     [self setData:[GPKGImageConverter toData:image andFormat:format]];
 }
 
--(void) setDataWithImage: (UIImage *) image andFormat: (enum GPKGCompressFormat) format andQuality: (CGFloat) quality{
+-(void) setDataWithImage: (UIImage *) image andFormat: (GPKGCompressFormat) format andQuality: (CGFloat) quality{
     [self setData:[GPKGImageConverter toData:image andFormat:format andQuality:quality]];
 }
 

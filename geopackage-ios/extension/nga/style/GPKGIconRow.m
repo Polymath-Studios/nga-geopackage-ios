@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGIconRow.h"
+#import <GeoPackage/GPKGIconRow.h>
 
 @implementation GPKGIconRow
 

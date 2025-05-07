@@ -6,8 +6,8 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGPaginatedResults.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGPaginatedResults.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @interface GPKGPaginatedResults ()
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleMappingTable.h"
+#import <GeoPackage/GPKGStyleMappingTable.h>
 
 NSString * const GPKG_SMT_COLUMN_GEOMETRY_TYPE_NAME = @"geometry_type_name";
 

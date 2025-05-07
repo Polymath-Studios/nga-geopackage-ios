@@ -7,14 +7,9 @@
 //
 
 #import "GPKGGeoPackageTestUtils.h"
-#import "GPKGUtils.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGFeatureIndexManager.h"
-#import "GPKGGeoPackageFactory.h"
-#import "GPKGCoverageData.h"
-#import "GPKGTableInfo.h"
+
+@import Projections;
 
 @implementation GPKGGeoPackageTestUtils
 

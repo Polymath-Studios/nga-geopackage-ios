@@ -8,8 +8,6 @@
 
 #import "GPKGContentsIdUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGExtensionManager.h"
-#import "GPKGContentsIdExtension.h"
 
 @implementation GPKGContentsIdUtils
 

@@ -6,9 +6,9 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryCrop.h"
-#import "SFGeometryUtils.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGGeometryCrop.h>
+#import <SimpleFeatures/SimpleFeatures.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGGeometryCrop
 

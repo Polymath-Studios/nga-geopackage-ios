@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGSQLiteMasterColumns.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGSQLiteMasterColumns.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_SMC_TYPE_NAME = @"TYPE";
 NSString * const GPKG_SMC_NAME_NAME = @"NAME";
@@ -17,7 +17,7 @@ NSString * const GPKG_SMC_SQL_NAME = @"SQL";
 
 @implementation GPKGSQLiteMasterColumns
 
-+(NSString *) name: (enum GPKGSQLiteMasterColumn) type{
++(NSString *) name: (GPKGSQLiteMasterColumn) type{
     NSString *name = nil;
     
     switch(type){
@@ -41,8 +41,8 @@ NSString * const GPKG_SMC_SQL_NAME = @"SQL";
     return name;
 }
 
-+(enum GPKGSQLiteMasterColumn) fromName: (NSString *) name{
-    enum GPKGSQLiteMasterColumn value = -1;
++(GPKGSQLiteMasterColumn) fromName: (NSString *) name{
+    GPKGSQLiteMasterColumn value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -56,7 +56,7 @@ NSString * const GPKG_SMC_SQL_NAME = @"SQL";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGSQLiteMasterColumn)[enumValue intValue];
+            value = (GPKGSQLiteMasterColumn)[enumValue intValue];
         }
     }
     

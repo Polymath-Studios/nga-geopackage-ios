@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGCompositeOverlay.h"
+#import <GeoPackage/GPKGCompositeOverlay.h>
 
 @interface GPKGCompositeOverlay ()
 

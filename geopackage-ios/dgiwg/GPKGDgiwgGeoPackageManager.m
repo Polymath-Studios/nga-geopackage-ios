@@ -6,9 +6,9 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgGeoPackageManager.h"
-#import "GPKGDgiwgConstants.h"
-#import "GPKGCrsWktExtension.h"
+#import <GeoPackage/GPKGDgiwgGeoPackageManager.h>
+#import <GeoPackage/GPKGDgiwgConstants.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
 
 @implementation GPKGDgiwgGeoPackageManager
 

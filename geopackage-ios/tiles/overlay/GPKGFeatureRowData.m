@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureRowData.h"
-#import "SFGFeatureConverter.h"
+#import <GeoPackage/GPKGFeatureRowData.h>
+#import <SimpleFeaturesGeoJSON/SimpleFeaturesGeoJSON.h>
 
 @interface GPKGFeatureRowData ()
 
@@ -76,8 +76,8 @@
     return geometry;
 }
 
--(enum SFGeometryType) geometryType{
-    enum SFGeometryType geometryType = SF_NONE;
+-(SFGeometryType) geometryType{
+    SFGeometryType geometryType = SF_NONE;
     SFGeometry *geometry = [self geometry];
     if(geometry != nil){
         geometryType = geometry.geometryType;

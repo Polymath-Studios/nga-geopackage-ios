@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackage.h"
-#import "GPKGFeatureTableReader.h"
-#import "GPKGTileTableReader.h"
-#import "GPKGCrsWktExtension.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGAttributesTableReader.h"
-#import "GPKGFeatureIndexManager.h"
-#import "GPKGAlterTable.h"
-#import "GPKGUserCustomTableReader.h"
-#import "GPKGExtensionManager.h"
-#import "GPKGSchemaExtension.h"
+#import <GeoPackage/GPKGGeoPackage.h>
+#import <GeoPackage/GPKGFeatureTableReader.h>
+#import <GeoPackage/GPKGTileTableReader.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGAttributesTableReader.h>
+#import <GeoPackage/GPKGFeatureIndexManager.h>
+#import <GeoPackage/GPKGAlterTable.h>
+#import <GeoPackage/GPKGUserCustomTableReader.h>
+#import <GeoPackage/GPKGExtensionManager.h>
+#import <GeoPackage/GPKGSchemaExtension.h>
 
 @interface GPKGGeoPackage()
 
@@ -87,7 +87,7 @@
     return [self tablesByType:GPKG_CDT_ATTRIBUTES];
 }
 
--(NSArray<NSString *> *) tablesByType: (enum GPKGContentsDataType) type{
+-(NSArray<NSString *> *) tablesByType: (GPKGContentsDataType) type{
     return [[self contentsDao] tablesByType:type];
 }
 
@@ -103,7 +103,7 @@
     return [[self contentsDao] tablesByTypeNames:types];
 }
 
--(GPKGResultSet *) contentsByType: (enum GPKGContentsDataType) type{
+-(GPKGResultSet *) contentsByType: (GPKGContentsDataType) type{
     return [[self contentsDao] contentsByType:type];
 }
 
@@ -135,7 +135,7 @@
     return [self isTable:table ofType:GPKG_CDT_ATTRIBUTES];
 }
 
--(BOOL) isTable: (NSString *) table ofType: (enum GPKGContentsDataType) type{
+-(BOOL) isTable: (NSString *) table ofType: (GPKGContentsDataType) type{
     return [self isTable:table ofTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:type]]];
 }
 
@@ -152,7 +152,7 @@
     NSSet *typeSet = [NSSet setWithArray:types];
     BOOL isType = [typeSet containsObject:[self typeOfTable:table]];
     if(!isType){
-        enum GPKGContentsDataType dataType = [self dataTypeOfTable:table];
+        GPKGContentsDataType dataType = [self dataTypeOfTable:table];
         if(dataType >= 0){
             isType = [typeSet containsObject:[GPKGContentsDataTypes name:dataType]];
         }
@@ -191,8 +191,8 @@
     return tableType;
 }
 
--(enum GPKGContentsDataType) dataTypeOfTable: (NSString *) table{
-    enum GPKGContentsDataType tableType = -1;
+-(GPKGContentsDataType) dataTypeOfTable: (NSString *) table{
+    GPKGContentsDataType tableType = -1;
     GPKGContents *contents = [self contentsOfTable:table];
     if(contents != nil){
         tableType = [contents contentsDataType];
@@ -333,7 +333,7 @@
     GPKGBoundingBox *boundingBox = nil;
     
     NSString *tableType = [self typeOfTable:table];
-    enum GPKGContentsDataType dataType = [GPKGContentsDataTypes fromName:tableType];
+    GPKGContentsDataType dataType = [GPKGContentsDataTypes fromName:tableType];
     if((int)dataType >= 0){
         switch (dataType) {
             case GPKG_CDT_FEATURES:
@@ -367,7 +367,7 @@
     PROJProjection *projection = nil;
     
     NSString *tableType = [self typeOfTable:table];
-    enum GPKGContentsDataType dataType = [GPKGContentsDataTypes fromName:tableType];
+    GPKGContentsDataType dataType = [GPKGContentsDataTypes fromName:tableType];
     if((int)dataType >= 0){
         switch (dataType) {
             case GPKG_CDT_FEATURES:
@@ -829,7 +829,7 @@
     if(![self isContentsTable:tableName]){
         [NSException raise:@"No Contents" format:@"No contents for user table: %@", tableName];
     }
-    enum GPKGContentsDataType dataType = [self dataTypeOfTable:tableName];
+    GPKGContentsDataType dataType = [self dataTypeOfTable:tableName];
     if(dataType != -1){
         switch(dataType){
             case GPKG_CDT_ATTRIBUTES:
@@ -927,7 +927,7 @@
  */
 -(void) copyTable: (NSString *) tableName toTable: (NSString *) newTableName andTransfer: (BOOL) transferContent andExtensions: (BOOL) extensions{
     
-    enum GPKGContentsDataType dataType = [self dataTypeOfTable:tableName];
+    GPKGContentsDataType dataType = [self dataTypeOfTable:tableName];
     if((int)dataType != -1){
         switch(dataType){
                 

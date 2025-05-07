@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGPagination.h"
+#import <GeoPackage/GPKGPagination.h>
 
 /**
  * Limit SQL statement

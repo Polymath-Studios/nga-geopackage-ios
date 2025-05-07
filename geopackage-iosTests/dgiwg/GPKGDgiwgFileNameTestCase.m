@@ -7,9 +7,9 @@
 //
 
 #import "GPKGDgiwgFileNameTestCase.h"
-#import "GPKGDgiwgFileName.h"
 #import "GPKGTestUtils.h"
-#import "GPKGDateConverter.h"
+
+@import GeoPackage;
 
 @implementation GPKGDgiwgFileNameTestCase
 

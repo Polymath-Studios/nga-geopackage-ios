@@ -7,9 +7,10 @@
 //
 
 #import "GPKGGeometryExtensionsTest.h"
-#import "GPKGGeometryExtensions.h"
 #import "GPKGTestUtils.h"
-#import "SFWBGeometryCodes.h"
+
+@import SimpleFeaturesWKB;
+@import GeoPackage;
 
 @implementation GPKGGeometryExtensionsTest
 

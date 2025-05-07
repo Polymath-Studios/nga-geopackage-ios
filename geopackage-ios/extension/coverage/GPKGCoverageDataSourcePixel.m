@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataSourcePixel.h"
+#import <GeoPackage/GPKGCoverageDataSourcePixel.h>
 
 @implementation GPKGCoverageDataSourcePixel
 

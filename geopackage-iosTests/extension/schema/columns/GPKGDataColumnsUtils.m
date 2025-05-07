@@ -9,8 +9,9 @@
 #import "GPKGDataColumnsUtils.h"
 #import "GPKGTestUtils.h"
 #import "GPKGGeoPackageTestUtils.h"
-#import "GPKGSchemaExtension.h"
-#import "PROJProjectionConstants.h"
+
+@import GeoPackage;
+@import Projections;
 
 @implementation GPKGDataColumnsUtils
 

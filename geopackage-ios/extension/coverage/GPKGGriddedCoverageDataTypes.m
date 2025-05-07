@@ -6,15 +6,15 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGriddedCoverageDataTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGGriddedCoverageDataTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_GCDT_INTEGER_NAME = @"integer";
 NSString * const GPKG_GCDT_FLOAT_NAME = @"float";
 
 @implementation GPKGGriddedCoverageDataTypes
 
-+(NSString *) name: (enum GPKGGriddedCoverageDataType) griddedCoverageDataType{
++(NSString *) name: (GPKGGriddedCoverageDataType) griddedCoverageDataType{
     NSString *name = nil;
     
     switch(griddedCoverageDataType){
@@ -29,8 +29,8 @@ NSString * const GPKG_GCDT_FLOAT_NAME = @"float";
     return name;
 }
 
-+(enum GPKGGriddedCoverageDataType) fromName: (NSString *) name{
-    enum GPKGGriddedCoverageDataType value = -1;
++(GPKGGriddedCoverageDataType) fromName: (NSString *) name{
+    GPKGGriddedCoverageDataType value = -1;
     
     if(name != nil){
         name = [name lowercaseString];
@@ -41,7 +41,7 @@ NSString * const GPKG_GCDT_FLOAT_NAME = @"float";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGGriddedCoverageDataType)[enumValue intValue];
+            value = (GPKGGriddedCoverageDataType)[enumValue intValue];
         }
     }
     

@@ -6,9 +6,9 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGManualFeatureQuery.h"
-#import "GPKGSqlUtils.h"
-#import "SFPProjectionGeometryUtils.h"
+#import <GeoPackage/GPKGManualFeatureQuery.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <SimpleFeaturesProjections/SimpleFeaturesProjections.h>
 
 @interface GPKGManualFeatureQuery ()
 

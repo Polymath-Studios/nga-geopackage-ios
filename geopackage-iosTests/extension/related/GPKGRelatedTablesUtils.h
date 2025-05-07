@@ -6,8 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserCustomRow.h"
-#import "GPKGDublinCoreTypes.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGRelatedTablesUtils : NSObject
 

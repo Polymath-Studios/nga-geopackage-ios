@@ -7,7 +7,9 @@
 //
 
 #import "GPKGLoadGeoPackageTestCase.h"
-#import "GPKGGeoPackageFactory.h"
+#import "GPKGBundleHelper.h"
+
+@import GeoPackage;
 
 @implementation GPKGLoadGeoPackageTestCase
 
@@ -26,7 +28,7 @@
     // Delete
     [manager delete:self.dbName];
     
-    NSString *filePath  = [[[NSBundle bundleForClass:[GPKGLoadGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:self.file];
+    NSString *filePath = [GPKGBundleHelper pathForResource:self.file];
     
     // Import
     [manager importGeoPackageFromPath:filePath withName:self.dbName];

@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGIconCache.h"
+#import <GeoPackage/GPKGIconCache.h>
 
 @interface GPKGIconCache ()
 
