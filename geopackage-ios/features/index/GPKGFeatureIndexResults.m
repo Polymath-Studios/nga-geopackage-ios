@@ -6,7 +6,7 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureIndexResults.h"
+#import <GeoPackage/GPKGFeatureIndexResults.h>
 
 @interface GPKGFeatureIndexResults ()
 

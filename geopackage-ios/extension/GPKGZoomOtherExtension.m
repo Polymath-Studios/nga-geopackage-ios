@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGZoomOtherExtension.h"
-#import "GPKGProperties.h"
+#import <GeoPackage/GPKGZoomOtherExtension.h>
+#import <GeoPackage/GPKGProperties.h>
 
 NSString * const GPKG_ZOOM_OTHER_EXTENSION_NAME = @"zoom_other";
 NSString * const GPKG_PROP_ZOOM_OTHER_EXTENSION_DEFINITION = @"geopackage.extensions.zoom_other";

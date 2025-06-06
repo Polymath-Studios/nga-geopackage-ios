@@ -8,14 +8,8 @@
 
 #import "GPKGTestSetupTeardown.h"
 #import "GPKGTestUtils.h"
-#import "GPKGGeoPackageFactory.h"
 #import "GPKGTestConstants.h"
-#import "GPKGImageConverter.h"
-#import "GPKGUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGDateConverter.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGSchemaExtension.h"
+#import "GPKGBundleHelper.h"
 
 NSInteger const GPKG_TEST_SETUP_CREATE_SRS_COUNT = 3;
 NSInteger const GPKG_TEST_SETUP_CREATE_CONTENTS_COUNT = 6;
@@ -458,7 +452,7 @@ NSInteger const GPKG_TEST_SETUP_CREATE_EXTENSIONS_COUNT = 7;
     GPKGTileMatrixDao *tileMatrixDao = [geoPackage tileMatrixDao];
     
     // Read the asset tile to bytes and convert to bitmap
-    NSString *tilePath  = [[[NSBundle bundleForClass:[GPKGTestSetupTeardown class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_TILE_FILE_NAME];
+    NSString *tilePath = [GPKGBundleHelper pathForResource:GPKG_TEST_TILE_FILE_NAME];
     NSData *tilePathData = [[NSFileManager defaultManager] contentsAtPath:tilePath];
     UIImage *image = [GPKGImageConverter toImage:tilePathData];
     
@@ -516,8 +510,7 @@ NSInteger const GPKG_TEST_SETUP_CREATE_EXTENSIONS_COUNT = 7;
     // Delete
     [manager delete:GPKG_TEST_IMPORT_DB_NAME];
     
-    NSString *filePath  = [[[NSBundle bundleForClass:[GPKGTestSetupTeardown class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_DB_FILE_NAME];
-    
+    NSString *filePath = [GPKGBundleHelper pathForResource:GPKG_TEST_IMPORT_DB_FILE_NAME];
     // Import
     //NSURL *url =  [NSURL URLWithString:@"http://www.geopackage.org/data/gdal_sample.gpkg"];
     //NSURL *url =  [NSURL URLWithString:@"http://www.geopackage.org/data/haiti-vectors-split.gpkg"];

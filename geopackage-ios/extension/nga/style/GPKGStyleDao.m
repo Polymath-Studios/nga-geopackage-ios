@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleDao.h"
+#import <GeoPackage/GPKGStyleDao.h>
 
 @implementation GPKGStyleDao
 

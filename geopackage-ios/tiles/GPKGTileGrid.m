@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileGrid.h"
+#import <GeoPackage/GPKGTileGrid.h>
 
 @implementation GPKGTileGrid
 

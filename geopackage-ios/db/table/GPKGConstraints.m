@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGConstraints.h"
+#import <GeoPackage/GPKGConstraints.h>
 
 @interface GPKGConstraints()
 
@@ -73,7 +73,7 @@
     return [self size] > 0;
 }
 
--(BOOL) hasType: (enum GPKGConstraintType) type{
+-(BOOL) hasType: (GPKGConstraintType) type{
     return [self sizeOfType:type] > 0;
 }
 
@@ -81,7 +81,7 @@
     return (int) _constraints.count;
 }
 
--(int) sizeOfType: (enum GPKGConstraintType) type{
+-(int) sizeOfType: (GPKGConstraintType) type{
     return (int)[self ofType:type].count;
 }
 
@@ -93,7 +93,7 @@
     return (GPKGConstraint *)[_constraints objectAtIndex:index];
 }
 
--(NSArray<GPKGConstraint *> *) ofType: (enum GPKGConstraintType) type{
+-(NSArray<GPKGConstraint *> *) ofType: (GPKGConstraintType) type{
     NSArray<GPKGConstraint *> *constraints = [_typedContraints objectForKey:[NSNumber numberWithInteger:type]];
     if(constraints == nil){
         constraints = [NSArray array];
@@ -108,7 +108,7 @@
     return constraintsCopy;
 }
 
--(NSArray<GPKGConstraint *> *) clearType: (enum GPKGConstraintType) type{
+-(NSArray<GPKGConstraint *> *) clearType: (GPKGConstraintType) type{
     NSNumber *typeNumber = [NSNumber numberWithInteger:type];
     NSArray<GPKGConstraint *> *typedConstraints = [_typedContraints objectForKey:typeNumber];
     if(typedConstraints == nil){

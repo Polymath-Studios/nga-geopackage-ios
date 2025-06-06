@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGRTreeIndexTableRow.h"
-#import "GPKGRTreeIndexExtension.h"
+#import <GeoPackage/GPKGRTreeIndexTableRow.h>
+#import <GeoPackage/GPKGRTreeIndexExtension.h>
 
 @implementation GPKGRTreeIndexTableRow
 

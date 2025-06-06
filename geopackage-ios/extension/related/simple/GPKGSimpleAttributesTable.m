@@ -6,13 +6,13 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGSimpleAttributesTable.h"
+#import <GeoPackage/GPKGSimpleAttributesTable.h>
 
 NSString * const GPKG_RSAT_COLUMN_ID = @"id";
 
 @implementation GPKGSimpleAttributesTable
 
-+(enum GPKGRelationType) relationType{
++(GPKGRelationType) relationType{
     return GPKG_RT_SIMPLE_ATTRIBUTES;
 }
 
@@ -150,7 +150,7 @@ NSString * const GPKG_RSAT_COLUMN_ID = @"id";
     return column.notNull && [self isSimpleDataType:column.dataType];
 }
 
-+(BOOL) isSimpleDataType: (enum GPKGDataType) dataType{
++(BOOL) isSimpleDataType: (GPKGDataType) dataType{
     return dataType != GPKG_DT_BLOB;
 }
 

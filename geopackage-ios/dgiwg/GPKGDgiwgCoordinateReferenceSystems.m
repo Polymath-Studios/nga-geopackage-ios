@@ -6,18 +6,19 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgCoordinateReferenceSystems.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGDgiwgWellKnownText.h"
-#import "GPKGUTMZone.h"
-#import "GPKGGeoPackageConstants.h"
+#import <Projections/Projections.h>
+#import <CoordinateReferenceSystems/CoordinateReferenceSystems.h>
+#import <GeoPackage/GPKGDgiwgCoordinateReferenceSystems.h>
+#import <GeoPackage/GPKGDgiwgWellKnownText.h>
+#import <GeoPackage/GPKGUTMZone.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
 
 @interface GPKGDgiwgCoordinateReferenceSystems()
 
 /**
  * DGIWG CRS Type
  */
-@property (nonatomic) enum GPKGDgiwgCoordinateReferenceSystem type;
+@property (nonatomic) GPKGDgiwgCoordinateReferenceSystem type;
 
 /**
  * Authority
@@ -37,7 +38,7 @@
 /**
  * CRS Type
  */
-@property (nonatomic) enum CRSType crsType;
+@property (nonatomic) CRSType crsType;
 
 /**
  * Dimension
@@ -290,7 +291,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataType
  *            data type
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataType: (enum GPKGDgiwgDataType) dataType{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataType: (GPKGDgiwgDataType) dataType{
     return [self createWithType:type andEPSG:epsgCode andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andDataTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:dataType]]];
 }
 
@@ -314,7 +315,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataTypes: (NSArray<NSNumber *> *) dataTypes{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     return [self createWithType:type andEPSG:epsgCode andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andWGS84Bounds:[GPKGBoundingBox worldWGS84] andDataTypes:dataTypes];
 }
 
@@ -340,7 +341,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataType
  *            data type
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (enum GPKGDgiwgDataType) dataType{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (GPKGDgiwgDataType) dataType{
     return [self createWithType:type andEPSG:epsgCode andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andWGS84Bounds:wgs84Bounds andDataTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:dataType]]];
 }
 
@@ -366,7 +367,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     return [self createWithType:type andEPSG:epsgCode andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andBounds:wgs84Bounds andWGS84Bounds:wgs84Bounds andDataTypes:dataTypes];
 }
 
@@ -394,7 +395,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataType
  *            data type
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (enum GPKGDgiwgDataType) dataType{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (GPKGDgiwgDataType) dataType{
     return [self createWithType:type andEPSG:epsgCode andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andBounds:bounds andWGS84Bounds:wgs84Bounds andDataTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:dataType]]];
 }
 
@@ -422,7 +423,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     return [self createWithType:type andAuthority:PROJ_AUTHORITY_EPSG andCode:epsgCode andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andBounds:bounds andWGS84Bounds:wgs84Bounds andDataTypes:dataTypes];
 }
 
@@ -448,7 +449,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataType
  *            data type
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataType: (enum GPKGDgiwgDataType) dataType{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataType: (GPKGDgiwgDataType) dataType{
     return [self createWithType:type andAuthority:authority andCode:code andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andDataTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:dataType]]];
 }
 
@@ -474,7 +475,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataTypes: (NSArray<NSNumber *> *) dataTypes{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     return [self createWithType:type andAuthority:authority andCode:code andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andWGS84Bounds:[GPKGBoundingBox worldWGS84] andDataTypes:dataTypes];
 }
 
@@ -502,7 +503,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataType
  *            data type
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (enum GPKGDgiwgDataType) dataType{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (GPKGDgiwgDataType) dataType{
     return [self createWithType:type andAuthority:authority andCode:code andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andWGS84Bounds:wgs84Bounds andDataTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:dataType]]];
 }
 
@@ -530,7 +531,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     return [self createWithType:type andAuthority:authority andCode:code andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andBounds:wgs84Bounds andWGS84Bounds:wgs84Bounds andDataTypes:dataTypes];
 }
 
@@ -560,7 +561,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataType
  *            data type
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (enum GPKGDgiwgDataType) dataType{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataType: (GPKGDgiwgDataType) dataType{
     return [self createWithType:type andAuthority:authority andCode:code andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andBounds:bounds andWGS84Bounds:wgs84Bounds andDataTypes:[NSArray arrayWithObject:[NSNumber numberWithInt:dataType]]];
 }
 
@@ -590,7 +591,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     return [[GPKGDgiwgCoordinateReferenceSystems alloc] initWithType:type andAuthority:authority andCode:code andName:name andCRS:crsType andDimension:dimension andWKT:wkt andDescription:description andBounds:bounds andWGS84Bounds:wgs84Bounds andDataTypes:dataTypes];
 }
 
@@ -602,11 +603,11 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param epsgCode
  *            UTM Zone EPSG
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode{
++(GPKGDgiwgCoordinateReferenceSystems *) createWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode{
     return [[GPKGDgiwgCoordinateReferenceSystems alloc] initWithType: type andEPSG:epsgCode];
 }
 
-+(GPKGDgiwgCoordinateReferenceSystems *) fromType: (enum GPKGDgiwgCoordinateReferenceSystem) type{
++(GPKGDgiwgCoordinateReferenceSystems *) fromType: (GPKGDgiwgCoordinateReferenceSystem) type{
     return [typeCRS objectForKey:[NSNumber numberWithInt:type]];
 }
 
@@ -636,7 +637,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param dataTypes
  *            data types
  */
--(instancetype) initWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (enum CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
+-(instancetype) initWithType: (GPKGDgiwgCoordinateReferenceSystem) type andAuthority: (NSString *) authority andCode: (int) code andName: (NSString *) name andCRS: (CRSType) crsType andDimension: (int) dimension andWKT: (NSString *) wkt andDescription: (NSString *) description andBounds: (GPKGBoundingBox *) bounds andWGS84Bounds: (GPKGBoundingBox *) wgs84Bounds andDataTypes: (NSArray<NSNumber *> *) dataTypes{
     self = [super init];
     if(self != nil){
         _type = type;
@@ -652,7 +653,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
         _dataTypes = dataTypes;
         NSMutableDictionary<NSNumber *, NSMutableArray<NSNumber *> *> *contentsTypes = [NSMutableDictionary dictionary];
         for(NSNumber *dataType in dataTypes){
-            enum GPKGContentsDataType contentsDataType = [GPKGDgiwgDataTypes dataType:[dataType intValue]];
+            GPKGContentsDataType contentsDataType = [GPKGDgiwgDataTypes dataType:[dataType intValue]];
             NSNumber *contentsNumber = [NSNumber numberWithInt:contentsDataType];
             NSMutableArray<NSNumber *> *dataTypesArray = [contentsTypes objectForKey:contentsNumber];
             if(dataTypesArray == nil){
@@ -674,7 +675,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
  * @param epsgCode
  *            UTM Zone EPSG
  */
--(instancetype) initWithType: (enum GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode{
+-(instancetype) initWithType: (GPKGDgiwgCoordinateReferenceSystem) type andEPSG: (int) epsgCode{
     self = [super init];
     if(self != nil){
         _type = type;
@@ -732,7 +733,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return self;
 }
 
--(enum GPKGDgiwgCoordinateReferenceSystem) type{
+-(GPKGDgiwgCoordinateReferenceSystem) type{
     return _type;
 }
 
@@ -752,7 +753,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return _crsName;
 }
 
--(enum CRSType) crsType{
+-(CRSType) crsType{
     return _crsType;
 }
 
@@ -788,11 +789,11 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return names;
 }
 
--(BOOL) isCRSType: (enum CRSType) type{
+-(BOOL) isCRSType: (CRSType) type{
     return _crsType == type;
 }
 
--(BOOL) isDataType: (enum GPKGDgiwgDataType) dataType{
+-(BOOL) isDataType: (GPKGDgiwgDataType) dataType{
     return [_dataTypes containsObject:[NSNumber numberWithInt:dataType]];
 }
 
@@ -818,7 +819,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return features != nil && features.count > 0;
 }
 
--(NSArray<NSNumber *> *) dataTypes: (enum GPKGContentsDataType) contentsDataType{
+-(NSArray<NSNumber *> *) dataTypes: (GPKGContentsDataType) contentsDataType{
     return [_contentsDataTypes objectForKey:[NSNumber numberWithInt:contentsDataType]];
 }
 
@@ -855,7 +856,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return [self createSpatialReferenceSystem];
 }
 
-+(GPKGSpatialReferenceSystem *) createLambertConicConformal1SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (enum CRSType) crsType andGeoDatum: (enum CRSGeoDatumType) geoDatum andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andScaleFactor: (double) scaleFactor andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
++(GPKGSpatialReferenceSystem *) createLambertConicConformal1SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (CRSType) crsType andGeoDatum: (CRSGeoDatumType) geoDatum andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andScaleFactor: (double) scaleFactor andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
     
     NSString *definition = [GPKGDgiwgWellKnownText lambertConicConformal1SPWithEPSG:epsg andName:name andCRS:crsType andGeoDatum:geoDatum andLatitudeOfOrigin:latitudeOfOrigin andCentralMeridian:centralMeridian andScaleFactor:scaleFactor andFalseEasting:falseEasting andFalseNorthing:falseNorthing];
     NSString *description = [GPKGDgiwgWellKnownText lambertConicConformal1SPDescription];
@@ -863,7 +864,7 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return [self createLambertConicConformalWithEPSG:epsg andName:name andDefinition:definition andDescription:description];
 }
 
-+(GPKGSpatialReferenceSystem *) createLambertConicConformal2SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (enum CRSType) crsType andGeoDatum: (enum CRSGeoDatumType) geoDatum andStandardParallel1: (double) standardParallel1 andStandardParallel2: (double) standardParallel2 andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
++(GPKGSpatialReferenceSystem *) createLambertConicConformal2SPWithEPSG: (int) epsg andName: (NSString *) name andCRS: (CRSType) crsType andGeoDatum: (CRSGeoDatumType) geoDatum andStandardParallel1: (double) standardParallel1 andStandardParallel2: (double) standardParallel2 andLatitudeOfOrigin: (double) latitudeOfOrigin andCentralMeridian: (double) centralMeridian andFalseEasting: (double) falseEasting andFalseNorthing: (double) falseNorthing{
     
     NSString *definition = [GPKGDgiwgWellKnownText lambertConicConformal2SPWithEPSG:epsg andName:name andCRS:crsType andGeoDatum:geoDatum andStandardParallel1:standardParallel1 andStandardParallel2:standardParallel2 andLatitudeOfOrigin:latitudeOfOrigin andCentralMeridian:centralMeridian andFalseEasting:falseEasting andFalseNorthing:falseNorthing];
     NSString *description = [GPKGDgiwgWellKnownText lambertConicConformal2SPDescription];
@@ -916,11 +917,11 @@ static NSMutableDictionary<NSNumber *, NSMutableArray<GPKGDgiwgCoordinateReferen
     return crs;
 }
 
-+(NSArray<GPKGDgiwgCoordinateReferenceSystems *> *) coordinateReferenceSystemsForType: (enum GPKGDgiwgDataType) dataType{
++(NSArray<GPKGDgiwgCoordinateReferenceSystems *> *) coordinateReferenceSystemsForType: (GPKGDgiwgDataType) dataType{
     return [dataTypeCRS objectForKey:[NSNumber numberWithInt:dataType]];
 }
 
-+(NSArray<GPKGDgiwgCoordinateReferenceSystems *> *) coordinateReferenceSystemsForContentsType: (enum GPKGContentsDataType) dataType{
++(NSArray<GPKGDgiwgCoordinateReferenceSystems *> *) coordinateReferenceSystemsForContentsType: (GPKGContentsDataType) dataType{
     
     NSMutableArray<GPKGDgiwgCoordinateReferenceSystems *> *crss = [NSMutableArray array];
     NSMutableSet<GPKGDgiwgCoordinateReferenceSystems *> *crssSet = [NSMutableSet set];

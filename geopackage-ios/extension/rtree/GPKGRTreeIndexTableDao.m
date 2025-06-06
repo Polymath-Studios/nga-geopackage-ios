@@ -6,8 +6,8 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGRTreeIndexTableDao.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGRTreeIndexTableDao.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @interface GPKGRTreeIndexTableDao()
 

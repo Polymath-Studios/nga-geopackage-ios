@@ -6,14 +6,15 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGMediaTable.h"
+#import <GeoPackage/GPKGMediaTable.h>
+
 
 NSString * const GPKG_RMT_COLUMN_DATA = @"data";
 NSString * const GPKG_RMT_COLUMN_CONTENT_TYPE = @"content_type";
 
 @implementation GPKGMediaTable
 
-+(enum GPKGRelationType) relationType{
++(GPKGRelationType) relationType{
     return GPKG_RT_MEDIA;
 }
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMultiPolygon.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGMultiPolygon.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGMultiPolygon
 

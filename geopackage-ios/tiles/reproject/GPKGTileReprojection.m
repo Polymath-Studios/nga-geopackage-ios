@@ -6,11 +6,11 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGTileReprojection.h"
-#import "GPKGTileCreator.h"
-#import "GPKGSQLiteMaster.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGTileReprojection.h>
+#import <GeoPackage/GPKGTileCreator.h>
+#import <GeoPackage/GPKGSQLiteMaster.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @interface GPKGTileReprojection ()
 

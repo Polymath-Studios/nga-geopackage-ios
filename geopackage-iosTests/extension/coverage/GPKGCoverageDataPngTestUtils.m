@@ -7,10 +7,10 @@
 //
 
 #import "GPKGCoverageDataPngTestUtils.h"
-#import "GPKGCoverageDataPng.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
 #import "GPKGCoverageDataTestUtils.h"
+
+@import GeoPackage;
 
 @implementation GPKGCoverageDataPngTestUtils
 

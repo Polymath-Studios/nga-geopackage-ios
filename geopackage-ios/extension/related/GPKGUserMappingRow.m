@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserMappingRow.h"
+#import <GeoPackage/GPKGUserMappingRow.h>
 
 @implementation GPKGUserMappingRow
 

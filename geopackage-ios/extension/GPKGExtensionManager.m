@@ -6,19 +6,19 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGExtensionManager.h"
-#import "GPKGNGAExtensions.h"
-#import "GPKGRTreeIndexExtension.h"
-#import "GPKGRelatedTablesExtension.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGCoverageData.h"
-#import "GPKGSchemaExtension.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGCrsWktExtension.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGUserCustomTableReader.h"
-#import "GPKGAlterTable.h"
-#import "GPKGConstraintParser.h"
+#import <GeoPackage/GPKGExtensionManager.h>
+#import <GeoPackage/GPKGNGAExtensions.h>
+#import <GeoPackage/GPKGRTreeIndexExtension.h>
+#import <GeoPackage/GPKGRelatedTablesExtension.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGCoverageData.h>
+#import <GeoPackage/GPKGSchemaExtension.h>
+#import <GeoPackage/GPKGMetadataExtension.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGUserCustomTableReader.h>
+#import <GeoPackage/GPKGAlterTable.h>
+#import <GeoPackage/GPKGConstraintParser.h>
 
 @interface GPKGExtensionManager()
 

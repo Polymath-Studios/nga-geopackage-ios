@@ -8,20 +8,9 @@
 
 #import "GPKGConstraintTestCase.h"
 #import "GPKGTestUtils.h"
-#import "GPKGUtils.h"
 #import "GPKGConstraintTestResult.h"
-#import "GPKGConstraintParser.h"
-#import "GPKGDataColumns.h"
-#import "GPKGMetadataReference.h"
-#import "GPKGGriddedCoverage.h"
-#import "GPKGGriddedTile.h"
-#import "GPKGExtendedRelation.h"
-#import "GPKGGeometryIndex.h"
-#import "GPKGFeatureTileLink.h"
-#import "GPKGTileScaling.h"
-#import "GPKGContentsId.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGNGAExtensions.h"
+
+@import GeoPackage;
 
 @implementation GPKGConstraintTestCase
 

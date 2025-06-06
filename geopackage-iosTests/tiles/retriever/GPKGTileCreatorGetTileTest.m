@@ -8,12 +8,10 @@
 
 #import "GPKGTileCreatorGetTileTest.h"
 #import "GPKGTestConstants.h"
-#import "PROJProjectionConstants.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGTileCreator.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGImageConverter.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGTileCreatorGetTileTest
 

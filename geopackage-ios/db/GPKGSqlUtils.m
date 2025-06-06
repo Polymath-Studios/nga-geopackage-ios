@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGSqlUtils.h"
-#import "GPKGSqlLiteQueryBuilder.h"
-#import "GPKGUtils.h"
-#import "GPKGDateConverter.h"
-#import "GPKGSQLiteMaster.h"
-#import "GPKGAlterTable.h"
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGSqlLiteQueryBuilder.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGDateConverter.h>
+#import <GeoPackage/GPKGSQLiteMaster.h>
+#import <GeoPackage/GPKGAlterTable.h>
 
 /**
  * Pattern for matching numbers
@@ -304,7 +304,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return result;
 }
 
-+(NSObject *) querySingleResultWithDatabase: (GPKGDbConnection *) connection andSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType{
++(NSObject *) querySingleResultWithDatabase: (GPKGDbConnection *) connection andSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType{
     
     GPKGResultSet *result = [self queryWithDatabase:connection andStatement:sql andArgs:args andKnownCountInt:1];
     
@@ -320,7 +320,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return value;
 }
 
-+(NSArray<NSObject *> *) querySingleColumnResultsWithDatabase: (GPKGDbConnection *) connection andSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType andLimit: (NSNumber *) limit{
++(NSArray<NSObject *> *) querySingleColumnResultsWithDatabase: (GPKGDbConnection *) connection andSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType andLimit: (NSNumber *) limit{
     
     GPKGResultSet *result = [self queryWithDatabase:connection andStatement:sql andArgs:args];
     
@@ -350,7 +350,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
         while([result moveToNext]) {
             NSMutableArray<NSObject *> *row = [NSMutableArray array];
             for(int i = 0; i < columns; i++){
-                enum GPKGDataType dataType = -1;
+                GPKGDataType dataType = -1;
                 if(dataTypes != nil){
                     dataType = [((NSNumber *)dataTypes[i]) intValue];
                 }
@@ -372,7 +372,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return [self valueInResult:result atIndex:index withDataType:-1];
 }
 
-+(NSObject *) valueInResult: (GPKGResultSet *) result atIndex: (int) index withDataType: (enum GPKGDataType) dataType{
++(NSObject *) valueInResult: (GPKGResultSet *) result atIndex: (int) index withDataType: (GPKGDataType) dataType{
     int type = [result type:index];
     return [self valueInResult:result atIndex:index withType:type andDataType:dataType];
 }
@@ -381,7 +381,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return [self valueInResult:result atIndex:index withType:type andDataType:-1];
 }
 
-+(NSObject *) valueInResult: (GPKGResultSet *) result atIndex: (int) index withType: (int) type andDataType: (enum GPKGDataType) dataType{
++(NSObject *) valueInResult: (GPKGResultSet *) result atIndex: (int) index withType: (int) type andDataType: (GPKGDataType) dataType{
     
     NSObject *value = nil;
     
@@ -427,7 +427,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return value;
 }
 
-+(NSObject *) integerValueInResult: (GPKGResultSet *) result atIndex: (int) index withDataType: (enum GPKGDataType) dataType{
++(NSObject *) integerValueInResult: (GPKGResultSet *) result atIndex: (int) index withDataType: (GPKGDataType) dataType{
     
     NSObject *value = nil;
     
@@ -461,7 +461,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return value;
 }
 
-+(NSObject *) floatValueInResult: (GPKGResultSet *) result atIndex: (int) index withDataType: (enum GPKGDataType) dataType{
++(NSObject *) floatValueInResult: (GPKGResultSet *) result atIndex: (int) index withDataType: (GPKGDataType) dataType{
     
     NSObject *value = nil;
     
@@ -484,7 +484,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return value;
 }
  
-+(NSObject *) value: (NSObject *) value asDataType: (enum GPKGDataType) dataType{
++(NSObject *) value: (NSObject *) value asDataType: (GPKGDataType) dataType{
 
     if(value != nil && dataType >= 0){
 
@@ -931,7 +931,7 @@ static NSRegularExpression *nonWordCharacterExpression = nil;
     return [self columnDefaultValue:column.defaultValue withType:column.dataType];
 }
 
-+(NSString *) columnDefaultValue: (NSObject *) defaultValue withType: (enum GPKGDataType) dataType{
++(NSString *) columnDefaultValue: (NSObject *) defaultValue withType: (GPKGDataType) dataType{
 
     NSString *value = nil;
     

@@ -7,11 +7,9 @@
 //
 
 #import "GPKGFeatureTileTableLinkerUtils.h"
-#import "GPKGFeatureTileTableLinker.h"
 #import "GPKGTestUtils.h"
-#import "GPKGProperties.h"
-#import "GPKGExtensionManager.h"
-#import "GPKGNGAExtensions.h"
+
+@import GeoPackage;
 
 @implementation GPKGFeatureTileTableLinkerUtils
 

@@ -6,11 +6,11 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCrsWktExtension.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "GPKGAlterTable.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGCrsWktExtension.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <GeoPackage/GPKGAlterTable.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_CRS_WKT_EXTENSION_NAME = @"crs_wkt";
 NSString * const GPKG_PROP_CRS_WKT_EXTENSION_DEFINITION_V_1 = @"geopackage.extensions.crs_wkt";
@@ -60,7 +60,7 @@ NSString * const GPKG_PROP_CRS_WKT_EXTENSION_EPOCH_COLUMN_DEF = @"geopackage.ext
     return [self extensionCreateVersion:[GPKGCrsWktExtensionVersions latest]];
 }
 
--(NSArray<GPKGExtensions *> *) extensionCreateVersion: (enum GPKGCrsWktExtensionVersion) version{
+-(NSArray<GPKGExtensions *> *) extensionCreateVersion: (GPKGCrsWktExtensionVersion) version{
     
     NSMutableArray<GPKGExtensions *> *extensions = [NSMutableArray array];
     
@@ -99,7 +99,7 @@ NSString * const GPKG_PROP_CRS_WKT_EXTENSION_EPOCH_COLUMN_DEF = @"geopackage.ext
     return has;
 }
 
--(BOOL) hasMinimum: (enum GPKGCrsWktExtensionVersion) version{
+-(BOOL) hasMinimum: (GPKGCrsWktExtensionVersion) version{
     
     BOOL has = NO;
     
@@ -113,7 +113,7 @@ NSString * const GPKG_PROP_CRS_WKT_EXTENSION_EPOCH_COLUMN_DEF = @"geopackage.ext
     return has;
 }
 
--(BOOL) hasVersion: (enum GPKGCrsWktExtensionVersion) version{
+-(BOOL) hasVersion: (GPKGCrsWktExtensionVersion) version{
     
     NSString *name = [self extensionName:version];
     
@@ -147,7 +147,7 @@ NSString * const GPKG_PROP_CRS_WKT_EXTENSION_EPOCH_COLUMN_DEF = @"geopackage.ext
     return exists;
 }
 
--(NSString *) extensionName: (enum GPKGCrsWktExtensionVersion) version{
+-(NSString *) extensionName: (GPKGCrsWktExtensionVersion) version{
     return [NSString stringWithFormat:@"%@%@", self.extensionName, [GPKGCrsWktExtensionVersions suffix:version]];
 }
 
@@ -215,7 +215,7 @@ NSString * const GPKG_PROP_CRS_WKT_EXTENSION_EPOCH_COLUMN_DEF = @"geopackage.ext
     
 }
 
--(void) removeExtension: (enum GPKGCrsWktExtensionVersion) version{
+-(void) removeExtension: (GPKGCrsWktExtensionVersion) version{
     
     if([self.extensionsDao tableExists]){
         NSString *name = [self extensionName:version];

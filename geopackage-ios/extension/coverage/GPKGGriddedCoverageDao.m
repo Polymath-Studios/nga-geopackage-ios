@@ -6,9 +6,9 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGGriddedCoverageDao.h"
-#import "GPKGTileMatrixSetDao.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGGriddedCoverageDao.h>
+#import <GeoPackage/GPKGTileMatrixSetDao.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGGriddedCoverageDao
 

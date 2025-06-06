@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileMatrixDao.h"
-#import "GPKGContentsDao.h"
-#import "GPKGTileMatrixSetDao.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGTileMatrixDao.h>
+#import <GeoPackage/GPKGContentsDao.h>
+#import <GeoPackage/GPKGTileMatrixSetDao.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGTileMatrixDao
 

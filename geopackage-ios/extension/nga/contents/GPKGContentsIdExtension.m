@@ -6,10 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGContentsIdExtension.h"
-#import "GPKGProperties.h"
-#import "GPKGNGAExtensions.h"
-#import "GPKGContentsIdTableCreator.h"
+#import <GeoPackage/GPKGContentsIdExtension.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGNGAExtensions.h>
+#import <GeoPackage/GPKGContentsIdTableCreator.h>
 
 NSString * const GPKG_EXTENSION_CONTENTS_ID_NAME_NO_AUTHOR = @"contents_id";
 NSString * const GPKG_PROP_EXTENSION_CONTENTS_ID_DEFINITION = @"geopackage.extensions.contents_id";
@@ -144,7 +144,7 @@ NSString * const GPKG_PROP_EXTENSION_CONTENTS_ID_DEFINITION = @"geopackage.exten
     return [self createIdsForTypeName:nil];
 }
 
--(int) createIdsForType: (enum GPKGContentsDataType) type{
+-(int) createIdsForType: (GPKGContentsDataType) type{
     return [self createIdsForTypeName:[GPKGContentsDataTypes name:type]];
 }
 
@@ -169,7 +169,7 @@ NSString * const GPKG_PROP_EXTENSION_CONTENTS_ID_DEFINITION = @"geopackage.exten
     return deleted;
 }
 
--(int) deleteIdsForType: (enum GPKGContentsDataType) type{
+-(int) deleteIdsForType: (GPKGContentsDataType) type{
     return [self deleteIdsForTypeName:[GPKGContentsDataTypes name:type]];
 }
 
@@ -207,7 +207,7 @@ NSString * const GPKG_PROP_EXTENSION_CONTENTS_ID_DEFINITION = @"geopackage.exten
     return count;
 }
 
--(GPKGResultSet *) idsForType: (enum GPKGContentsDataType) type{
+-(GPKGResultSet *) idsForType: (GPKGContentsDataType) type{
     return [self idsForTypeName:[GPKGContentsDataTypes name:type]];
 }
 
@@ -229,7 +229,7 @@ NSString * const GPKG_PROP_EXTENSION_CONTENTS_ID_DEFINITION = @"geopackage.exten
     return [self missingForTypeName:nil];
 }
 
--(NSArray<NSString *> *) missingForType: (enum GPKGContentsDataType) type{
+-(NSArray<NSString *> *) missingForType: (GPKGContentsDataType) type{
     return [self missingForTypeName:[GPKGContentsDataTypes name:type]];
 }
 

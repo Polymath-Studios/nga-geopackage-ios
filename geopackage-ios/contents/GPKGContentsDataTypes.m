@@ -6,10 +6,10 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGContentsDataTypes.h"
-#import "GPKGUtils.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGContentsDataTypes.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 NSString * const GPKG_CDT_FEATURES_NAME = @"features";
 NSString * const GPKG_CDT_TILES_NAME = @"tiles";
@@ -32,7 +32,7 @@ static NSMutableDictionary<NSString *, NSNumber *> *types = nil;
     }
 }
 
-+(NSString *) name: (enum GPKGContentsDataType) contentsDataType{
++(NSString *) name: (GPKGContentsDataType) contentsDataType{
     NSString *name = nil;
     
     switch(contentsDataType){
@@ -50,9 +50,9 @@ static NSMutableDictionary<NSString *, NSNumber *> *types = nil;
     return name;
 }
 
-+(enum GPKGContentsDataType) fromName: (NSString *) name{
++(GPKGContentsDataType) fromName: (NSString *) name{
     
-    enum GPKGContentsDataType dataType = -1;
+    GPKGContentsDataType dataType = -1;
     
     if(name != nil){
         
@@ -89,8 +89,8 @@ static NSMutableDictionary<NSString *, NSNumber *> *types = nil;
     return [self fromName:name] != -1;
 }
 
-+(enum GPKGContentsDataType) fromCoreName: (NSString *) name{
-    enum GPKGContentsDataType dataType = -1;
++(GPKGContentsDataType) fromCoreName: (NSString *) name{
+    GPKGContentsDataType dataType = -1;
     if([self isCoreType:name]){
         dataType = [[types objectForKey:[name lowercaseString]] intValue];
     }
@@ -105,7 +105,7 @@ static NSMutableDictionary<NSString *, NSNumber *> *types = nil;
     return coreType;
 }
 
-+(void) setName: (NSString *) name asType: (enum GPKGContentsDataType) type{
++(void) setName: (NSString *) name asType: (GPKGContentsDataType) type{
     
     if (name != nil) {
 
@@ -131,13 +131,13 @@ static NSMutableDictionary<NSString *, NSNumber *> *types = nil;
     
 }
 
-+(BOOL) isName: (NSString *) name ofType: (enum GPKGContentsDataType) type{
++(BOOL) isName: (NSString *) name ofType: (GPKGContentsDataType) type{
     return [self isName:name ofType:type andMatchUnknown:NO];
 }
 
-+(BOOL) isName: (NSString *) name ofType: (enum GPKGContentsDataType) type andMatchUnknown: (BOOL) matchUnknown{
++(BOOL) isName: (NSString *) name ofType: (GPKGContentsDataType) type andMatchUnknown: (BOOL) matchUnknown{
     BOOL isType;
-    enum GPKGContentsDataType dataType = [self fromName:name];
+    GPKGContentsDataType dataType = [self fromName:name];
     if(dataType != -1){
         isType = dataType == type;
     }else{

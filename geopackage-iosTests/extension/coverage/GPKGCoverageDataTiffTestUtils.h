@@ -6,9 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataAlgorithms.h"
 #import "GPKGCoverageDataValues.h"
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGCoverageDataTiffTestUtils : NSObject
 

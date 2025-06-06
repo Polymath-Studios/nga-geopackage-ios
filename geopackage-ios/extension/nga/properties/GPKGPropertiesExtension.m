@@ -6,10 +6,10 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGPropertiesExtension.h"
-#import "GPKGProperties.h"
-#import "GPKGNGAExtensions.h"
-#import "GPKGUniqueConstraint.h"
+#import <GeoPackage/GPKGPropertiesExtension.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGNGAExtensions.h>
+#import <GeoPackage/GPKGUniqueConstraint.h>
 
 NSString * const GPKG_EXTENSION_PROPERTIES_NAME_NO_AUTHOR = @"properties";
 NSString * const GPKG_PROP_EXTENSION_PROPERTIES_DEFINITION = @"geopackage.extensions.properties";

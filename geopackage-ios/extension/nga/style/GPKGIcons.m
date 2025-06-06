@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGIcons.h"
-#import "SFGeometryUtils.h"
+#import <GeoPackage/GPKGIcons.h>
+#import <SimpleFeatures/SimpleFeatures.h>
 
 @interface GPKGIcons ()
 
@@ -42,15 +42,15 @@
     [self setIcon:iconRow forGeometryType:SF_NONE];
 }
 
--(void) setIcon: (GPKGIconRow *) iconRow forGeometryType: (enum SFGeometryType) geometryType{
+-(void) setIcon: (GPKGIconRow *) iconRow forGeometryType: (SFGeometryType) geometryType{
     if (iconRow != nil) {
         [iconRow setTableIcon:self.tableIcons];
     }
     if (geometryType != SF_NONE && geometryType >= 0) {
         if (iconRow != nil) {
-            [self.icons setObject:iconRow forKey:[NSNumber numberWithInt:geometryType]];
+            [self.icons setObject:iconRow forKey:[NSNumber numberWithInteger:geometryType]];
         } else {
-            [self.icons removeObjectForKey:[NSNumber numberWithInt:geometryType]];
+            [self.icons removeObjectForKey:[NSNumber numberWithInteger:geometryType]];
         }
     } else {
         self.defaultIconRow = iconRow;
@@ -69,12 +69,12 @@
     return [self iconForGeometryType:SF_NONE];
 }
 
--(GPKGIconRow *) iconForGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGIconRow *) iconForGeometryType: (SFGeometryType) geometryType{
 
     GPKGIconRow *iconRow = nil;
     
     if (geometryType != SF_NONE && geometryType >= 0 && self.icons.count > 0) {
-        iconRow = [self.icons objectForKey:[NSNumber numberWithInt:geometryType]];
+        iconRow = [self.icons objectForKey:[NSNumber numberWithInteger:geometryType]];
         if(iconRow == nil){
             NSArray<NSNumber *> *geometryTypes = [SFGeometryUtils parentHierarchyOfType:geometryType];
             for(NSNumber *geometryTypeNumber in geometryTypes){

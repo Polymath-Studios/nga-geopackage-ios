@@ -6,8 +6,8 @@
 //
 //
 
-#import "GPKGSqlLiteQueryBuilder.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGSqlLiteQueryBuilder.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @implementation GPKGSqlLiteQueryBuilder
 

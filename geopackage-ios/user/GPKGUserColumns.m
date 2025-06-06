@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGUserColumns.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGUserColumns.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @interface GPKGUserColumns()
 
@@ -153,8 +153,8 @@
     }
 }
 
--(void) typeCheckWithExpected: (enum GPKGDataType) expected andColumn: (GPKGUserColumn *) column{
-    enum GPKGDataType actual = column.dataType;
+-(void) typeCheckWithExpected: (GPKGDataType) expected andColumn: (GPKGUserColumn *) column{
+    GPKGDataType actual = column.dataType;
     if(actual != expected){
         NSLog(@"Unexpected %@ column data type was found for table '%@', expected: %@, actual: %@", column.name, self.tableName, [GPKGDataTypes name:expected], column.type);
     }
@@ -257,7 +257,7 @@
     return name;
 }
 
--(NSArray *) columnsOfType: (enum GPKGDataType) type{
+-(NSArray *) columnsOfType: (GPKGDataType) type{
     NSMutableArray *columnsOfType = [NSMutableArray array];
     for(GPKGUserColumn *column in self.columns){
         if(column.dataType == type){

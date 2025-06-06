@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGTableColumn.h"
+#import <GeoPackage/GPKGTableColumn.h>
 
 @interface GPKGTableColumn()
 
@@ -28,7 +28,7 @@
 /**
  * Column data type
  */
-@property (nonatomic) enum GPKGDataType dataType;
+@property (nonatomic) GPKGDataType dataType;
 
 /**
  * Column max value
@@ -59,7 +59,7 @@
 
 @implementation GPKGTableColumn
 
--(instancetype) initWithIndex: (int) index andName: (NSString *) name andType: (NSString *) type andDataType: (enum GPKGDataType) dataType andMax: (NSNumber *) max andNotNull: (BOOL) notNull andDefaultValueString: (NSString *) defaultValueString andDefaultValue: (NSObject *) defaultValue andPrimaryKey: (BOOL) primaryKey{
+-(instancetype) initWithIndex: (int) index andName: (NSString *) name andType: (NSString *) type andDataType: (GPKGDataType) dataType andMax: (NSNumber *) max andNotNull: (BOOL) notNull andDefaultValueString: (NSString *) defaultValueString andDefaultValue: (NSObject *) defaultValue andPrimaryKey: (BOOL) primaryKey{
     self = [super self];
     if(self != nil){
         self.index = index;
@@ -87,11 +87,11 @@
     return _type;
 }
 
--(enum GPKGDataType) dataType{
+-(GPKGDataType) dataType{
     return _dataType;
 }
 
--(BOOL) isDataType: (enum GPKGDataType) dataType{
+-(BOOL) isDataType: (GPKGDataType) dataType{
     return _dataType == dataType;
 }
 

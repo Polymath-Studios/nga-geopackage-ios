@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileTable.h"
-#import "GPKGUtils.h"
-#import "GPKGContentsDataTypes.h"
-#import "GPKGUniqueConstraint.h"
+#import <GeoPackage/GPKGTileTable.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
+#import <GeoPackage/GPKGUniqueConstraint.h>
 
 @implementation GPKGTileTable
 

@@ -8,12 +8,10 @@
 
 #import "GPKGFeatureTileGeneratorTest.h"
 #import "GPKGFeatureTileUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGFeatureTileGenerator.h"
-#import "PROJProjectionFactory.h"
 #import "GPKGTestUtils.h"
-#import "GPKGNumberFeaturesTile.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGFeatureTileGeneratorTest
 

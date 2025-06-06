@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMapShapeTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGMapShapeTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_MST_POINT_NAME = @"POINT";
 NSString * const GPKG_MST_POLYLINE_NAME = @"POLYLINE";
@@ -23,7 +23,7 @@ NSString * const GPKG_MST_COLLECTION_NAME = @"COLLECTION";
 
 @implementation GPKGMapShapeTypes
 
-+(NSString *) name: (enum GPKGMapShapeType) shapeType{
++(NSString *) name: (GPKGMapShapeType) shapeType{
     NSString *name = nil;
     
     switch(shapeType){
@@ -65,8 +65,8 @@ NSString * const GPKG_MST_COLLECTION_NAME = @"COLLECTION";
     return name;
 }
 
-+(enum GPKGMapShapeType) fromName: (NSString *) name{
-    enum GPKGMapShapeType value = -1;
++(GPKGMapShapeType) fromName: (NSString *) name{
+    GPKGMapShapeType value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -86,7 +86,7 @@ NSString * const GPKG_MST_COLLECTION_NAME = @"COLLECTION";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGMapShapeType)[enumValue intValue];
+            value = (GPKGMapShapeType)[enumValue intValue];
         }
     }
     

@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageManager.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGIOUtils.h"
-#import "GPKGGeoPackageValidate.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "SFByteReader.h"
-#import "GPKGSessionTaskData.h"
+#import <GeoPackage/GPKGGeoPackageManager.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGIOUtils.h>
+#import <GeoPackage/GPKGGeoPackageValidate.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <SimpleFeatures/SimpleFeatures.h>
+#import <GeoPackage/GPKGSessionTaskData.h>
 #import <objc/runtime.h>
 
 @implementation GPKGGeoPackageManager

@@ -6,17 +6,16 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTiles.h"
-#import "GPKGImageConverter.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGMapShapeConverter.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGFeatureTileContext.h"
-#import "GPKGTileUtils.h"
-#import "SFPProjectionGeometryUtils.h"
+#import <GeoPackage/GPKGFeatureTiles.h>
+#import <GeoPackage/GPKGImageConverter.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <GeoPackage/GPKGMapShapeConverter.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGFeatureTileContext.h>
+#import <GeoPackage/GPKGTileUtils.h>
+#import <Projections/Projections.h>
+#import <SimpleFeaturesProjections/SimpleFeaturesProjections.h>
 
 @interface GPKGFeatureTiles ()
 
@@ -702,8 +701,8 @@
     
     BOOL drawn = NO;
     
-    enum GPKGMapShapeType shapeType = shape.shapeType;
-    enum SFGeometryType geometryType = shape.geometryType;
+    GPKGMapShapeType shapeType = shape.shapeType;
+    SFGeometryType geometryType = shape.geometryType;
     GPKGFeatureStyle *featureStyle = [self featureStyleForFeature:featureRow andGeometryType:geometryType];
     
     NSObject *shapeObject = shape.shape;
@@ -1029,7 +1028,7 @@
  * @param geometryType geometry type
  * @return feature style
  */
--(GPKGFeatureStyle *) featureStyleForFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGFeatureStyle *) featureStyleForFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     GPKGFeatureStyle *featureStyle = nil;
     if (self.featureTableStyles != nil) {
         featureStyle = [self.featureTableStyles featureStyleWithFeature:featureRow andGeometryType:geometryType];

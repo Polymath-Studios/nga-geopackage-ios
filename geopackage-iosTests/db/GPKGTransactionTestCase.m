@@ -8,7 +8,7 @@
 
 #import "GPKGTransactionTestCase.h"
 #import "GPKGTestUtils.h"
-#import "GPKGSQLiteMaster.h"
+#import <GeoPackage/GeoPackage.h>
 
 @implementation GPKGTransactionTestCase
 

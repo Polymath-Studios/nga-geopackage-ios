@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGMapShapePoints.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGMapShapePoints.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGMapShapePoints
 

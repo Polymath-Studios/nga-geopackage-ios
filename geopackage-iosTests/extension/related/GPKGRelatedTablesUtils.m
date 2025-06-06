@@ -7,11 +7,7 @@
 //
 
 #import "GPKGRelatedTablesUtils.h"
-#import "GPKGUtils.h"
-#import "GPKGSimpleAttributesTable.h"
 #import "GPKGTestUtils.h"
-#import "GPKGDateConverter.h"
-#import "GPKGDublinCoreMetadata.h"
 
 @implementation GPKGRelatedTablesUtils
 

@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGTileReprojectionZoom.h"
+#import <GeoPackage/GPKGTileReprojectionZoom.h>
 
 @interface GPKGTileReprojectionZoom ()
 

@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgFile.h"
+#import <GeoPackage/GPKGDgiwgFile.h>
 
 @implementation GPKGDgiwgFile
 

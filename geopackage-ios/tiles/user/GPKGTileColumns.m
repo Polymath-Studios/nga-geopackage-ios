@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGTileColumns.h"
+#import <GeoPackage/GPKGTileColumns.h>
 
 NSString * const GPKG_TC_COLUMN_ID = @"id";
 NSString * const GPKG_TC_COLUMN_ZOOM_LEVEL = @"zoom_level";

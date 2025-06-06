@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGTileScaling.h"
+#import <GeoPackage/GPKGTileScaling.h>
 
 NSString * const GPKG_TS_TABLE_NAME = @"nga_tile_scaling";
 NSString * const GPKG_TS_COLUMN_PK = @"table_name";
@@ -22,7 +22,7 @@ NSString * const GPKG_TS_COLUMN_ZOOM_OUT = @"zoom_out";
     return self;
 }
 
--(instancetype) initWithTileMatrixSet: (GPKGTileMatrixSet *) tileMatrixSet andScalingType: (enum GPKGTileScalingType) scalingType andZoomIn: (NSNumber *) zoomIn andZoomOut: (NSNumber *) zoomOut{
+-(instancetype) initWithTileMatrixSet: (GPKGTileMatrixSet *) tileMatrixSet andScalingType: (GPKGTileScalingType) scalingType andZoomIn: (NSNumber *) zoomIn andZoomOut: (NSNumber *) zoomOut{
     self = [super init];
     if(self != nil){
         [self setTileMatrixSet:tileMatrixSet];
@@ -33,7 +33,7 @@ NSString * const GPKG_TS_COLUMN_ZOOM_OUT = @"zoom_out";
     return self;
 }
 
--(instancetype) initWithTableName: (NSString *) tableName andScalingType: (enum GPKGTileScalingType) scalingType andZoomIn: (NSNumber *) zoomIn andZoomOut: (NSNumber *) zoomOut{
+-(instancetype) initWithTableName: (NSString *) tableName andScalingType: (GPKGTileScalingType) scalingType andZoomIn: (NSNumber *) zoomIn andZoomOut: (NSNumber *) zoomOut{
     self = [super init];
     if(self != nil){
         self.tableName = tableName;
@@ -44,7 +44,7 @@ NSString * const GPKG_TS_COLUMN_ZOOM_OUT = @"zoom_out";
     return self;
 }
 
--(instancetype) initWithScalingType: (enum GPKGTileScalingType) scalingType andZoomIn: (NSNumber *) zoomIn andZoomOut: (NSNumber *) zoomOut{
+-(instancetype) initWithScalingType: (GPKGTileScalingType) scalingType andZoomIn: (NSNumber *) zoomIn andZoomOut: (NSNumber *) zoomOut{
     self = [super init];
     if(self != nil){
         [self setTileScalingType:scalingType];
@@ -58,8 +58,8 @@ NSString * const GPKG_TS_COLUMN_ZOOM_OUT = @"zoom_out";
     [self setTableName:tileMatrixSet != nil ? tileMatrixSet.tableName : nil];
 }
 
--(enum GPKGTileScalingType) tileScalingType{
-    enum GPKGTileScalingType value = -1;
+-(GPKGTileScalingType) tileScalingType{
+    GPKGTileScalingType value = -1;
     
     if(self.scalingType != nil){
         value = [GPKGTileScalingTypes fromName:self.scalingType];
@@ -68,7 +68,7 @@ NSString * const GPKG_TS_COLUMN_ZOOM_OUT = @"zoom_out";
     return value;
 }
 
--(void) setTileScalingType: (enum GPKGTileScalingType) scalingType{
+-(void) setTileScalingType: (GPKGTileScalingType) scalingType{
     self.scalingType = [GPKGTileScalingTypes name:scalingType];
 }
 

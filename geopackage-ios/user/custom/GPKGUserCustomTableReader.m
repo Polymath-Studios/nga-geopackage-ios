@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGUserCustomTableReader.h"
+#import <GeoPackage/GPKGUserCustomTableReader.h>
 
 @implementation GPKGUserCustomTableReader
 

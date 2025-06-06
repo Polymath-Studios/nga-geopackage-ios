@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGSchemaExtension.h"
-#import "GPKGProperties.h"
+#import <GeoPackage/GPKGSchemaExtension.h>
+#import <GeoPackage/GPKGProperties.h>
 
 NSString * const GPKG_SCHEMA_EXTENSION_NAME = @"schema";
 NSString * const GPKG_PROP_SCHEMA_EXTENSION_DEFINITION = @"geopackage.extensions.schema";

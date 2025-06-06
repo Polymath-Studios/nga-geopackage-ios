@@ -6,9 +6,9 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGRelationTypes.h"
-#import "GPKGUtils.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGRelationTypes.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 NSString * const GPKG_RT_FEATURES_NAME = @"features";
 NSString * const GPKG_RT_SIMPLE_ATTRIBUTES_NAME = @"simple_attributes";
@@ -18,7 +18,7 @@ NSString * const GPKG_RT_TILES_NAME = @"tiles";
 
 @implementation GPKGRelationTypes
 
-+(NSString *) name: (enum GPKGRelationType) relationType{
++(NSString *) name: (GPKGRelationType) relationType{
     NSString *name = nil;
     
     switch(relationType){
@@ -42,8 +42,8 @@ NSString * const GPKG_RT_TILES_NAME = @"tiles";
     return name;
 }
 
-+(enum GPKGRelationType) fromName: (NSString *) name{
-    enum GPKGRelationType value = -1;
++(GPKGRelationType) fromName: (NSString *) name{
+    GPKGRelationType value = -1;
     
     if(name != nil){
         name = [name lowercaseString];
@@ -57,14 +57,14 @@ NSString * const GPKG_RT_TILES_NAME = @"tiles";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGRelationType)[enumValue intValue];
+            value = (GPKGRelationType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
-+(NSString *) dataType: (enum GPKGRelationType) relationType{
++(NSString *) dataType: (GPKGRelationType) relationType{
     NSString *dataType = nil;
     
     switch(relationType){

@@ -8,7 +8,6 @@
 
 #import "GPKGRelatedAttributesUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGRelatedTablesExtension.h"
 #import "GPKGRelatedTablesUtils.h"
 
 @implementation GPKGRelatedAttributesUtils

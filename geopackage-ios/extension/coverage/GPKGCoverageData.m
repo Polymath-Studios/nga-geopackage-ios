@@ -6,15 +6,16 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageData.h"
-#import "GPKGProperties.h"
-#import "GPKGCoverageDataAlgorithms.h"
-#import "GPKGCoverageDataSourcePixel.h"
-#import "GPKGCoverageDataTileMatrixResults.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGUtils.h"
-#import "GPKGCoverageDataPng.h"
-#import "GPKGCoverageDataTiff.h"
+#import <GeoPackage/GPKGCoverageData.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGCoverageDataAlgorithms.h>
+#import <GeoPackage/GPKGCoverageDataSourcePixel.h>
+#import <GeoPackage/GPKGCoverageDataTileMatrixResults.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGCoverageDataPng.h>
+#import <GeoPackage/GPKGCoverageDataTiff.h>
+#import <GeoPackage/GPKGRelationTypes.h>
 
 NSString * const GPKG_CD_GRIDDED_COVERAGE = @"2d-gridded-coverage";
 NSString * const GPKG_GRIDDED_COVERAGE_EXTENSION_NAME = @"2d_gridded_coverage";
@@ -80,7 +81,7 @@ NSString * const GPKG_PROP_GRIDDED_COVERAGE_EXTENSION_DEFINITION = @"geopackage.
     
     GPKGCoverageData *coverageData = nil;
     
-    enum GPKGGriddedCoverageDataType dataType = [griddedCoverage griddedCoverageDataType];
+    GPKGGriddedCoverageDataType dataType = [griddedCoverage griddedCoverageDataType];
     switch (dataType) {
         case GPKG_GCDT_INTEGER:
             coverageData = [[GPKGCoverageDataPng alloc] initWithGeoPackage:geoPackage andTileDao:tileDao andWidth:width andHeight:height andProjection:requestProjection];
@@ -103,7 +104,7 @@ NSString * const GPKG_PROP_GRIDDED_COVERAGE_EXTENSION_DEFINITION = @"geopackage.
     return [self coverageDataWithGeoPackage:geoPackage andTileDao:tileDao andWidth:nil andHeight:nil andProjection:requestProjection];
 }
 
-+(GPKGCoverageData *) createTileTableWithGeoPackage: (GPKGGeoPackage *) geoPackage andMetadata: (GPKGTileTableMetadata *) metadata andDataType: (enum GPKGGriddedCoverageDataType) dataType{
++(GPKGCoverageData *) createTileTableWithGeoPackage: (GPKGGeoPackage *) geoPackage andMetadata: (GPKGTileTableMetadata *) metadata andDataType: (GPKGGriddedCoverageDataType) dataType{
     
     GPKGTileTable *tileTable = [GPKGCoverageData createTileTableWithGeoPackage:geoPackage andMetadata:metadata];
     GPKGTileDao *tileDao = [geoPackage tileDaoWithTable:tileTable];
@@ -580,7 +581,7 @@ NSString * const GPKG_PROP_GRIDDED_COVERAGE_EXTENSION_DEFINITION = @"geopackage.
  *            pixel encoding type
  * @return encoded x location
  */
--(float) encodedLocationWithX: (float) x andEncoding: (enum GPKGGriddedCoverageEncodingType) encodingType{
+-(float) encodedLocationWithX: (float) x andEncoding: (GPKGGriddedCoverageEncodingType) encodingType{
     
     float xLocation = x;
     
@@ -607,7 +608,7 @@ NSString * const GPKG_PROP_GRIDDED_COVERAGE_EXTENSION_DEFINITION = @"geopackage.
  *            pixel encoding type
  * @return encoded y location
  */
--(float) encodedLocationWithY: (float) y andEncoding: (enum GPKGGriddedCoverageEncodingType) encodingType{
+-(float) encodedLocationWithY: (float) y andEncoding: (GPKGGriddedCoverageEncodingType) encodingType{
     
     float yLocation = y;
     

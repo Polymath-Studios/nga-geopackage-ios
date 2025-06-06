@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGConnectionFunction.h"
+#import <GeoPackage/GPKGConnectionFunction.h>
 
 @interface GPKGConnectionFunction()
 

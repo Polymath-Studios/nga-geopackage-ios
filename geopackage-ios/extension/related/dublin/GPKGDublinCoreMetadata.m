@@ -6,11 +6,11 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGDublinCoreMetadata.h"
+#import <GeoPackage/GPKGDublinCoreMetadata.h>
 
 @implementation GPKGDublinCoreMetadata
 
-+(BOOL) hasColumn: (enum GPKGDublinCoreType) type inTable: (GPKGUserTable *) table{
++(BOOL) hasColumn: (GPKGDublinCoreType) type inTable: (GPKGUserTable *) table{
     
     BOOL hasColumn = [table hasColumnWithColumnName:[GPKGDublinCoreTypes name:type]];
     
@@ -26,11 +26,11 @@
     return hasColumn;
 }
 
-+(BOOL) hasColumn: (enum GPKGDublinCoreType) type inRow: (GPKGUserRow *) row{
++(BOOL) hasColumn: (GPKGDublinCoreType) type inRow: (GPKGUserRow *) row{
     return [self hasColumn:type inTable:row.table];
 }
 
-+(GPKGUserColumn *) column: (enum GPKGDublinCoreType) type fromTable: (GPKGUserTable *) table{
++(GPKGUserColumn *) column: (GPKGDublinCoreType) type fromTable: (GPKGUserTable *) table{
     
     GPKGUserColumn *column = nil;
     
@@ -49,11 +49,11 @@
     return column;
 }
 
-+(GPKGUserColumn *) column: (enum GPKGDublinCoreType) type fromRow: (GPKGUserRow *) row{
++(GPKGUserColumn *) column: (GPKGDublinCoreType) type fromRow: (GPKGUserRow *) row{
     return [self column:type fromTable:row.table];
 }
 
-+(NSObject *) value: (enum GPKGDublinCoreType) type fromRow: (GPKGUserRow *) row{
++(NSObject *) value: (GPKGDublinCoreType) type fromRow: (GPKGUserRow *) row{
     
     GPKGUserColumn *column = [self column:type fromRow:row];
     
@@ -62,7 +62,7 @@
     return value;
 }
 
-+(void) setValue: (NSObject *) value asColumn: (enum GPKGDublinCoreType) type inRow: (GPKGUserRow *) row{
++(void) setValue: (NSObject *) value asColumn: (GPKGDublinCoreType) type inRow: (GPKGUserRow *) row{
     
     GPKGUserColumn *column = [self column:type fromRow:row];
     

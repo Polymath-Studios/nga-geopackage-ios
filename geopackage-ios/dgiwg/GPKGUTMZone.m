@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGUTMZone.h"
+#import <GeoPackage/GPKGUTMZone.h>
 
 NSInteger const GPKG_UTM_NORTH_MIN = 32601;
 NSInteger const GPKG_UTM_NORTH_MAX = 32660;

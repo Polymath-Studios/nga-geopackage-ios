@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGPropertyNames.h"
+#import <GeoPackage/GPKGPropertyNames.h>
 
 NSString * const GPKG_PE_CONTRIBUTOR = @"contributor";
 NSString * const GPKG_PE_COVERAGE = @"coverage";

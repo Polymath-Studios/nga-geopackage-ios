@@ -6,9 +6,9 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGTileCreator.h"
-#import "GPKGImageConverter.h"
-#import "GPKGTileBoundingBoxUtils.h"
+#import <GeoPackage/GPKGTileCreator.h>
+#import <GeoPackage/GPKGImageConverter.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
 
 @interface GPKGTileCreator ()
 
@@ -472,7 +472,7 @@
                     zoomLevels = zoomInLevels;
                 } else {
                     // Determine how to order the zoom in and zoom out levels
-                    enum GPKGTileScalingType type = [self.scaling tileScalingType];
+                    GPKGTileScalingType type = [self.scaling tileScalingType];
                     switch (type) {
                         case GPKG_TSC_IN:
                         case GPKG_TSC_IN_OUT:

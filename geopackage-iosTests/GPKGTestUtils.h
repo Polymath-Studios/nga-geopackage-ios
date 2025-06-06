@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 extern NSString * const GPKG_GEOPACKAGE_TEST_SAMPLE_RANGE_CONSTRAINT;
 extern NSString * const GPKG_GEOPACKAGE_TEST_SAMPLE_ENUM_CONSTRAINT;
@@ -30,6 +30,8 @@ extern NSString * const GPKG_GEOPACKAGE_TEST_INTEGER_COLUMN;
 +(void)assertEqualBoolWithValue:(BOOL) value andValue2: (BOOL) value2;
 
 +(void)assertEqualIntWithValue:(int) value andValue2: (int) value2;
+
++(void)assertEqualIntegerWithValue:(NSInteger) value andValue2: (NSInteger) value2;
 
 +(void)assertEqualUnsignedIntWithValue:(unsigned int) value andValue2: (unsigned int) value2;
 

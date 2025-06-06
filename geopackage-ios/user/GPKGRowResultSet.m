@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGRowResultSet.h"
+#import <GeoPackage/GPKGRowResultSet.h>
 
 @interface GPKGRowResultSet ()
 

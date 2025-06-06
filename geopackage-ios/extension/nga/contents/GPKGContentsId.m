@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGContentsId.h"
+#import <GeoPackage/GPKGContentsId.h>
 
 NSString * const GPKG_CI_TABLE_NAME = @"nga_contents_id";
 NSString * const GPKG_CI_COLUMN_PK = @"id";

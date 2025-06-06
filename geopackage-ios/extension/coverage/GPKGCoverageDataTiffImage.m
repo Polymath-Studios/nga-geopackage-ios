@@ -6,10 +6,9 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataTiffImage.h"
-#import "GPKGCoverageDataTiff.h"
-#import "TIFFReader.h"
-#import "TIFFWriter.h"
+#import <GeoPackage/GPKGCoverageDataTiffImage.h>
+#import <GeoPackage/GPKGCoverageDataTiff.h>
+#import <TIFF/TIFF.h>
 
 @interface GPKGCoverageDataTiffImage ()
 

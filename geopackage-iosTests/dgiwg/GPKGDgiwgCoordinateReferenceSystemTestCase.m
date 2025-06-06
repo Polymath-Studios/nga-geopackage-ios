@@ -8,15 +8,11 @@
 
 #import "GPKGDgiwgCoordinateReferenceSystemTestCase.h"
 #import "GPKGTestUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGDgiwgCoordinateReferenceSystems.h"
-#import "GPKGUTMZone.h"
-#import "CRSWriter.h"
-#import "PROJProjectionFactory.h"
-#import "CRSReader.h"
-#import "PROJProjectionConstants.h"
-#import "CRSPrimeMeridians.h"
-#import "GPKGDgiwgWellKnownText.h"
+
+@import CoordinateReferenceSystems;
+@import Projections;
+@import GeoPackage;
+
 
 @implementation GPKGDgiwgCoordinateReferenceSystemTestCase
 

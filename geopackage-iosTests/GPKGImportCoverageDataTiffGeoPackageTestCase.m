@@ -7,8 +7,10 @@
 //
 
 #import "GPKGImportCoverageDataTiffGeoPackageTestCase.h"
-#import "GPKGGeoPackageFactory.h"
 #import "GPKGTestConstants.h"
+#import "GPKGBundleHelper.h"
+
+@import GeoPackage;
 
 @implementation GPKGImportCoverageDataTiffGeoPackageTestCase
 
@@ -19,7 +21,7 @@
     // Delete
     [manager delete:GPKG_TEST_IMPORT_COVERAGE_DATA_TIFF_DB_NAME];
     
-    NSString *filePath  = [[[NSBundle bundleForClass:[GPKGImportCoverageDataTiffGeoPackageTestCase class]] resourcePath] stringByAppendingPathComponent:GPKG_TEST_IMPORT_COVERAGE_DATA_TIFF_DB_FILE_NAME];
+    NSString *filePath = [GPKGBundleHelper pathForResource:GPKG_TEST_IMPORT_COVERAGE_DATA_TIFF_DB_FILE_NAME];
     
     // Import
     [manager importGeoPackageFromPath:filePath withName:GPKG_TEST_IMPORT_COVERAGE_DATA_TIFF_DB_NAME];

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGResultSet.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGResultSet.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @interface GPKGResultSet ()
 

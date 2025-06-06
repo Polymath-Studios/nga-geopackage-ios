@@ -9,7 +9,8 @@
 #import "GPKGAlterTableCreateTestCase.h"
 #import "GPKGAlterTableUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGAlterTable.h"
+
+@import GeoPackage;
 
 @implementation GPKGAlterTableCreateTestCase
 

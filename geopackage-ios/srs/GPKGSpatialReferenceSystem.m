@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGSpatialReferenceSystem.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGGeoPackageConstants.h"
+#import <GeoPackage/GPKGSpatialReferenceSystem.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <Projections/Projections.h>
 
 NSString * const GPKG_SRS_TABLE_NAME = @"gpkg_spatial_ref_sys";
 NSString * const GPKG_SRS_COLUMN_PK = @"srs_id";

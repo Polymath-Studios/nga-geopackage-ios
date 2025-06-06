@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGUserColumn.h"
-#import "GPKGRawConstraint.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGUserColumn.h>
+#import <GeoPackage/GPKGRawConstraint.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @interface GPKGUserColumn()
 
@@ -23,7 +23,7 @@
 
 -(instancetype) initWithIndex: (int) index
                       andName: (NSString *) name
-                  andDataType: (enum GPKGDataType) dataType
+                  andDataType: (GPKGDataType) dataType
                        andMax: (NSNumber *) max
                    andNotNull: (BOOL) notNull
               andDefaultValue: (NSObject *) defaultValue
@@ -35,7 +35,7 @@
 -(instancetype) initWithIndex: (int) index
                       andName: (NSString *) name
                       andType: (NSString *) type
-                  andDataType: (enum GPKGDataType) dataType
+                  andDataType: (GPKGDataType) dataType
                        andMax: (NSNumber *) max
                    andNotNull: (BOOL) notNull
               andDefaultValue: (NSObject *) defaultValue
@@ -92,7 +92,7 @@
     return self;
 }
 
-+(NSString *) nameOfDataType: (enum GPKGDataType) dataType forColumn: (NSString *) name{
++(NSString *) nameOfDataType: (GPKGDataType) dataType forColumn: (NSString *) name{
     [self validateDataType:dataType forColumn:name];
     return [GPKGDataTypes name:dataType];
 }
@@ -106,7 +106,7 @@
  * @param dataType
  *            data type
  */
-+(void) validateDataType: (enum GPKGDataType) dataType forColumn: (NSString *) name{
++(void) validateDataType: (GPKGDataType) dataType forColumn: (NSString *) name{
     if((int)dataType < 0){
         NSLog(@"Column is missing a data type: %@", name);
     }
@@ -199,7 +199,7 @@
     return [self.constraints has];
 }
 
--(BOOL) hasConstraintsOfType: (enum GPKGConstraintType) type{
+-(BOOL) hasConstraintsOfType: (GPKGConstraintType) type{
     return [self.constraints hasType:type];
 }
 
@@ -207,7 +207,7 @@
     return _constraints;
 }
 
--(NSArray<GPKGConstraint *> *) constraintsOfType: (enum GPKGConstraintType) type{
+-(NSArray<GPKGConstraint *> *) constraintsOfType: (GPKGConstraintType) type{
     return [self.constraints ofType:type];
 }
 
@@ -228,7 +228,7 @@
     return [self.constraints clear];
 }
 
--(NSArray<GPKGConstraint *> *) clearConstraintsOfType: (enum GPKGConstraintType) type{
+-(NSArray<GPKGConstraint *> *) clearConstraintsOfType: (GPKGConstraintType) type{
     
     switch (type) {
         case GPKG_CT_PRIMARY_KEY:
@@ -328,15 +328,15 @@
     [self addConstraint:[[GPKGRawConstraint alloc] initWithSql:constraint]];
 }
 
--(void) addConstraintType: (enum GPKGConstraintType) type withSql: (NSString *) constraint{
+-(void) addConstraintType: (GPKGConstraintType) type withSql: (NSString *) constraint{
     [self addConstraintType:type withOrder:nil andSql:constraint];
 }
 
--(void) addConstraintType: (enum GPKGConstraintType) type withOrder: (NSNumber *) order andSql: (NSString *) constraint{
+-(void) addConstraintType: (GPKGConstraintType) type withOrder: (NSNumber *) order andSql: (NSString *) constraint{
     [self addConstraint:[[GPKGRawConstraint alloc] initWithType:type andOrder:order andSql:constraint]];
 }
 
--(void) addConstraintType: (enum GPKGConstraintType) type withOrderInt: (int) order andSql: (NSString *) constraint{
+-(void) addConstraintType: (GPKGConstraintType) type withOrderInt: (int) order andSql: (NSString *) constraint{
     [self addConstraintType:type withOrder:[NSNumber numberWithInt:order] andSql:constraint];
 }
 

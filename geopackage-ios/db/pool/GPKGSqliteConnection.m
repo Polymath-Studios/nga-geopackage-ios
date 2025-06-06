@@ -6,7 +6,7 @@
 //
 //
 
-#import "GPKGSqliteConnection.h"
+#import <GeoPackage/GPKGSqliteConnection.h>
 
 @interface GPKGSqliteConnection()
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGSQLiteMasterQuery.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGSQLiteMasterQuery.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @interface GPKGSQLiteMasterQuery()
 
@@ -40,22 +40,22 @@
     return self;
 }
 
--(void) addColumn: (enum GPKGSQLiteMasterColumn) column withValue: (NSString *) value{
+-(void) addColumn: (GPKGSQLiteMasterColumn) column withValue: (NSString *) value{
     [self addColumn:column withOperation:@"=" andValue:value];
 }
 
--(void) addColumn: (enum GPKGSQLiteMasterColumn) column withOperation: (NSString *) operation andValue: (NSString *) value{
+-(void) addColumn: (GPKGSQLiteMasterColumn) column withOperation: (NSString *) operation andValue: (NSString *) value{
     [self validateAdd];
     [_queries addObject:[NSString stringWithFormat:@"LOWER(%@) %@ LOWER(?)", [GPKGSqlUtils quoteWrapName:[[GPKGSQLiteMasterColumns name:column] lowercaseString]], operation]];
     [_arguments addObject:value];
 }
 
--(void) addIsNullColumn: (enum GPKGSQLiteMasterColumn) column{
+-(void) addIsNullColumn: (GPKGSQLiteMasterColumn) column{
     [self validateAdd];
     [_queries addObject:[NSString stringWithFormat:@"%@ IS NULL", [GPKGSqlUtils quoteWrapName:[[GPKGSQLiteMasterColumns name:column] lowercaseString]]]];
 }
 
--(void) addIsNotNullColumn: (enum GPKGSQLiteMasterColumn) column{
+-(void) addIsNotNullColumn: (GPKGSQLiteMasterColumn) column{
     [self validateAdd];
     [_queries addObject:[NSString stringWithFormat:@"%@ IS NOT NULL", [GPKGSqlUtils quoteWrapName:[[GPKGSQLiteMasterColumns name:column] lowercaseString]]]];
 }
@@ -108,19 +108,19 @@
     return [[GPKGSQLiteMasterQuery alloc] initWithOperation:@"AND"];
 }
 
-+(GPKGSQLiteMasterQuery *) createWithColumn: (enum GPKGSQLiteMasterColumn) column andValue: (NSString *) value{
++(GPKGSQLiteMasterQuery *) createWithColumn: (GPKGSQLiteMasterColumn) column andValue: (NSString *) value{
     GPKGSQLiteMasterQuery *query = [self create];
     [query addColumn:column withValue:value];
     return query;
 }
 
-+(GPKGSQLiteMasterQuery *) createWithColumn: (enum GPKGSQLiteMasterColumn) column andOperation: (NSString *) operation andValue: (NSString *) value{
++(GPKGSQLiteMasterQuery *) createWithColumn: (GPKGSQLiteMasterColumn) column andOperation: (NSString *) operation andValue: (NSString *) value{
     GPKGSQLiteMasterQuery *query = [self create];
     [query addColumn:column withOperation:operation andValue:value];
     return query;
 }
 
-+(GPKGSQLiteMasterQuery *) createOrWithColumn: (enum GPKGSQLiteMasterColumn) column andValues: (NSArray<NSString *> *) values{
++(GPKGSQLiteMasterQuery *) createOrWithColumn: (GPKGSQLiteMasterColumn) column andValues: (NSArray<NSString *> *) values{
     GPKGSQLiteMasterQuery *query = [self createOr];
     for(NSString *value in values){
         [query addColumn:column withValue:value];
@@ -128,7 +128,7 @@
     return query;
 }
 
-+(GPKGSQLiteMasterQuery *) createOrWithColumn: (enum GPKGSQLiteMasterColumn) column andOperation: (NSString *) operation andValues: (NSArray<NSString *> *) values{
++(GPKGSQLiteMasterQuery *) createOrWithColumn: (GPKGSQLiteMasterColumn) column andOperation: (NSString *) operation andValues: (NSArray<NSString *> *) values{
     GPKGSQLiteMasterQuery *query = [self createOr];
     for(NSString *value in values){
         [query addColumn:column withOperation:operation andValue:value];
@@ -136,7 +136,7 @@
     return query;
 }
 
-+(GPKGSQLiteMasterQuery *) createAndWithColumn: (enum GPKGSQLiteMasterColumn) column andValues: (NSArray<NSString *> *) values{
++(GPKGSQLiteMasterQuery *) createAndWithColumn: (GPKGSQLiteMasterColumn) column andValues: (NSArray<NSString *> *) values{
     GPKGSQLiteMasterQuery *query = [self createAnd];
     for(NSString *value in values){
         [query addColumn:column withValue:value];
@@ -144,7 +144,7 @@
     return query;
 }
 
-+(GPKGSQLiteMasterQuery *) createAndWithColumn: (enum GPKGSQLiteMasterColumn) column andOperation: (NSString *) operation andValues: (NSArray<NSString *> *) values{
++(GPKGSQLiteMasterQuery *) createAndWithColumn: (GPKGSQLiteMasterColumn) column andOperation: (NSString *) operation andValues: (NSArray<NSString *> *) values{
     GPKGSQLiteMasterQuery *query = [self createAnd];
     for(NSString *value in values){
         [query addColumn:column withOperation:operation andValue:value];

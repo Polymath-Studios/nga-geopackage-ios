@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackage.h"
+#import <GeoPackage/GeoPackage.h>
 
 extern NSInteger const GPKG_TEST_SETUP_CREATE_SRS_COUNT;
 extern NSInteger const GPKG_TEST_SETUP_CREATE_CONTENTS_COUNT;

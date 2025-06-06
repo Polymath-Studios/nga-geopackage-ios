@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGConnection.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGAlterTable.h"
-#import "GPKGSQLiteMaster.h"
+#import <GeoPackage/GPKGConnection.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGAlterTable.h>
+#import <GeoPackage/GPKGSQLiteMaster.h>
 
 @interface GPKGConnection()
 
@@ -404,7 +404,7 @@
     return [self querySingleResultWithSql:sql andArgs:args andColumn:0];
 }
 
--(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (enum GPKGDataType) dataType{
+-(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (GPKGDataType) dataType{
     return [self querySingleResultWithSql:sql andArgs:args andColumn:0 andDataType:dataType];
 }
 
@@ -412,7 +412,7 @@
     return [self querySingleResultWithSql:sql andArgs:args andColumn:column andDataType:-1];
 }
 
--(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType{
+-(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType{
     GPKGDbConnection *connection = [self.connectionPool connection];
     NSObject *result = [GPKGSqlUtils querySingleResultWithDatabase:connection andSql:sql andArgs:args andColumn:column andDataType:dataType];
     [self.connectionPool releaseConnection:connection];
@@ -423,7 +423,7 @@
     return [self querySingleColumnResultsWithSql:sql andArgs:args andColumn:0 andDataType:-1 andLimit:nil];
 }
 
--(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (enum GPKGDataType) dataType{
+-(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (GPKGDataType) dataType{
     return [self querySingleColumnResultsWithSql:sql andArgs:args andColumn:0 andDataType:dataType andLimit:nil];
 }
 
@@ -431,7 +431,7 @@
     return [self querySingleColumnResultsWithSql:sql andArgs:args andColumn:column andDataType:-1 andLimit:nil];
 }
 
--(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType{
+-(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType{
     return [self querySingleColumnResultsWithSql:sql andArgs:args andColumn:column andDataType:dataType andLimit:nil];
 }
 
@@ -439,7 +439,7 @@
     return [self querySingleColumnResultsWithSql:sql andArgs:args andColumn:column andDataType:-1 andLimit:limit];
 }
 
--(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType andLimit: (NSNumber *) limit{
+-(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType andLimit: (NSNumber *) limit{
     GPKGDbConnection *connection = [self.connectionPool connection];
     NSArray<NSObject *> *result = [GPKGSqlUtils querySingleColumnResultsWithDatabase:connection andSql:sql andArgs:args andColumn:column andDataType:dataType andLimit:limit];
     [self.connectionPool releaseConnection:connection];

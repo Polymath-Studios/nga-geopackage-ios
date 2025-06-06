@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleMappingDao.h"
+#import <GeoPackage/GPKGStyleMappingDao.h>
 
 @implementation GPKGStyleMappingDao
 
@@ -48,7 +48,7 @@
     return rows;
 }
 
--(int) deleteByBaseId: (int) id andGeometryType: (enum SFGeometryType) geometryType{
+-(int) deleteByBaseId: (int) id andGeometryType: (SFGeometryType) geometryType{
     
     NSString *geometryTypeName = nil;
     if (geometryType != SF_NONE && geometryType >= 0) {

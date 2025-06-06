@@ -6,10 +6,10 @@
 //
 //
 
-#import "GPKGFeatureShapes.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGMapUtils.h"
+#import <GeoPackage/GPKGFeatureShapes.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGMapUtils.h>
 
 @interface GPKGFeatureShapes ()
 
@@ -120,7 +120,7 @@
     return [self removeShapesFromMapView:mapView withExclusions:nil];
 }
 
--(int) removeShapesFromMapView: (MKMapView *) mapView withExclusion: (enum GPKGMapShapeType) excludedType{
+-(int) removeShapesFromMapView: (MKMapView *) mapView withExclusion: (GPKGMapShapeType) excludedType{
     NSMutableSet *excludedTypes = [NSMutableSet set];
     [excludedTypes addObject:[NSNumber numberWithInt:excludedType]];
     return [self removeShapesFromMapView:mapView withExclusions:excludedTypes];
@@ -152,7 +152,7 @@
     return [self removeShapesFromMapView:mapView inDatabase:database withExclusions:nil];
 }
 
--(int) removeShapesFromMapView: (MKMapView *) mapView inDatabase: (NSString *) database withExclusion: (enum GPKGMapShapeType) excludedType{
+-(int) removeShapesFromMapView: (MKMapView *) mapView inDatabase: (NSString *) database withExclusion: (GPKGMapShapeType) excludedType{
     NSMutableSet *excludedTypes = [NSMutableSet set];
     [excludedTypes addObject:[NSNumber numberWithInt:excludedType]];
     return [self removeShapesFromMapView:mapView inDatabase:database withExclusions:excludedTypes];
@@ -190,7 +190,7 @@
     return [self removeShapesFromMapView:mapView inDatabase:database withTable:table withExclusions:nil];
 }
 
--(int) removeShapesFromMapView: (MKMapView *) mapView inDatabase: (NSString *) database withTable: (NSString *) table withExclusion: (enum GPKGMapShapeType) excludedType{
+-(int) removeShapesFromMapView: (MKMapView *) mapView inDatabase: (NSString *) database withTable: (NSString *) table withExclusion: (GPKGMapShapeType) excludedType{
     NSMutableSet *excludedTypes = [NSMutableSet set];
     [excludedTypes addObject:[NSNumber numberWithInt:excludedType]];
     return [self removeShapesFromMapView:mapView inDatabase:database withTable:table withExclusions:excludedTypes];

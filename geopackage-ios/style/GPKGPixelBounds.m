@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGPixelBounds.h"
+#import <GeoPackage/GPKGPixelBounds.h>
 
 @implementation GPKGPixelBounds
 

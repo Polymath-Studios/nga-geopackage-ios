@@ -6,9 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataTiff.h"
-#import "TIFFConstants.h"
-#import "TIFFReader.h"
+#import <GeoPackage/GPKGCoverageDataTiff.h>
+#import <TIFF/TIFF.h>
 
 /**
  * Single sample coverage data

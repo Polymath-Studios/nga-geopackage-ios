@@ -6,15 +6,13 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGOAPIFeatureGenerator.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "GPKGDateConverter.h"
-#import "OAFCrs.h"
-#import "OAFFeaturesConverter.h"
-#import "GPKGNetworkUtils.h"
+#import <GeoPackage/GPKGOAPIFeatureGenerator.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <GeoPackage/GPKGDateConverter.h>
+#import <OGC_APIFeaturesJSON/OGC_APIFeaturesJSON.h>
+#import <GeoPackage/GPKGNetworkUtils.h>
 
 /**
  * OGC CRS Version

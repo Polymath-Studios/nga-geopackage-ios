@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGExtensionsDao.h"
+#import <GeoPackage/GPKGExtensionsDao.h>
 
 @implementation GPKGExtensionsDao
 

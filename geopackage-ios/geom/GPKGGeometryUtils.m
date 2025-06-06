@@ -6,9 +6,9 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGGeometryUtils.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGGeometryUtils
 

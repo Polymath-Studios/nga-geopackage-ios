@@ -8,10 +8,7 @@
 
 #import "GPKGTileTableScalingUtils.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileTableScaling.h"
-#import "GPKGProperties.h"
-#import "GPKGExtensionManager.h"
-#import "GPKGNGAExtensions.h"
+@import GeoPackage;
 
 @implementation GPKGTileTableScalingUtils
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGContentValues.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGContentValues.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGContentValues
 

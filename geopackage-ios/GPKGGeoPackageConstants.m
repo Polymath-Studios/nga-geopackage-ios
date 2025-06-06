@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageConstants.h"
+#import <GeoPackage/GPKGGeoPackageConstants.h>
 
 NSString * const GPKG_EXTENSION = @"gpkg";
 NSString * const GPKG_EXTENDED_EXTENSION = @"gpkx";

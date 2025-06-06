@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGMetadataExtension.h"
-#import "GPKGProperties.h"
+#import <GeoPackage/GPKGMetadataExtension.h>
+#import <GeoPackage/GPKGProperties.h>
 
 NSString * const GPKG_METADATA_EXTENSION_NAME = @"metadata";
 NSString * const GPKG_PROP_METADATA_EXTENSION_DEFINITION = @"geopackage.extensions.metadata";

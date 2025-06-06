@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGBaseDao.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGUtils.h"
-#import "GPKGAlterTable.h"
+#import <GeoPackage/GPKGBaseDao.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGAlterTable.h>
 
 @implementation GPKGBaseDao
 
@@ -2630,7 +2630,7 @@
     return [self.database querySingleResultWithSql:sql andArgs:args];
 }
 
--(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (enum GPKGDataType) dataType{
+-(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (GPKGDataType) dataType{
     return [self.database querySingleResultWithSql:sql andArgs:args andDataType:dataType];
 }
 
@@ -2638,7 +2638,7 @@
     return [self.database querySingleResultWithSql:sql andArgs:args andColumn:column];
 }
 
--(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType{
+-(NSObject *) querySingleResultWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType{
     return [self.database querySingleResultWithSql:sql andArgs:args andColumn:column andDataType:dataType];
 }
 
@@ -2646,7 +2646,7 @@
     return [self.database querySingleColumnResultsWithSql:sql andArgs:args];
 }
 
--(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (enum GPKGDataType) dataType{
+-(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andDataType: (GPKGDataType) dataType{
     return [self.database querySingleColumnResultsWithSql:sql andArgs:args andDataType:dataType];
 }
 
@@ -2654,7 +2654,7 @@
     return [self.database querySingleColumnResultsWithSql:sql andArgs:args andColumn:column];
 }
 
--(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType{
+-(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType{
     return [self.database querySingleColumnResultsWithSql:sql andArgs:args andColumn:column andDataType:dataType];
 }
 
@@ -2662,7 +2662,7 @@
     return [self.database querySingleColumnResultsWithSql:sql andArgs:args andColumn:column andLimit:limit];
 }
 
--(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (enum GPKGDataType) dataType andLimit: (NSNumber *) limit{
+-(NSArray<NSObject *> *) querySingleColumnResultsWithSql: (NSString *) sql andArgs: (NSArray *) args andColumn: (int) column andDataType: (GPKGDataType) dataType andLimit: (NSNumber *) limit{
     return [self.database querySingleColumnResultsWithSql:sql andArgs:args andColumn:column andDataType:dataType andLimit:limit];
 }
 

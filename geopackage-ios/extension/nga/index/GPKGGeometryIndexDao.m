@@ -6,9 +6,9 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryIndexDao.h"
-#import "GPKGTableIndexDao.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGGeometryIndexDao.h>
+#import <GeoPackage/GPKGTableIndexDao.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGGeometryIndexDao
 

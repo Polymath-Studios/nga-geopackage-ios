@@ -7,11 +7,9 @@
 //
 
 #import "GPKGZoomOtherExtensionTest.h"
-#import "GPKGZoomOtherExtension.h"
 #import "GPKGTestUtils.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGExtensionManager.h"
+
+@import GeoPackage;
 
 @implementation GPKGZoomOtherExtensionTest
 

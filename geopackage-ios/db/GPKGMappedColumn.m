@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGMappedColumn.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGMappedColumn.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 @implementation GPKGMappedColumn
 
@@ -27,7 +27,7 @@
     return self;
 }
 
--(instancetype) initWithToColumn: (NSString *) toColumn andFromColumn: (NSString *) fromColumn andDefaultValue: (NSObject *) defaultValue andDataType: (enum GPKGDataType) dataType{
+-(instancetype) initWithToColumn: (NSString *) toColumn andFromColumn: (NSString *) fromColumn andDefaultValue: (NSObject *) defaultValue andDataType: (GPKGDataType) dataType{
     self = [self initWithToColumn:toColumn andFromColumn:fromColumn];
     if(self != nil){
         self.defaultValue = defaultValue;
@@ -36,7 +36,7 @@
     return self;
 }
 
--(instancetype) initWithToColumn: (NSString *) toColumn andDefaultValue: (NSObject *) defaultValue andDataType: (enum GPKGDataType) dataType{
+-(instancetype) initWithToColumn: (NSString *) toColumn andDefaultValue: (NSObject *) defaultValue andDataType: (GPKGDataType) dataType{
     return [self initWithToColumn:toColumn andFromColumn:nil andDefaultValue:defaultValue andDataType:dataType];
 }
 

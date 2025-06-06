@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGStyleMappingRow.h"
+#import <GeoPackage/GPKGStyleMappingRow.h>
 
 @implementation GPKGStyleMappingRow
 
@@ -36,8 +36,8 @@
     return (NSString *)[self valueWithIndex:[self geometryTypeNameColumnIndex]];
 }
 
--(enum SFGeometryType) geometryType{
-    enum SFGeometryType geometryType = SF_NONE;
+-(SFGeometryType) geometryType{
+    SFGeometryType geometryType = SF_NONE;
     NSString *geometryTypeName = [self geometryTypeName];
     if(geometryTypeName != nil){
         geometryType = [SFGeometryTypes fromName:geometryTypeName];
@@ -45,7 +45,7 @@
     return geometryType;
 }
 
--(void) setGeometryType: (enum SFGeometryType) geometryType{
+-(void) setGeometryType: (SFGeometryType) geometryType{
     NSString *geometryTypeName = nil;
     if (geometryType != SF_NONE && geometryType >= 0) {
         geometryTypeName = [SFGeometryTypes name:geometryType];

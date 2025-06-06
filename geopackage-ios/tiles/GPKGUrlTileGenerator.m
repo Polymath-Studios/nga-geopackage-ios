@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGUrlTileGenerator.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGIOUtils.h"
-#import "GPKGNetworkUtils.h"
+#import <GeoPackage/GPKGUrlTileGenerator.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <GeoPackage/GPKGIOUtils.h>
+#import <GeoPackage/GPKGNetworkUtils.h>
 
 @interface GPKGUrlTileGenerator ()
 

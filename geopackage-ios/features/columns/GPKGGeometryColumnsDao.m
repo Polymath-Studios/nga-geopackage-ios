@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryColumnsDao.h"
-#import "GPKGCrsWktExtension.h"
+#import <GeoPackage/GPKGGeometryColumnsDao.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
 
 @implementation GPKGGeometryColumnsDao
 

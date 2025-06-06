@@ -6,11 +6,10 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGFeaturePreview.h"
-#import "GPKGSqlUtils.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGFeaturePreview.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
 
 @interface GPKGFeaturePreview ()
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureDao.h"
-#import "GPKGGeometryColumnsDao.h"
-#import "GPKGContentsDao.h"
+#import <GeoPackage/GPKGFeatureDao.h>
+#import <GeoPackage/GPKGGeometryColumnsDao.h>
+#import <GeoPackage/GPKGContentsDao.h>
 
 @implementation GPKGFeatureDao
 
@@ -62,7 +62,7 @@
     return _geometryColumns.columnName;
 }
 
--(enum SFGeometryType) geometryType{
+-(SFGeometryType) geometryType{
     return [self.geometryColumns geometryType];
 }
 

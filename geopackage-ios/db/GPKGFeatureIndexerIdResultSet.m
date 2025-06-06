@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureIndexerIdResultSet.h"
+#import <GeoPackage/GPKGFeatureIndexerIdResultSet.h>
 
 @interface GPKGFeatureIndexerIdResultSet ()
 

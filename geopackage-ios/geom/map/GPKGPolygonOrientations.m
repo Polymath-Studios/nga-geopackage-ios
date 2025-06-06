@@ -6,7 +6,7 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGPolygonOrientations.h"
+#import <GeoPackage/GPKGPolygonOrientations.h>
 
 @implementation GPKGPolygonOrientations
 

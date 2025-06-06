@@ -6,21 +6,21 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgValidate.h"
-#import "GPKGDgiwgCoordinateReferenceSystems.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGProperties.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGDgiwgConstants.h"
-#import "GPKGCrsWktExtension.h"
-#import "GPKGDgiwgMetadata.h"
-#import "GPKGMetadataExtension.h"
-#import "GPKGRTreeIndexExtension.h"
-#import "GPKGGeometryExtensions.h"
-#import "CRSReader.h"
-#import "GPKGZoomOtherExtension.h"
-#import "GPKGWebPExtension.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGDgiwgValidate.h>
+#import <GeoPackage/GPKGDgiwgCoordinateReferenceSystems.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGDgiwgConstants.h>
+#import <GeoPackage/GPKGCrsWktExtension.h>
+#import <GeoPackage/GPKGDgiwgMetadata.h>
+#import <GeoPackage/GPKGMetadataExtension.h>
+#import <GeoPackage/GPKGRTreeIndexExtension.h>
+#import <GeoPackage/GPKGGeometryExtensions.h>
+#import <CoordinateReferenceSystems/CoordinateReferenceSystems.h>
+#import <GeoPackage/GPKGZoomOtherExtension.h>
+#import <GeoPackage/GPKGWebPExtension.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGDgiwgValidate
 
@@ -66,7 +66,7 @@
     GPKGDgiwgValidationErrors *errors = [self validateBase:geoPackage];
 
     for(NSString *table in tables){
-        enum GPKGContentsDataType dataType = [geoPackage dataTypeOfTable:table];
+        GPKGContentsDataType dataType = [geoPackage dataTypeOfTable:table];
         if(dataType != -1){
             switch (dataType) {
                 case GPKG_CDT_FEATURES:
@@ -397,7 +397,7 @@
         
         GPKGGeometryExtensions *geometryExtensions = [[GPKGGeometryExtensions alloc] initWithGeoPackage:geoPackage];
         for(int i = SF_CIRCULARSTRING; i <= SF_SURFACE; i++){
-            enum SFGeometryType geometryType = i;
+            SFGeometryType geometryType = i;
             if([geometryExtensions hasWithTable:featureTable andColumn:geomColumn andType:geometryType]){
                 NSString *geometryExtensionName = [GPKGGeometryExtensions extensionName:geometryType];
                 [errors addError:[[GPKGDgiwgValidationError alloc] initWithTable:GPKG_EX_TABLE_NAME andColumn:GPKG_EX_COLUMN_EXTENSION_NAME andValue:geometryExtensionName andConstraint:@"Nonlinear geometry type not allowed" andRequirement:GPKG_DGIWG_REQ_EXTENSIONS_NOT_ALLOWED andKeys:[self primaryKeysOfExtension:geometryExtensionName withTable:featureTable andColumn:geomColumn]]];
@@ -437,7 +437,7 @@
  *            contents data type
  * @return coordinate reference system
  */
-+(GPKGDgiwgCoordinateReferenceSystems *) validateCRSWithErrors: (GPKGDgiwgValidationErrors *) errors andTable: (NSString *) table andSRS: (GPKGSpatialReferenceSystem *) srs andContentsType: (enum GPKGContentsDataType) type{
++(GPKGDgiwgCoordinateReferenceSystems *) validateCRSWithErrors: (GPKGDgiwgValidationErrors *) errors andTable: (NSString *) table andSRS: (GPKGSpatialReferenceSystem *) srs andContentsType: (GPKGContentsDataType) type{
 
     GPKGDgiwgCoordinateReferenceSystems *crs = [GPKGDgiwgCoordinateReferenceSystems coordinateReferenceSystemWithSRS:srs];
     

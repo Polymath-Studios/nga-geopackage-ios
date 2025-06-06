@@ -7,14 +7,12 @@
 //
 
 #import "GPKGTileReprojectionTestUtils.h"
-#import "GPKGTileReprojection.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "GPKGWebMercatorOptimize.h"
-#import "GPKGPlatteCarreOptimize.h"
+
 #import "GPKGTestGeoPackageProgress.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGTileReprojectionTestUtils
 

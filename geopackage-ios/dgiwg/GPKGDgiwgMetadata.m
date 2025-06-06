@@ -6,9 +6,9 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgMetadata.h"
-#import "GPKGDgiwgConstants.h"
-#import "GPKGMetadataExtension.h"
+#import <GeoPackage/GPKGDgiwgMetadata.h>
+#import <GeoPackage/GPKGDgiwgConstants.h>
+#import <GeoPackage/GPKGMetadataExtension.h>
 
 @implementation GPKGDgiwgMetadata
 
@@ -20,7 +20,7 @@
     return [self createMetadata:metadata withScope:GPKG_MST_DATASET andURI:uri];
 }
 
-+(GPKGMetadata *) createMetadata: (NSString *) metadata withScope: (enum GPKGMetadataScopeType) scope andURI: (NSString *) uri{
++(GPKGMetadata *) createMetadata: (NSString *) metadata withScope: (GPKGMetadataScopeType) scope andURI: (NSString *) uri{
     
     GPKGMetadata *md = [[GPKGMetadata alloc] init];
     [md setMetadataScopeType:scope];
@@ -35,7 +35,7 @@
     return [self createMetadataReferenceWithScope:GPKG_RST_GEOPACKAGE];
 }
 
-+(GPKGMetadataReference *) createMetadataReferenceWithScope: (enum GPKGReferenceScopeType) scope{
++(GPKGMetadataReference *) createMetadataReferenceWithScope: (GPKGReferenceScopeType) scope{
     
     GPKGMetadataReference *reference = [[GPKGMetadataReference alloc] init];
     [reference setReferenceScopeType:scope];

@@ -6,9 +6,9 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGDateConverter.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGDateConverter.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 NSString * const GPKG_DTU_DATE_FORMAT = @"yyyy-MM-dd";
 NSString * const GPKG_DTU_DATE_FORMAT2 = @"yyyy/MM/dd";
@@ -36,7 +36,7 @@ NSString * const GPKG_DTU_FUNCTION_STRFTIME = @"strftime";
     return [self createWithFormats:dateTimeFormats];
 }
 
-+(GPKGDateConverter *) converter: (enum GPKGDataType) type{
++(GPKGDateConverter *) converter: (GPKGDataType) type{
     
     GPKGDateConverter *converter = nil;
     
@@ -161,7 +161,7 @@ static GPKGDateConverter *converter;
     return [self convertToStringWithDate:date withFormat:GPKG_DTU_DATETIME_FORMAT];
 }
 
-+(NSString *) convertToStringWithDate: (NSDate *) date andType: (enum GPKGDataType) dataType{
++(NSString *) convertToStringWithDate: (NSDate *) date andType: (GPKGDataType) dataType{
     NSString *dateString = nil;
     switch(dataType){
         case GPKG_DT_DATE:

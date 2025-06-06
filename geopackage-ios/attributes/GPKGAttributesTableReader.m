@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGAttributesTableReader.h"
-#import "GPKGAttributesColumn.h"
+#import <GeoPackage/GPKGAttributesTableReader.h>
+#import <GeoPackage/GPKGAttributesColumn.h>
 
 @implementation GPKGAttributesTableReader
 

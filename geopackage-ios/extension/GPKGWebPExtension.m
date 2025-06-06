@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGWebPExtension.h"
-#import "GPKGProperties.h"
+#import <GeoPackage/GPKGWebPExtension.h>
+#import <GeoPackage/GPKGProperties.h>
 
 NSString * const GPKG_WEBP_EXTENSION_NAME = @"webp";
 NSString * const GPKG_PROP_WEBP_EXTENSION_DEFINITION = @"geopackage.extensions.webp";

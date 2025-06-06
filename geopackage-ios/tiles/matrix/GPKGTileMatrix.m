@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileMatrix.h"
-#import "GPKGContentsDataTypes.h"
+#import <GeoPackage/GPKGTileMatrix.h>
+#import <GeoPackage/GPKGContentsDataTypes.h>
 
 NSString * const GPKG_TM_TABLE_NAME = @"gpkg_tile_matrix";
 NSString * const GPKG_TM_COLUMN_PK1 = @"table_name";

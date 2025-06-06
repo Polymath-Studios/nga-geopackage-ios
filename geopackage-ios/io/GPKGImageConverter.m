@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGImageConverter.h"
+#import <GeoPackage/GPKGImageConverter.h>
 
 @implementation GPKGImageConverter
 
@@ -18,11 +18,11 @@
     return [UIImage imageWithData:data scale:scale];
 }
 
-+(NSData *) toData: (UIImage *) image andFormat: (enum GPKGCompressFormat) format{
++(NSData *) toData: (UIImage *) image andFormat: (GPKGCompressFormat) format{
     return [self toData:image andFormat:format andQuality:1];
 }
 
-+(NSData *) toData: (UIImage *) image andFormat: (enum GPKGCompressFormat) format andQuality: (CGFloat) quality{
++(NSData *) toData: (UIImage *) image andFormat: (GPKGCompressFormat) format andQuality: (CGFloat) quality{
     NSData *data = nil;
     
     switch(format){

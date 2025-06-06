@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureCacheTables.h"
+#import <GeoPackage/GPKGFeatureCacheTables.h>
 
 @interface GPKGFeatureCacheTables ()
 

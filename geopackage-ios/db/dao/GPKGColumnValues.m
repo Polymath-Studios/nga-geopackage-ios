@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGColumnValues.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGColumnValues.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGColumnValues
 

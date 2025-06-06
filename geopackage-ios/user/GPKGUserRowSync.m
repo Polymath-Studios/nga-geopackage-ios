@@ -6,7 +6,7 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGUserRowSync.h"
+#import <GeoPackage/GPKGUserRowSync.h>
 
 @interface GPKGRowCondition : NSObject 
 

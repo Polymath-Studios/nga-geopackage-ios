@@ -6,9 +6,9 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGTileReprojectionOptimize.h"
-#import "GPKGWebMercatorOptimize.h"
-#import "GPKGPlatteCarreOptimize.h"
+#import <GeoPackage/GPKGTileReprojectionOptimize.h>
+#import <GeoPackage/GPKGWebMercatorOptimize.h>
+#import <GeoPackage/GPKGPlatteCarreOptimize.h>
 
 @implementation GPKGTileReprojectionOptimize
 

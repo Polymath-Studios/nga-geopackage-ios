@@ -20,36 +20,6 @@ Software source code previously released under an open source license and then m
 
 The GeoPackage SDK provides the ability to manage GeoPackage files providing read, write, import, export, share, and open support. Open GeoPackage files provide read and write access to features and tiles. Feature support includes Well-Known Binary and iOS Map shape translations. Tile generation supports creation by URL or features. Tile providers supporting GeoPackage format, standard tile API, and feature tile generation.
 
-### Getting Started ###
-
-**IMPORTANT** -
-Be sure your Mac has the `autoconf`, `automake`, and `glibtoolize` utilities.  These are required to build
-the [PROJ](https://github.com/ngageoint/PROJ) dependency.  Without them, `pod install` will fail.  The easiest way to get these is to [`brew install`](https://brew.sh/) them:
-```
-brew install automake
-brew install libtool
-```
-
-Include this repository by specifying it in a Podfile using a supported option.
-
-Pull from [CocoaPods](https://cocoapods.org/pods/geopackage-ios):
-
-    pod 'geopackage-ios', '~> 8.0.6'
-
-If you use `use_modular_headers!` in your Podfile, disable modular headers for the [PROJ](https://github.com/ngageoint/PROJ) dependency:
-
-    pod 'geopackage-ios', '~> 8.0.6'
-    pod 'PROJ', :modular_headers => false
-
-Pull from GitHub via CocoaPods:
-
-    pod 'geopackage-ios', :git => 'https://github.com/ngageoint/geopackage-ios.git', :branch => 'master'
-    pod 'geopackage-ios', :git => 'https://github.com/ngageoint/geopackage-ios.git', :tag => '8.0.6'
-
-Include as local project:
-
-    pod 'geopackage-ios', :path => '../geopackage-ios'
-
 ### Usage ###
 
 View the latest [Appledoc](http://ngageoint.github.io/geopackage-ios/docs/api/).
@@ -233,10 +203,10 @@ int featureTileCount = [featureTileGenerator generateTiles];
 
 #### Swift Example ####
 
-To use from Swift, import the geopackage-ios bridging header from the Swift project's bridging header
+To use from Swift, import the module:
 
-    #import "geopackage-ios-Bridging-Header.h"
-
+    import GeoPackage
+ 
 ```swift
 
 // let geoPackageFile: String = ...
@@ -403,22 +373,37 @@ manager.close()
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/geopackage-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/geopackage-ios/actions/workflows/build-test.yml)
+[![Build](https://github.com/ngageoint/geopackage-ios/workflows/Build/badge.svg)](https://github.com/ngageoint/geopackage-ios/actions/workflows/build.yml)
 
-See the [above note](https://github.com/ngageoint/geopackage-ios#getting-started) about `automake` and `glibtoolize`.
+Build and Test (Uses UIKit, so we build with xcodebuild instead of SPM).
 
-Build this repository using Xcode and/or CocoaPods:
+    ./build.sh
 
-    pod repo update
-    pod install
+You can build and test if you open the Package.swift in Xcode.
 
-Open geopackage-ios.xcworkspace in Xcode or build from command line:
 
-    xcodebuild -workspace 'geopackage-ios.xcworkspace' -scheme geopackage-ios build
+### Include Library ###
 
-Run tests from Xcode or from command line:
+Use this library via SPM in your Package.swift:
 
-    xcodebuild test -workspace 'geopackage-ios.xcworkspace' -scheme geopackage-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/geopackage-ios.git", branch: "release/9.0.0"),
+    ]
+    
+Or as a tagged release:
+
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/geopackage-ios.git", from: "9.0.0"),
+    ]
+
+Reference it in your Package.swift target:
+
+    .target(
+        name: "MyApp",
+        dependencies: [
+            .product(name: "GeoPackage", package: "geopackage-ios"),
+        ],
+    ),
 
 ### Remote Dependencies ###
 

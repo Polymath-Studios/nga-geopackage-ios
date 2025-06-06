@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGAttributesColumns.h"
+#import <GeoPackage/GPKGAttributesColumns.h>
 
 @implementation GPKGAttributesColumns
 

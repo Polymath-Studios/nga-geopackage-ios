@@ -6,7 +6,7 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGExtensionManagement.h"
+#import <GeoPackage/GPKGExtensionManagement.h>
 
 @implementation GPKGExtensionManagement
 

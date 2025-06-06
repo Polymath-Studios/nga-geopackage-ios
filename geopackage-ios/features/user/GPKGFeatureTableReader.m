@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTableReader.h"
+#import <GeoPackage/GPKGFeatureTableReader.h>
 
 @implementation GPKGFeatureTableReader
 

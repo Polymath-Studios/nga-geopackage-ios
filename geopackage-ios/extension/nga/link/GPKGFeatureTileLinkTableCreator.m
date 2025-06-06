@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTileLinkTableCreator.h"
-#import "GPKGFeatureTileLink.h"
+#import <GeoPackage/GPKGFeatureTileLinkTableCreator.h>
+#import <GeoPackage/GPKGFeatureTileLink.h>
 
 @implementation GPKGFeatureTileLinkTableCreator
 

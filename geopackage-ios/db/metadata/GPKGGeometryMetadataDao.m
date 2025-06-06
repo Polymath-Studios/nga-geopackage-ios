@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryMetadataDao.h"
-#import "GPKGGeoPackageMetadataDao.h"
-#import "GPKGUtils.h"
-#import "GPKGSqlUtils.h"
-#import "SFPProjectionGeometryUtils.h"
+#import <GeoPackage/GPKGGeometryMetadataDao.h>
+#import <GeoPackage/GPKGGeoPackageMetadataDao.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <SimpleFeaturesProjections/SimpleFeaturesProjections.h>
 
 @implementation GPKGGeometryMetadataDao
 

@@ -7,9 +7,9 @@
 //
 
 #import "GPKGPropertiesExtensionTest.h"
-#import "GPKGPropertiesExtension.h"
 #import "GPKGTestUtils.h"
-#import "GPKGPropertyNames.h"
+
+@import GeoPackage;
 
 @implementation GPKGPropertiesExtensionTest
 

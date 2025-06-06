@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGBoundingBox.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionConstants.h"
-#import "SFGeometryUtils.h"
-#import "SFGeometryEnvelopeBuilder.h"
+#import <GeoPackage/GPKGBoundingBox.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
+#import <SimpleFeatures/SimpleFeatures.h>
 
 @implementation GPKGBoundingBox
 

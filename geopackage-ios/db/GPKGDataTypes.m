@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGDataTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGDataTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 #import <sqlite3.h>
 
 NSString * const GPKG_DT_BOOLEAN_NAME = @"BOOLEAN";
@@ -26,7 +26,7 @@ NSString * const GPKG_DT_DATETIME_NAME = @"DATETIME";
 
 @implementation GPKGDataTypes
 
-+(NSString *) name: (enum GPKGDataType) dataType{
++(NSString *) name: (GPKGDataType) dataType{
     NSString *name = nil;
     
     switch(dataType){
@@ -74,8 +74,8 @@ NSString * const GPKG_DT_DATETIME_NAME = @"DATETIME";
     return name;
 }
 
-+(enum GPKGDataType) fromName: (NSString *) name{
-    enum GPKGDataType value = -1;
++(GPKGDataType) fromName: (NSString *) name{
+    GPKGDataType value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -97,14 +97,14 @@ NSString * const GPKG_DT_DATETIME_NAME = @"DATETIME";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGDataType)[enumValue intValue];
+            value = (GPKGDataType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
-+(Class) classType: (enum GPKGDataType) dataType{
++(Class) classType: (GPKGDataType) dataType{
     Class class = nil;
     
     switch(dataType){
@@ -136,7 +136,7 @@ NSString * const GPKG_DT_DATETIME_NAME = @"DATETIME";
     return class;
 }
 
-+(int) sqliteType: (enum GPKGDataType) dataType{
++(int) sqliteType: (GPKGDataType) dataType{
     int type;
     switch(dataType){
         case GPKG_DT_BOOLEAN:

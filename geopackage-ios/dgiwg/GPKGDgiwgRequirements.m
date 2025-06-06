@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgRequirements.h"
+#import <GeoPackage/GPKGDgiwgRequirements.h>
 
 NSString * const GPKG_DGIWG_REQ_GEOPACKAGE_BASE_NAME = @"GeoPackage Base definition";
 NSString * const GPKG_DGIWG_REQ_GEOPACKAGE_OPTIONS_NAME = @"GeoPackage Options definition";
@@ -70,11 +70,11 @@ NSString * const GPKG_DGIWG_REQ_IDENTIFIER_PREFIX = @"/req/";
 
 @implementation GPKGDgiwgRequirements
 
-+(int) number: (enum GPKGDgiwgRequirement) requirement{
++(int) number: (GPKGDgiwgRequirement) requirement{
     return requirement + 1;
 }
 
-+(NSString *) name: (enum GPKGDgiwgRequirement) requirement{
++(NSString *) name: (GPKGDgiwgRequirement) requirement{
     NSString *name = nil;
     
     switch(requirement){
@@ -167,7 +167,7 @@ NSString * const GPKG_DGIWG_REQ_IDENTIFIER_PREFIX = @"/req/";
     return name;
 }
 
-+(NSString *) identifier: (enum GPKGDgiwgRequirement) requirement{
++(NSString *) identifier: (GPKGDgiwgRequirement) requirement{
     NSString *identifier = nil;
     
     switch(requirement){
@@ -260,11 +260,11 @@ NSString * const GPKG_DGIWG_REQ_IDENTIFIER_PREFIX = @"/req/";
     return identifier;
 }
 
-+(NSString *) fullIdentifier: (enum GPKGDgiwgRequirement) requirement{
++(NSString *) fullIdentifier: (GPKGDgiwgRequirement) requirement{
     return [NSString stringWithFormat:@"%@%@", GPKG_DGIWG_REQ_IDENTIFIER_PREFIX, [self identifier:requirement]];
 }
 
-+(NSString *) description: (enum GPKGDgiwgRequirement) requirement{
++(NSString *) description: (GPKGDgiwgRequirement) requirement{
     NSMutableString *description = [NSMutableString alloc];
     [description appendFormat:@"Number: %d", [self number:requirement]];
     [description appendFormat:@", Name: %@", [self name:requirement]];

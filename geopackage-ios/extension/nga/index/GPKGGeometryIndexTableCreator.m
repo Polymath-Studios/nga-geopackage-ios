@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGGeometryIndexTableCreator.h"
-#import "GPKGGeometryIndex.h"
+#import <GeoPackage/GPKGGeometryIndexTableCreator.h>
+#import <GeoPackage/GPKGGeometryIndex.h>
 
 @implementation GPKGGeometryIndexTableCreator
 

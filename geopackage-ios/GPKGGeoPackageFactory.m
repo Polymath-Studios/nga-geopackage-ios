@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGGeoPackageFactory.h"
+#import <GeoPackage/GPKGGeoPackageFactory.h>
 
 @implementation GPKGGeoPackageFactory
 

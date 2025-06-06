@@ -6,7 +6,7 @@
 //
 //
 
-#import "GPKGMapPointOptions.h"
+#import <GeoPackage/GPKGMapPointOptions.h>
 
 @implementation GPKGMapPointOptions
 

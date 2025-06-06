@@ -6,12 +6,12 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgDataTypes.h"
+#import <GeoPackage/GPKGDgiwgDataTypes.h>
 
 @implementation GPKGDgiwgDataTypes
 
-+(enum GPKGContentsDataType) dataType: (enum GPKGDgiwgDataType) dataType{
-    enum GPKGContentsDataType type = -1;
++(GPKGContentsDataType) dataType: (GPKGDgiwgDataType) dataType{
+    GPKGContentsDataType type = -1;
     
     switch(dataType){
         case GPKG_DGIWG_DT_FEATURES_2D:
@@ -27,7 +27,7 @@
     return type;
 }
 
-+(NSString *) name: (enum GPKGDgiwgDataType) dataType{
++(NSString *) name: (GPKGDgiwgDataType) dataType{
     NSString *name = nil;
     
     switch(dataType){
@@ -48,7 +48,7 @@
     return name;
 }
 
-+(int) dimension: (enum GPKGDgiwgDataType) dataType{
++(int) dimension: (GPKGDgiwgDataType) dataType{
     int dimension = -1;
     
     switch(dataType){
@@ -65,27 +65,27 @@
     return dimension;
 }
 
-+(BOOL) isFeatures: (enum GPKGDgiwgDataType) dataType{
++(BOOL) isFeatures: (GPKGDgiwgDataType) dataType{
     return [self dataType:dataType] == GPKG_CDT_FEATURES;
 }
 
-+(BOOL) isTiles: (enum GPKGDgiwgDataType) dataType{
++(BOOL) isTiles: (GPKGDgiwgDataType) dataType{
     return [self dataType:dataType] == GPKG_CDT_TILES;
 }
 
-+(BOOL) is2D: (enum GPKGDgiwgDataType) dataType{
++(BOOL) is2D: (GPKGDgiwgDataType) dataType{
     return [self dimension:dataType] == 2;
 }
 
-+(BOOL) is3D: (enum GPKGDgiwgDataType) dataType{
++(BOOL) is3D: (GPKGDgiwgDataType) dataType{
     return [self dimension:dataType] == 3;
 }
 
-+(int) z: (enum GPKGDgiwgDataType) dataType{
++(int) z: (GPKGDgiwgDataType) dataType{
     return [self dimension:dataType] - 2;
 }
 
-+(NSArray<NSNumber *> *) dataTypes: (enum GPKGContentsDataType) type{
++(NSArray<NSNumber *> *) dataTypes: (GPKGContentsDataType) type{
     NSMutableArray<NSNumber *> *types = [NSMutableArray array];
     
     for(int dataType = 0; dataType <= GPKG_DGIWG_DT_TILES_3D; dataType++) {

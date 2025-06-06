@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGTableConstraints.h"
+#import <GeoPackage/GPKGTableConstraints.h>
 
 @interface GPKGTableConstraints()
 

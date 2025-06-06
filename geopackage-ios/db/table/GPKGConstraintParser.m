@@ -6,10 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGConstraintParser.h"
-#import "GPKGRawConstraint.h"
-#import "GPKGSqlUtils.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGConstraintParser.h>
+#import <GeoPackage/GPKGRawConstraint.h>
+#import <GeoPackage/GPKGSqlUtils.h>
+#import <GeoPackage/GPKGUtils.h>
 
 /**
  * Constraint name regex
@@ -131,7 +131,7 @@ static NSRegularExpression *constraintExpression = nil;
     GPKGColumnConstraints *constraints = [[GPKGColumnConstraints alloc] initWithName:columnName];
     
     int constraintIndex = -1;
-    enum GPKGConstraintType constraintType = -1;
+    GPKGConstraintType constraintType = -1;
     
     for (int i = 1; i < parts.count; i++) {
         NSString *part = [parts objectAtIndex:i];
@@ -147,7 +147,7 @@ static NSRegularExpression *constraintExpression = nil;
             
         } else {
             
-            enum GPKGConstraintType type = [GPKGConstraintTypes columnTypeOfValue:part];
+            GPKGConstraintType type = [GPKGConstraintTypes columnTypeOfValue:part];
             if ((int)type >= 0) {
                 
                 if ((int)constraintType >= 0) {
@@ -184,7 +184,7 @@ static NSRegularExpression *constraintExpression = nil;
  *            constraint type
  * @return constraint
  */
-+(GPKGConstraint *) createConstraintWithParts: (NSArray<NSString *> *) parts andStartIndex: (int) startIndex andEndIndex: (int) endIndex andType: (enum GPKGConstraintType) type{
++(GPKGConstraint *) createConstraintWithParts: (NSArray<NSString *> *) parts andStartIndex: (int) startIndex andEndIndex: (int) endIndex andType: (GPKGConstraintType) type{
     
     NSMutableString *sql = [NSMutableString string];
     for (int i = startIndex; i < endIndex; i++) {
@@ -221,7 +221,7 @@ static NSRegularExpression *constraintExpression = nil;
         NSArray<NSString *> *parts = [definition componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         NSArray<NSString *> *filteredParts = [parts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
         NSString *prefix = [filteredParts objectAtIndex:0];
-        enum GPKGConstraintType type = -1;
+        GPKGConstraintType type = -1;
         if(table){
             type = [GPKGConstraintTypes tableTypeOfValue:prefix];
         }else{
@@ -244,8 +244,8 @@ static NSRegularExpression *constraintExpression = nil;
     return [self tableConstraintForSQL:constraintSql] != nil;
 }
 
-+(enum GPKGConstraintType) tableTypeForSQL: (NSString *) constraintSql{
-    enum GPKGConstraintType type = -1;
++(GPKGConstraintType) tableTypeForSQL: (NSString *) constraintSql{
+    GPKGConstraintType type = -1;
     GPKGConstraint *constraint = [self tableConstraintForSQL:constraintSql];
     if(constraint != nil){
         type = constraint.type;
@@ -253,9 +253,9 @@ static NSRegularExpression *constraintExpression = nil;
     return type;
 }
 
-+(BOOL) isTableSQL: (NSString *) constraintSql type: (enum GPKGConstraintType) type{
++(BOOL) isTableSQL: (NSString *) constraintSql type: (GPKGConstraintType) type{
     BOOL isType = NO;
-    enum GPKGConstraintType constraintType = [self tableTypeForSQL:constraintSql];
+    GPKGConstraintType constraintType = [self tableTypeForSQL:constraintSql];
     if ((int)constraintType >= 0) {
         isType = type == constraintType;
     }
@@ -270,8 +270,8 @@ static NSRegularExpression *constraintExpression = nil;
     return [self columnConstraintForSQL:constraintSql] != nil;
 }
 
-+(enum GPKGConstraintType) columnTypeForSQL: (NSString *) constraintSql{
-    enum GPKGConstraintType type = -1;
++(GPKGConstraintType) columnTypeForSQL: (NSString *) constraintSql{
+    GPKGConstraintType type = -1;
     GPKGConstraint *constraint = [self columnConstraintForSQL:constraintSql];
     if(constraint != nil){
         type = constraint.type;
@@ -279,9 +279,9 @@ static NSRegularExpression *constraintExpression = nil;
     return type;
 }
 
-+(BOOL) isColumnSQL: (NSString *) constraintSql type: (enum GPKGConstraintType) type{
++(BOOL) isColumnSQL: (NSString *) constraintSql type: (GPKGConstraintType) type{
     BOOL isType = NO;
-    enum GPKGConstraintType constraintType = [self columnTypeForSQL:constraintSql];
+    GPKGConstraintType constraintType = [self columnTypeForSQL:constraintSql];
     if ((int)constraintType >= 0) {
         isType = type == constraintType;
     }
@@ -300,8 +300,8 @@ static NSRegularExpression *constraintExpression = nil;
     return [self constraintForSQL:constraintSql] != nil;
 }
 
-+(enum GPKGConstraintType) typeForSQL: (NSString *) constraintSql{
-    enum GPKGConstraintType type = -1;
++(GPKGConstraintType) typeForSQL: (NSString *) constraintSql{
+    GPKGConstraintType type = -1;
     GPKGConstraint *constraint = [self constraintForSQL:constraintSql];
     if (constraint != nil) {
         type = constraint.type;
@@ -309,9 +309,9 @@ static NSRegularExpression *constraintExpression = nil;
     return type;
 }
 
-+(BOOL) isSQL: (NSString *) constraintSql type: (enum GPKGConstraintType) type{
++(BOOL) isSQL: (NSString *) constraintSql type: (GPKGConstraintType) type{
     BOOL isType = NO;
-    enum GPKGConstraintType constraintType = [self typeForSQL:constraintSql];
+    GPKGConstraintType constraintType = [self typeForSQL:constraintSql];
     if ((int)constraintType >= 0) {
         isType = type == constraintType;
     }

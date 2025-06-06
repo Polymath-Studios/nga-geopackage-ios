@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTileContext.h"
+#import <GeoPackage/GPKGFeatureTileContext.h>
 
 @interface GPKGFeatureTileContext ()
 

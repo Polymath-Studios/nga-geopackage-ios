@@ -6,8 +6,8 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGRow.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGRow.h>
+#import <GeoPackage/GPKGUtils.h>
 
 @implementation GPKGRow
 

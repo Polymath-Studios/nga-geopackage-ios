@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileDao.h"
-#import "GPKGUtils.h"
-#import "GPKGTileDaoUtils.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
+#import <GeoPackage/GPKGTileDao.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGTileDaoUtils.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGTileDao
 

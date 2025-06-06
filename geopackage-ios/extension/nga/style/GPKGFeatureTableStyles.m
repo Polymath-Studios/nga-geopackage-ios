@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTableStyles.h"
+#import <GeoPackage/GPKGFeatureTableStyles.h>
 
 @interface GPKGFeatureTableStyles ()
 
@@ -171,7 +171,7 @@
     return styles;
 }
 
--(GPKGStyleRow *) tableStyleWithGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGStyleRow *) tableStyleWithGeometryType: (SFGeometryType) geometryType{
     return [self.featureStyleExtension tableStyleWithTableName:self.tableName andGeometryType:geometryType];
 }
 
@@ -207,7 +207,7 @@
     return icons;
 }
 
--(GPKGIconRow *) tableIconWithGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGIconRow *) tableIconWithGeometryType: (SFGeometryType) geometryType{
     return [self.featureStyleExtension tableIconWithTableName:self.tableName andGeometryType:geometryType];
 }
 
@@ -247,7 +247,7 @@
     return [self featureStyleWithFeature:featureRow andGeometryType:[featureRow geometryType]];
 }
 
--(GPKGFeatureStyle *) featureStyleWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGFeatureStyle *) featureStyleWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     return [self featureStyleWithId:[featureRow idValue] andGeometryType:geometryType];
 }
 
@@ -255,7 +255,7 @@
     return [self featureStyleWithId:[featureRow idValue] andGeometryType:SF_NONE];
 }
 
--(GPKGFeatureStyle *) featureStyleWithId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGFeatureStyle *) featureStyleWithId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
 
     GPKGFeatureStyle *featureStyle = nil;
     
@@ -269,7 +269,7 @@
     return featureStyle;
 }
 
--(GPKGFeatureStyle *) featureStyleWithIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGFeatureStyle *) featureStyleWithIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     return [self featureStyleWithId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -297,7 +297,7 @@
     return [self styleWithFeature:featureRow andGeometryType:[featureRow geometryType]];
 }
 
--(GPKGStyleRow *) styleWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGStyleRow *) styleWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     return [self styleWithId:[featureRow idValue] andGeometryType:geometryType];
 }
 
@@ -305,7 +305,7 @@
     return [self styleWithId:[featureRow idValue] andGeometryType:SF_NONE];
 }
 
--(GPKGStyleRow *) styleWithId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGStyleRow *) styleWithId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     
     GPKGStyleRow *styleRow = [self.featureStyleExtension styleWithTableName:self.tableName andId:featureId andGeometryType:geometryType andTableStyle:NO];
     
@@ -322,7 +322,7 @@
     return styleRow;
 }
 
--(GPKGStyleRow *) styleWithIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGStyleRow *) styleWithIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     return [self styleWithId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -350,7 +350,7 @@
     return [self iconWithFeature:featureRow andGeometryType:[featureRow geometryType]];
 }
 
--(GPKGIconRow *) iconWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGIconRow *) iconWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     return [self iconWithId:[featureRow idValue] andGeometryType:geometryType];
 }
 
@@ -358,7 +358,7 @@
     return [self iconWithId:[featureRow idValue] andGeometryType:SF_NONE];
 }
 
--(GPKGIconRow *) iconWithId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGIconRow *) iconWithId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     
     GPKGIconRow *iconRow = [self.featureStyleExtension iconWithTableName:self.tableName andId:featureId andGeometryType:geometryType andTableIcon:NO];
     
@@ -375,7 +375,7 @@
     return iconRow;
 }
 
--(GPKGIconRow *) iconWithIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(GPKGIconRow *) iconWithIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     return [self iconWithId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -402,7 +402,7 @@
     [self clearCachedTableStyles];
 }
 
--(void) setTableStyle: (GPKGStyleRow *) style withGeometryType: (enum SFGeometryType) geometryType{
+-(void) setTableStyle: (GPKGStyleRow *) style withGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setTableStyleWithTableName:self.tableName andGeometryType:geometryType andStyle:style];
     [self clearCachedTableStyles];
 }
@@ -417,7 +417,7 @@
     [self clearCachedTableIcons];
 }
 
--(void) setTableIcon: (GPKGIconRow *) icon withGeometryType: (enum SFGeometryType) geometryType{
+-(void) setTableIcon: (GPKGIconRow *) icon withGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setTableIconWithTableName:self.tableName andGeometryType:geometryType andIcon:icon];
     [self clearCachedTableIcons];
 }
@@ -438,7 +438,7 @@
     [self.featureStyleExtension setFeatureStyleWithFeature:featureRow andFeatureStyle:featureStyle];
 }
 
--(void) setFeatureStyle: (GPKGFeatureStyle *) featureStyle withFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setFeatureStyle: (GPKGFeatureStyle *) featureStyle withFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setFeatureStyleWithFeature:featureRow andGeometryType:geometryType andFeatureStyle:featureStyle];
 }
 
@@ -446,11 +446,11 @@
     [self.featureStyleExtension setFeatureStyleDefaultWithFeature:featureRow andFeatureStyle:featureStyle];
 }
 
--(void) setFeatureStyle: (GPKGFeatureStyle *) featureStyle withId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setFeatureStyle: (GPKGFeatureStyle *) featureStyle withId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setFeatureStyleWithTableName:self.tableName andId:featureId andGeometryType:geometryType andFeatureStyle:featureStyle];
 }
 
--(void) setFeatureStyle: (GPKGFeatureStyle *) featureStyle withIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setFeatureStyle: (GPKGFeatureStyle *) featureStyle withIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     [self setFeatureStyle:featureStyle withId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -478,7 +478,7 @@
     [self.featureStyleExtension setStyleWithFeature:featureRow andStyle:style];
 }
 
--(void) setStyle: (GPKGStyleRow *) style withFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setStyle: (GPKGStyleRow *) style withFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setStyleWithFeature:featureRow andGeometryType:geometryType andStyle:style];
 }
 
@@ -486,11 +486,11 @@
     [self.featureStyleExtension setStyleDefaultWithFeature:featureRow andStyle:style];
 }
 
--(void) setStyle: (GPKGStyleRow *) style withId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setStyle: (GPKGStyleRow *) style withId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setStyleWithTableName:self.tableName andId:featureId andGeometryType:geometryType andStyle:style];
 }
 
--(void) setStyle: (GPKGStyleRow *) style withIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setStyle: (GPKGStyleRow *) style withIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     [self setStyle:style withId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -518,7 +518,7 @@
     [self.featureStyleExtension setIconWithFeature:featureRow andIcon:icon];
 }
 
--(void) setIcon: (GPKGIconRow *) icon withFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setIcon: (GPKGIconRow *) icon withFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setIconWithFeature:featureRow andGeometryType:geometryType andIcon:icon];
 }
 
@@ -526,11 +526,11 @@
     [self.featureStyleExtension setIconDefaultWithFeature:featureRow andIcon:icon];
 }
 
--(void) setIcon: (GPKGIconRow *) icon withId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setIcon: (GPKGIconRow *) icon withId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension setIconWithTableName:self.tableName andId:featureId andGeometryType:geometryType andIcon:icon];
 }
 
--(void) setIcon: (GPKGIconRow *) icon withIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) setIcon: (GPKGIconRow *) icon withIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     [self setIcon:icon withId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -572,7 +572,7 @@
     [self clearCachedTableStyles];
 }
 
--(void) deleteTableStyleWithGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteTableStyleWithGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension deleteTableStyleWithTableName:self.tableName andGeometryType:geometryType];
     [self clearCachedTableStyles];
 }
@@ -587,7 +587,7 @@
     [self clearCachedTableIcons];
 }
 
--(void) deleteTableIconWithGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteTableIconWithGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension deleteTableIconWithTableName:self.tableName andGeometryType:geometryType];
     [self clearCachedTableIcons];
 }
@@ -647,15 +647,15 @@
     [self.featureStyleExtension deleteStyleWithFeature:featureRow];
 }
 
--(void) deleteStyleWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteStyleWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension deleteStyleWithFeature:featureRow andGeometryType:geometryType];
 }
 
--(void) deleteStyleWithId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteStyleWithId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension deleteStyleWithTableName:self.tableName andId:featureId andGeometryType:geometryType];
 }
 
--(void) deleteStyleWithIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteStyleWithIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     [self deleteStyleWithId:[featureId intValue] andGeometryType:geometryType];
 }
 
@@ -691,15 +691,15 @@
     [self.featureStyleExtension deleteIconWithFeature:featureRow];
 }
 
--(void) deleteIconWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteIconWithFeature: (GPKGFeatureRow *) featureRow andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension deleteIconWithFeature:featureRow andGeometryType:geometryType];
 }
 
--(void) deleteIconWithId: (int) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteIconWithId: (int) featureId andGeometryType: (SFGeometryType) geometryType{
     [self.featureStyleExtension deleteIconWithTableName:self.tableName andId:featureId andGeometryType:geometryType];
 }
 
--(void) deleteIconWithIdNumber: (NSNumber *) featureId andGeometryType: (enum SFGeometryType) geometryType{
+-(void) deleteIconWithIdNumber: (NSNumber *) featureId andGeometryType: (SFGeometryType) geometryType{
     [self deleteIconWithId:[featureId intValue] andGeometryType:geometryType];
 }
 

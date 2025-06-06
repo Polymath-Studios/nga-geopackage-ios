@@ -6,20 +6,20 @@
 //  Copyright © 2017 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureInfoBuilder.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
-#import "SFGeometryPrinter.h"
-#import "GPKGDataColumnsDao.h"
-#import "GPKGFeatureIndexListResults.h"
-#import "GPKGMapShapeConverter.h"
-#import "GPKGMapUtils.h"
+#import <GeoPackage/GPKGFeatureInfoBuilder.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
+#import <SimpleFeatures/SimpleFeatures.h>
+#import <GeoPackage/GPKGDataColumnsDao.h>
+#import <GeoPackage/GPKGFeatureIndexListResults.h>
+#import <GeoPackage/GPKGMapShapeConverter.h>
+#import <GeoPackage/GPKGMapUtils.h>
 
 @interface GPKGFeatureInfoBuilder ()
 
 @property (nonatomic, strong) GPKGFeatureDao *featureDao;
 @property (nonatomic, strong) GPKGFeatureTableStyles *featureStyles;
-@property (nonatomic) enum SFGeometryType geometryType;
+@property (nonatomic) SFGeometryType geometryType;
 @property (nonatomic, strong) NSMutableSet<NSNumber *> *ignoreGeometryTypes;
 
 @end
@@ -64,12 +64,12 @@
     return self;
 }
 
--(enum SFGeometryType) geometryType{
+-(SFGeometryType) geometryType{
     return _geometryType;
 }
 
--(void) ignoreGeometryType: (enum SFGeometryType) geometryType{
-    [self.ignoreGeometryTypes addObject:[NSNumber numberWithInt:geometryType]];
+-(void) ignoreGeometryType: (SFGeometryType) geometryType{
+    [self.ignoreGeometryTypes addObject:[NSNumber numberWithInteger:geometryType]];
 }
 
 -(NSString *) buildResultsInfoMessageAndCloseWithFeatureIndexResults: (GPKGFeatureIndexResults *) results{
@@ -354,7 +354,7 @@
     
     GPKGFeatureIndexResults *filteredResults = nil;
     
-    if([self.ignoreGeometryTypes containsObject: [NSNumber numberWithInt:self.geometryType]]){
+    if([self.ignoreGeometryTypes containsObject: [NSNumber numberWithInteger:self.geometryType]]){
         filteredResults = [[GPKGFeatureIndexListResults alloc] init];
     }else if([results count] == 0 || (!CLLocationCoordinate2DIsValid(clickLocation) && self.ignoreGeometryTypes.count == 0)){
         filteredResults = results;
@@ -378,7 +378,7 @@
                 SFGeometry *geometry = geomData.geometry;
                 if (geometry != nil) {
                     
-                    if(![self.ignoreGeometryTypes containsObject: [NSNumber numberWithInt:geometry.geometryType]]){
+                    if(![self.ignoreGeometryTypes containsObject: [NSNumber numberWithInteger:geometry.geometryType]]){
                     
                         NSDecimalNumber *distance = [[NSDecimalNumber alloc] initWithDouble:-1.0];
                         

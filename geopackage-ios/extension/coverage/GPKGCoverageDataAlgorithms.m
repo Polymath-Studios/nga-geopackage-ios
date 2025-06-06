@@ -6,8 +6,8 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGCoverageDataAlgorithms.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGCoverageDataAlgorithms.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_CDA_NEAREST_NEIGHBOR_NAME = @"Nearest Neighbor";
 NSString * const GPKG_CDA_BILINEAR_NAME = @"Bilinear";
@@ -15,7 +15,7 @@ NSString * const GPKG_CDA_BICUBIC_NAME = @"Bicubic";
 
 @implementation GPKGCoverageDataAlgorithms
 
-+(NSString *) name: (enum GPKGCoverageDataAlgorithm) algorithm{
++(NSString *) name: (GPKGCoverageDataAlgorithm) algorithm{
     NSString *name = nil;
     
     switch(algorithm){
@@ -33,8 +33,8 @@ NSString * const GPKG_CDA_BICUBIC_NAME = @"Bicubic";
     return name;
 }
 
-+(enum GPKGCoverageDataAlgorithm) fromName: (NSString *) name{
-    enum GPKGCoverageDataAlgorithm value = -1;
++(GPKGCoverageDataAlgorithm) fromName: (NSString *) name{
+    GPKGCoverageDataAlgorithm value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -46,7 +46,7 @@ NSString * const GPKG_CDA_BICUBIC_NAME = @"Bicubic";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGCoverageDataAlgorithm)[enumValue intValue];
+            value = (GPKGCoverageDataAlgorithm)[enumValue intValue];
         }
     }
     

@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGMediaTableMetadata.h"
-#import "GPKGMediaTable.h"
+#import <GeoPackage/GPKGMediaTableMetadata.h>
+#import <GeoPackage/GPKGMediaTable.h>
 
 @implementation GPKGMediaTableMetadata
 

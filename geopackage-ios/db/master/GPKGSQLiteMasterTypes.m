@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGSQLiteMasterTypes.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGSQLiteMasterTypes.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_SMT_TABLE_NAME = @"TABLE";
 NSString * const GPKG_SMT_INDEX_NAME = @"INDEX";
@@ -16,7 +16,7 @@ NSString * const GPKG_SMT_TRIGGER_NAME = @"TRIGGER";
 
 @implementation GPKGSQLiteMasterTypes
 
-+(NSString *) name: (enum GPKGSQLiteMasterType) type{
++(NSString *) name: (GPKGSQLiteMasterType) type{
     NSString *name = nil;
     
     switch(type){
@@ -37,8 +37,8 @@ NSString * const GPKG_SMT_TRIGGER_NAME = @"TRIGGER";
     return name;
 }
 
-+(enum GPKGSQLiteMasterType) fromName: (NSString *) name{
-    enum GPKGSQLiteMasterType value = -1;
++(GPKGSQLiteMasterType) fromName: (NSString *) name{
+    GPKGSQLiteMasterType value = -1;
     
     if(name != nil){
         name = [name uppercaseString];
@@ -51,7 +51,7 @@ NSString * const GPKG_SMT_TRIGGER_NAME = @"TRIGGER";
                                ];
         NSNumber *enumValue = [GPKGUtils objectForKey:name inDictionary:types];
         if(enumValue != nil){
-            value = (enum GPKGSQLiteMasterType)[enumValue intValue];
+            value = (GPKGSQLiteMasterType)[enumValue intValue];
         }
     }
     

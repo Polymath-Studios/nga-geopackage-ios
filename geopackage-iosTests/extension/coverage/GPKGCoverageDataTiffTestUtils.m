@@ -7,9 +7,7 @@
 //
 
 #import "GPKGCoverageDataTiffTestUtils.h"
-#import "GPKGCoverageDataTiff.h"
 #import "GPKGTestUtils.h"
-#import "GPKGTileBoundingBoxUtils.h"
 #import "GPKGCoverageDataTestUtils.h"
 
 @implementation GPKGCoverageDataTiffTestUtils

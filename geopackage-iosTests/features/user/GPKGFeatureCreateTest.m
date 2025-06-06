@@ -8,7 +8,7 @@
 
 #import "GPKGFeatureCreateTest.h"
 #import "GPKGFeatureUtils.h"
-#import "PROJProjectionConstants.h"
+#import <Projections/Projections.h>
 #import "GPKGTestUtils.h"
 
 @implementation GPKGFeatureCreateTest

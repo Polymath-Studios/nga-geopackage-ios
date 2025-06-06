@@ -6,10 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureGenerator.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGFeatureTableReader.h"
+#import <GeoPackage/GPKGFeatureGenerator.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGFeatureTableReader.h>
 
 @interface GPKGFeatureGenerator()
 
@@ -263,7 +262,7 @@ static PROJProjection *EPSG_WGS84 = nil;
  * @return feature column
  */
 -(GPKGFeatureColumn *) createColumn: (NSString *) name withValue: (NSObject *) value{
-    enum GPKGDataType type = [GPKGFeatureGenerator typeOfValue:value];
+    GPKGDataType type = [GPKGFeatureGenerator typeOfValue:value];
     return [GPKGFeatureColumn createColumnWithName:name andDataType:type];
 }
 
@@ -278,9 +277,9 @@ static PROJProjection *EPSG_WGS84 = nil;
  *            value
  * @return data type
  */
-+(enum GPKGDataType) typeOfValue: (NSObject *) value{
++(GPKGDataType) typeOfValue: (NSObject *) value{
     
-    enum GPKGDataType type = -1;
+    GPKGDataType type = -1;
     
     if([value isKindOfClass:[NSString class]]){
         type = GPKG_DT_TEXT;
@@ -308,7 +307,7 @@ static PROJProjection *EPSG_WGS84 = nil;
  *            data type
  * @return default value
  */
-+(NSObject *) value: (NSObject *) value withType: (enum GPKGDataType) type{
++(NSObject *) value: (NSObject *) value withType: (GPKGDataType) type{
     
     if (value != nil && type >= 0) {
         

@@ -6,12 +6,11 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionConstants.h"
-#import "PROJProjectionFactory.h"
-#import "GPKGGeoPackageConstants.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 #define degreesToRadians(x) (M_PI * x / PROJ_WGS84_HALF_WORLD_LON_WIDTH)
 #define radiansToDegrees(x) (x * PROJ_WGS84_HALF_WORLD_LON_WIDTH / M_PI)

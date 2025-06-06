@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGDataColumnsDao.h"
-#import "GPKGContentsDao.h"
-#import "GPKGGeoPackageTableCreator.h"
+#import <GeoPackage/GPKGDataColumnsDao.h>
+#import <GeoPackage/GPKGContentsDao.h>
+#import <GeoPackage/GPKGGeoPackageTableCreator.h>
 
 @implementation GPKGDataColumnsDao
 

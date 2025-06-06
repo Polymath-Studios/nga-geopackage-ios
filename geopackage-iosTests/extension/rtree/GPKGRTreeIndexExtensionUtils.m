@@ -7,10 +7,9 @@
 //
 
 #import "GPKGRTreeIndexExtensionUtils.h"
-#import "GPKGRTreeIndexExtension.h"
 #import "GPKGTestUtils.h"
-#import "PROJProjectionConstants.h"
-#import "PROJProjectionFactory.h"
+
+@import Projections;
 
 @implementation GPKGRTreeIndexExtensionUtils
 

@@ -6,26 +6,26 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGConstraint.h"
-#import "GPKGSqlUtils.h"
+#import <GeoPackage/GPKGConstraint.h>
+#import <GeoPackage/GPKGSqlUtils.h>
 
 NSString * const GPKG_CONSTRAINT = @"CONSTRAINT";
 
 @implementation GPKGConstraint
 
--(instancetype) initWithType: (enum GPKGConstraintType) type{
+-(instancetype) initWithType: (GPKGConstraintType) type{
     return [self initWithType:type andName:nil];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andName: (NSString *) name{
+-(instancetype) initWithType: (GPKGConstraintType) type andName: (NSString *) name{
     return [self initWithType:type andName:name andOrder:nil];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andOrder: (NSNumber *) order{
+-(instancetype) initWithType: (GPKGConstraintType) type andOrder: (NSNumber *) order{
     return [self initWithType:type andName:nil andOrder:order];
 }
 
--(instancetype) initWithType: (enum GPKGConstraintType) type andName: (NSString *) name andOrder: (NSNumber *) order{
+-(instancetype) initWithType: (GPKGConstraintType) type andName: (NSString *) name andOrder: (NSNumber *) order{
     self = [super self];
     if(self != nil){
         self.type = type;

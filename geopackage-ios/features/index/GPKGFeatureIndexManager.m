@@ -6,9 +6,9 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureIndexManager.h"
-#import "GPKGManualFeatureQuery.h"
-#import "GPKGFeatureIndexFeatureResults.h"
+#import <GeoPackage/GPKGFeatureIndexManager.h>
+#import <GeoPackage/GPKGManualFeatureQuery.h>
+#import <GeoPackage/GPKGFeatureIndexFeatureResults.h>
 
 @interface GPKGFeatureIndexManager ()
 
@@ -91,7 +91,7 @@
     [self.manualFeatureQuery setGeodesic:geodesic];
 }
 
--(void) prioritizeQueryLocationWithType: (enum GPKGFeatureIndexType) featureIndexType{
+-(void) prioritizeQueryLocationWithType: (GPKGFeatureIndexType) featureIndexType{
     NSArray *featureIndexTypes = [NSArray arrayWithObjects:[GPKGFeatureIndexTypes name:featureIndexType], nil];
     return [self prioritizeQueryLocationWithTypes:featureIndexTypes];
 }
@@ -101,7 +101,7 @@
     // In reverse order for the types provided, remove each (if it exists) and add at the front
     for(int i = (int)featureIndexTypes.count - 1; i >= 0; i--){
         NSString *featureIndexTypeString = featureIndexTypes[i];
-        enum GPKGFeatureIndexType featureIndexType = [GPKGFeatureIndexTypes fromName:featureIndexTypeString];
+        GPKGFeatureIndexType featureIndexType = [GPKGFeatureIndexTypes fromName:featureIndexTypeString];
         if((int)featureIndexType >= 0 && featureIndexType != GPKG_FIT_NONE){
             [_indexLocationQueryOrder removeObject:featureIndexTypeString];
             [_indexLocationQueryOrder insertObject:featureIndexTypeString atIndex:0];
@@ -114,7 +114,7 @@
     NSMutableArray *queryOrder = [NSMutableArray array];
     for(int i = 0; i < featureIndexTypes.count; i++){
         NSString *featureIndexTypeString = featureIndexTypes[i];
-        enum GPKGFeatureIndexType featureIndexType = [GPKGFeatureIndexTypes fromName:featureIndexTypeString];
+        GPKGFeatureIndexType featureIndexType = [GPKGFeatureIndexTypes fromName:featureIndexTypeString];
         if((int)featureIndexType >= 0 && featureIndexType != GPKG_FIT_NONE){
             [queryOrder addObject:featureIndexTypeString];
         }
@@ -136,14 +136,14 @@
 -(int) indexFeatureIndexTypes: (NSArray<NSString *> *) types{
     int count = 0;
     for(NSString *typeName in types){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         int typeCount = [self indexWithFeatureIndexType:type];
         count = MAX(count, typeCount);
     }
     return count;
 }
 
--(int) indexWithFeatureIndexType: (enum GPKGFeatureIndexType) type{
+-(int) indexWithFeatureIndexType: (GPKGFeatureIndexType) type{
     return [self indexWithFeatureIndexType:type andForce:NO];
 }
 
@@ -154,14 +154,14 @@
 -(int) indexWithForce: (BOOL) force andFeatureIndexTypes: (NSArray<NSString *> *) types{
     int count = 0;
     for(NSString *typeName in types){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         int typeCount = [self indexWithFeatureIndexType:type andForce:force];
         count = MAX(count, typeCount);
     }
     return count;
 }
 
--(int) indexWithFeatureIndexType:(enum GPKGFeatureIndexType) type andForce: (BOOL) force{
+-(int) indexWithFeatureIndexType:(GPKGFeatureIndexType) type andForce: (BOOL) force{
     
     if(type == GPKG_FIT_NONE){
         [NSException raise:@"No Feature Index Type" format:@"Feature Index Type is required to index"];
@@ -200,7 +200,7 @@
 -(BOOL) indexWithFeatureRow: (GPKGFeatureRow *) row andFeatureIndexTypes: (NSArray<NSString *> *) types{
     BOOL indexed = NO;
     for(NSString *typeName in types){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         if([self indexWithFeatureIndexType:type andFeatureRow:row]){
             indexed = YES;
         }
@@ -208,7 +208,7 @@
     return indexed;
 }
 
--(BOOL) indexWithFeatureIndexType:(enum GPKGFeatureIndexType) type andFeatureRow: (GPKGFeatureRow *) row{
+-(BOOL) indexWithFeatureIndexType:(GPKGFeatureIndexType) type andFeatureRow: (GPKGFeatureRow *) row{
     BOOL indexed = NO;
     if(type == GPKG_FIT_NONE){
         [NSException raise:@"No Feature Index Type" format:@"Feature Index Type is required to index"];
@@ -241,7 +241,7 @@
 -(BOOL) deleteIndexWithFeatureIndexTypes: (NSArray<NSString *> *) types{
     BOOL deleted = NO;
     for(NSString *typeName in types){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         if([self deleteIndexWithFeatureIndexType:type]){
             deleted = YES;
         }
@@ -249,7 +249,7 @@
     return deleted;
 }
 
--(BOOL) deleteIndexWithFeatureIndexType:(enum GPKGFeatureIndexType) type{
+-(BOOL) deleteIndexWithFeatureIndexType:(GPKGFeatureIndexType) type{
     if(type == GPKG_FIT_NONE){
         [NSException raise:@"No Feature Index Type" format:@"Feature Index Type is required to delete index"];
     }
@@ -278,7 +278,7 @@
 -(BOOL) deleteIndexWithFeatureRow: (GPKGFeatureRow *) row andFeatureIndexTypes: (NSArray<NSString *> *) types{
     BOOL deleted = NO;
     for(NSString *typeName in types){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         if([self deleteIndexWithFeatureIndexType:type andFeatureRow:row]){
             deleted = YES;
         }
@@ -286,7 +286,7 @@
     return deleted;
 }
 
--(BOOL) deleteIndexWithFeatureIndexType: (enum GPKGFeatureIndexType) type andFeatureRow: (GPKGFeatureRow *) row{
+-(BOOL) deleteIndexWithFeatureIndexType: (GPKGFeatureIndexType) type andFeatureRow: (GPKGFeatureRow *) row{
     return [self deleteIndexWithFeatureIndexType:type andGeomId:[row idValue]];
 }
 
@@ -297,7 +297,7 @@
 -(BOOL) deleteIndexWithGeomId: (int) geomId andFeatureIndexTypes: (NSArray<NSString *> *) types{
     BOOL deleted = NO;
     for(NSString *typeName in types){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         if([self deleteIndexWithFeatureIndexType:type andGeomId:geomId]){
             deleted = YES;
         }
@@ -305,7 +305,7 @@
     return deleted;
 }
 
--(BOOL) deleteIndexWithFeatureIndexType: (enum GPKGFeatureIndexType) type andGeomId: (int) geomId{
+-(BOOL) deleteIndexWithFeatureIndexType: (GPKGFeatureIndexType) type andGeomId: (int) geomId{
     if(type == GPKG_FIT_NONE){
         [NSException raise:@"No Feature Index Type" format:@"Feature Index Type is required to delete index"];
     }
@@ -327,7 +327,7 @@
     return deleted;
 }
 
--(BOOL) retainIndexWithFeatureIndexType: (enum GPKGFeatureIndexType) type{
+-(BOOL) retainIndexWithFeatureIndexType: (GPKGFeatureIndexType) type{
     NSArray *retain = [NSArray arrayWithObjects:[GPKGFeatureIndexTypes name:type], nil];
     return [self retainIndexWithFeatureIndexTypes:retain];
 }
@@ -345,7 +345,7 @@
 -(NSArray<NSString *> *) indexedTypes{
     NSMutableArray<NSString *> *indexed = [NSMutableArray array];
     for(NSString *typeName in self.indexLocationQueryOrder){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         if([self isIndexedWithFeatureIndexType:type]){
             [indexed addObject:typeName];
         }
@@ -356,7 +356,7 @@
 -(BOOL) isIndexed{
     BOOL indexed = NO;
     for(NSString *typeName in self.indexLocationQueryOrder){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         indexed = [self isIndexedWithFeatureIndexType:type];
         if(indexed){
             break;
@@ -365,7 +365,7 @@
     return indexed;
 }
 
--(BOOL) isIndexedWithFeatureIndexType: (enum GPKGFeatureIndexType) type{
+-(BOOL) isIndexedWithFeatureIndexType: (GPKGFeatureIndexType) type{
     BOOL indexed = NO;
     if(type == GPKG_FIT_NONE){
         indexed = [self isIndexed];
@@ -390,7 +390,7 @@
 -(NSDate *) lastIndexed{
     NSDate *lastIndexed = nil;
     for(NSString *typeName in self.indexLocationQueryOrder){
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName:typeName];
         lastIndexed = [self lastIndexedWithFeatureIndexType:type];
         if(lastIndexed != nil){
             break;
@@ -399,7 +399,7 @@
     return lastIndexed;
 }
 
--(NSDate *) lastIndexedWithFeatureIndexType: (enum GPKGFeatureIndexType) type{
+-(NSDate *) lastIndexedWithFeatureIndexType: (GPKGFeatureIndexType) type{
     NSDate *lastIndexed = nil;
     if(type == GPKG_FIT_NONE){
         lastIndexed = [self lastIndexed];
@@ -428,13 +428,13 @@
     return [[GPKGFeatureIndexLocation alloc] initWithFeatureIndexManager:self];
 }
 
--(enum GPKGFeatureIndexType) indexedType{
+-(GPKGFeatureIndexType) indexedType{
     
-    enum GPKGFeatureIndexType indexType = GPKG_FIT_NONE;
+    GPKGFeatureIndexType indexType = GPKG_FIT_NONE;
     
     // Check for an indexed type
     for (NSString *typeName in self.indexLocationQueryOrder) {
-        enum GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName: typeName];
+        GPKGFeatureIndexType type = [GPKGFeatureIndexTypes fromName: typeName];
         if([self isIndexedWithFeatureIndexType:type]){
             indexType = type;
             break;
@@ -463,7 +463,7 @@
 -(GPKGFeatureIndexResults *) queryWithDistinct: (BOOL) distinct andColumns: (NSArray<NSString *> *) columns{
     GPKGFeatureIndexResults *results = nil;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -512,7 +512,7 @@
 -(int) countWithDistinct: (BOOL) distinct andColumn: (NSString *) column{
     int count = -1;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -553,7 +553,7 @@
 -(int) count{
     int count = -1;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -668,7 +668,7 @@
 -(GPKGFeatureIndexResults *) queryWithDistinct: (BOOL) distinct andColumns: (NSArray<NSString *> *) columns andWhere: (NSString *) where andWhereArgs: (NSArray *) whereArgs{
     GPKGFeatureIndexResults *results = nil;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -721,7 +721,7 @@
 -(int) countWithDistinct: (BOOL) distinct andColumn: (NSString *) column andWhere: (NSString *) where andWhereArgs: (NSArray *) whereArgs{
     int count = -1;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -763,7 +763,7 @@
     GPKGBoundingBox *bounds = nil;
     BOOL success = NO;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -806,7 +806,7 @@
     GPKGBoundingBox *bounds = nil;
     BOOL success = NO;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -984,7 +984,7 @@
 -(int) countWithDistinct: (BOOL) distinct andColumn: (NSString *) column andEnvelope: (SFGeometryEnvelope *) envelope{
     int count = -1;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -1115,7 +1115,7 @@
 -(GPKGFeatureIndexResults *) queryWithDistinct: (BOOL) distinct andColumns: (NSArray<NSString *> *) columns andEnvelope: (SFGeometryEnvelope *) envelope andWhere: (NSString *) where andWhereArgs: (NSArray *) whereArgs{
     GPKGFeatureIndexResults *results = nil;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -1167,7 +1167,7 @@
 -(int) countWithDistinct: (BOOL) distinct andColumn: (NSString *) column andEnvelope: (SFGeometryEnvelope *) envelope andWhere: (NSString *) where andWhereArgs: (NSArray *) whereArgs{
     int count = -1;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -1416,7 +1416,7 @@
 -(GPKGFeatureIndexResults *) queryForChunkWithDistinct: (BOOL) distinct andColumns: (NSArray<NSString *> *) columns andOrderBy: (NSString *) orderBy andLimit: (int) limit andOffset: (int) offset{
     GPKGFeatureIndexResults *results = nil;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -1657,7 +1657,7 @@
 -(GPKGFeatureIndexResults *) queryForChunkWithDistinct: (BOOL) distinct andColumns: (NSArray<NSString *> *) columns andWhere: (NSString *) where andWhereArgs: (NSArray *) whereArgs andOrderBy: (NSString *) orderBy andLimit: (int) limit andOffset: (int) offset{
     GPKGFeatureIndexResults *results = nil;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -2218,7 +2218,7 @@
 -(GPKGFeatureIndexResults *) queryForChunkWithDistinct: (BOOL) distinct andColumns: (NSArray<NSString *> *) columns andEnvelope: (SFGeometryEnvelope *) envelope andWhere: (NSString *) where andWhereArgs: (NSArray *) whereArgs andOrderBy: (NSString *) orderBy andLimit: (int) limit andOffset: (int) offset{
     GPKGFeatureIndexResults *results = nil;
     for(NSNumber *typeNumber in [self location]){
-        enum GPKGFeatureIndexType type = (enum GPKGFeatureIndexType)[typeNumber intValue];
+        GPKGFeatureIndexType type = (GPKGFeatureIndexType)[typeNumber intValue];
         @try {
             switch(type){
                 case GPKG_FIT_GEOPACKAGE:
@@ -2532,7 +2532,7 @@
  *
  * @return feature index type
  */
--(enum GPKGFeatureIndexType) verifyIndexLocation{
+-(GPKGFeatureIndexType) verifyIndexLocation{
     if(_indexLocation == GPKG_FIT_NONE){
         [NSException raise:@"No Index Location" format:@"Index Location is not set, set the location or call an index method specifying the location"];
     }

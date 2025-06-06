@@ -6,7 +6,7 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTableData.h"
+#import <GeoPackage/GPKGFeatureTableData.h>
 
 @interface GPKGFeatureTableData ()
 

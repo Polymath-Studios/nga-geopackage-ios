@@ -6,10 +6,10 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGTileTableScaling.h"
-#import "GPKGProperties.h"
-#import "GPKGNGAExtensions.h"
-#import "GPKGTileScalingTableCreator.h"
+#import <GeoPackage/GPKGTileTableScaling.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGNGAExtensions.h>
+#import <GeoPackage/GPKGTileScalingTableCreator.h>
 
 NSString * const GPKG_EXTENSION_TILE_SCALING_NAME_NO_AUTHOR = @"tile_scaling";
 NSString * const GPKG_PROP_EXTENSION_TILE_SCALING_DEFINITION = @"geopackage.extensions.tile_scaling";

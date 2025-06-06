@@ -6,7 +6,7 @@
 //  Copyright © 2018 NGA. All rights reserved.
 //
 
-#import "GPKGMediaDao.h"
+#import <GeoPackage/GPKGMediaDao.h>
 
 @implementation GPKGMediaDao
 

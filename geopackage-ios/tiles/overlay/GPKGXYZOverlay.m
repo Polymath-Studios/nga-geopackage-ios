@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGXYZOverlay.h"
-#import "GPKGXYZTileRetriever.h"
+#import <GeoPackage/GPKGXYZOverlay.h>
+#import <GeoPackage/GPKGXYZTileRetriever.h>
 
 @interface GPKGXYZOverlay ()
 

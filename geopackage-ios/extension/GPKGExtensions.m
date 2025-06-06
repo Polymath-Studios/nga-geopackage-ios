@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGExtensions.h"
-#import "GPKGUtils.h"
-#import "GPKGGeoPackageConstants.h"
+#import <GeoPackage/GPKGExtensions.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGGeoPackageConstants.h>
 
 NSString * const GPKG_EX_EXTENSION_NAME_DIVIDER = @"_";
 NSString * const GPKG_EX_TABLE_NAME = @"gpkg_extensions";
@@ -23,8 +23,8 @@ NSString * const GPKG_EST_WRITE_ONLY_NAME = @"write-only";
 
 @implementation GPKGExtensions
 
--(enum GPKGExtensionScopeType) extensionScopeType{
-    enum GPKGExtensionScopeType value = -1;
+-(GPKGExtensionScopeType) extensionScopeType{
+    GPKGExtensionScopeType value = -1;
     
     if(self.scope != nil){
         NSDictionary *scopeTypes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -34,14 +34,14 @@ NSString * const GPKG_EST_WRITE_ONLY_NAME = @"write-only";
                                     ];
         NSNumber *enumValue = [GPKGUtils objectForKey:self.scope inDictionary:scopeTypes];
         if(enumValue != nil){
-            value = (enum GPKGExtensionScopeType)[enumValue intValue];
+            value = (GPKGExtensionScopeType)[enumValue intValue];
         }
     }
     
     return value;
 }
 
--(void) setExtensionScopeType: (enum GPKGExtensionScopeType) extensionScopeType{
+-(void) setExtensionScopeType: (GPKGExtensionScopeType) extensionScopeType{
     
     switch(extensionScopeType){
         case GPKG_EST_READ_WRITE:

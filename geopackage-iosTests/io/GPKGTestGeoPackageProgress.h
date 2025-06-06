@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GPKGProgress.h"
+#import <GeoPackage/GeoPackage.h>
 
 @interface GPKGTestGeoPackageProgress : NSObject<GPKGProgress>
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGDataColumnConstraints.h"
-#import "GPKGUtils.h"
+#import <GeoPackage/GPKGDataColumnConstraints.h>
+#import <GeoPackage/GPKGUtils.h>
 
 NSString * const GPKG_DCC_TABLE_NAME = @"gpkg_data_column_constraints";
 NSString * const GPKG_DCC_COLUMN_CONSTRAINT_NAME = @"constraint_name";
@@ -25,8 +25,8 @@ NSString * const GPKG_DCCT_GLOB_NAME =@"glob";
 
 @implementation GPKGDataColumnConstraints
 
--(enum GPKGDataColumnConstraintType) dataColumnConstraintType{
-    enum GPKGDataColumnConstraintType value = -1;
+-(GPKGDataColumnConstraintType) dataColumnConstraintType{
+    GPKGDataColumnConstraintType value = -1;
     
     if(self.constraintType != nil){
         NSDictionary *constraintTypes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -37,7 +37,7 @@ NSString * const GPKG_DCCT_GLOB_NAME =@"glob";
                                    ];
         NSNumber *enumValue = [GPKGUtils objectForKey:self.constraintType inDictionary:constraintTypes];
         if(enumValue != nil){
-            value = (enum GPKGDataColumnConstraintType)[enumValue intValue];
+            value = (GPKGDataColumnConstraintType)[enumValue intValue];
         }
     }
     
@@ -46,11 +46,11 @@ NSString * const GPKG_DCCT_GLOB_NAME =@"glob";
 
 -(void) setConstraintType:(NSString *)constraintType{
     _constraintType = constraintType;
-    enum GPKGDataColumnConstraintType type = [self dataColumnConstraintType];
+    GPKGDataColumnConstraintType type = [self dataColumnConstraintType];
     [self setDataColumnConstraintType:type];
 }
 
--(void) setDataColumnConstraintType: (enum GPKGDataColumnConstraintType) constraintType{
+-(void) setDataColumnConstraintType: (GPKGDataColumnConstraintType) constraintType{
     switch(constraintType){
         case GPKG_DCCT_RANGE:
             _constraintType = GPKG_DCCT_RANGE_NAME;

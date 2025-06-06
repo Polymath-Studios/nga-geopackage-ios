@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureColumn.h"
-#import "GPKGUserTable.h"
+#import <GeoPackage/GPKGFeatureColumn.h>
+#import <GeoPackage/GPKGUserTable.h>
 
 @implementation GPKGFeatureColumn
 
@@ -29,17 +29,17 @@
 }
 
 +(GPKGFeatureColumn *) createGeometryColumnWithName: (NSString *) name
-                                    andGeometryType: (enum SFGeometryType) type{
+                                    andGeometryType: (SFGeometryType) type{
     return [self createGeometryColumnWithIndex:NO_INDEX andName:name andGeometryType:type];
 }
 
 +(GPKGFeatureColumn *) createGeometryColumnWithIndex: (int) index andName: (NSString *) name
-                                         andGeometryType: (enum SFGeometryType) type{
+                                         andGeometryType: (SFGeometryType) type{
     return [self createGeometryColumnWithIndex:index andName:name andGeometryType:type andNotNull:NO andDefaultValue:nil];
 }
 
 +(GPKGFeatureColumn *) createGeometryColumnWithName: (NSString *) name
-                                    andGeometryType: (enum SFGeometryType) type
+                                    andGeometryType: (SFGeometryType) type
                                          andNotNull: (BOOL) notNull
                                     andDefaultValue: (NSObject *) defaultValue{
     return [self createGeometryColumnWithIndex:NO_INDEX andName:name andGeometryType:type andNotNull:NO andDefaultValue:nil];
@@ -47,38 +47,38 @@
 
 +(GPKGFeatureColumn *) createGeometryColumnWithIndex: (int) index
                                              andName: (NSString *) name
-                                     andGeometryType: (enum SFGeometryType) type
+                                     andGeometryType: (SFGeometryType) type
                                           andNotNull: (BOOL) notNull
                                      andDefaultValue: (NSObject *) defaultValue{
     return [[GPKGFeatureColumn alloc] initWithIndex:index andName:name andDataType:GPKG_DT_BLOB andMax:nil andNotNull:notNull andDefaultValue:defaultValue andPrimaryKey:NO andAutoincrement:NO andGeometryType:type];
 }
 
 +(GPKGFeatureColumn *) createColumnWithName: (NSString *) name
-                                andDataType: (enum GPKGDataType) type{
+                                andDataType: (GPKGDataType) type{
     return [self createColumnWithIndex:NO_INDEX andName:name andDataType:type];
 }
 
 +(GPKGFeatureColumn *) createColumnWithIndex: (int) index
                                      andName: (NSString *) name
-                                 andDataType: (enum GPKGDataType) type{
+                                 andDataType: (GPKGDataType) type{
     return [self createColumnWithIndex:index andName:name andDataType:type andNotNull:NO andDefaultValue:nil];
 }
 
 +(GPKGFeatureColumn *) createColumnWithName: (NSString *) name
-                                andDataType: (enum GPKGDataType) type
+                                andDataType: (GPKGDataType) type
                                  andNotNull: (BOOL) notNull{
     return [self createColumnWithIndex:NO_INDEX andName:name andDataType:type andNotNull:notNull];
 }
 
 +(GPKGFeatureColumn *) createColumnWithIndex: (int) index
                                      andName: (NSString *) name
-                                 andDataType: (enum GPKGDataType) type
+                                 andDataType: (GPKGDataType) type
                                   andNotNull: (BOOL) notNull{
     return [self createColumnWithIndex:index andName:name andDataType:type andNotNull:notNull andDefaultValue:nil];
 }
 
 +(GPKGFeatureColumn *) createColumnWithName: (NSString *) name
-                                andDataType: (enum GPKGDataType) type
+                                andDataType: (GPKGDataType) type
                                  andNotNull: (BOOL) notNull
                             andDefaultValue: (NSObject *) defaultValue{
     return [self createColumnWithIndex:NO_INDEX andName:name andDataType:type andNotNull:notNull andDefaultValue:defaultValue];
@@ -86,27 +86,27 @@
 
 +(GPKGFeatureColumn *) createColumnWithIndex: (int) index
                                      andName: (NSString *) name
-                                 andDataType: (enum GPKGDataType) type
+                                 andDataType: (GPKGDataType) type
                                   andNotNull: (BOOL) notNull
                              andDefaultValue: (NSObject *) defaultValue{
     return [self createColumnWithIndex:index andName:name andDataType:type andMax:nil andNotNull:notNull andDefaultValue:defaultValue];
 }
 
 +(GPKGFeatureColumn *) createColumnWithName: (NSString *) name
-                                andDataType: (enum GPKGDataType) type
+                                andDataType: (GPKGDataType) type
                                      andMax: (NSNumber *) max{
     return [self createColumnWithIndex:NO_INDEX andName:name andDataType:type andMax:max];
 }
 
 +(GPKGFeatureColumn *) createColumnWithIndex: (int) index
                                      andName: (NSString *) name
-                                 andDataType: (enum GPKGDataType) type
+                                 andDataType: (GPKGDataType) type
                                       andMax: (NSNumber *) max{
     return [self createColumnWithIndex:index andName:name andDataType:type andMax:max andNotNull:NO andDefaultValue:nil];
 }
 
 +(GPKGFeatureColumn *) createColumnWithName: (NSString *) name
-                                andDataType: (enum GPKGDataType) type
+                                andDataType: (GPKGDataType) type
                                      andMax: (NSNumber *) max
                                  andNotNull: (BOOL) notNull
                             andDefaultValue: (NSObject *) defaultValue{
@@ -115,7 +115,7 @@
 
 +(GPKGFeatureColumn *) createColumnWithIndex: (int) index
                                      andName: (NSString *) name
-                                 andDataType: (enum GPKGDataType) type
+                                 andDataType: (GPKGDataType) type
                                       andMax: (NSNumber *) max
                                   andNotNull: (BOOL) notNull
                              andDefaultValue: (NSObject *) defaultValue{
@@ -128,13 +128,13 @@
 
 -(instancetype) initWithIndex: (int) index
                       andName: (NSString *) name
-                  andDataType: (enum GPKGDataType) dataType
+                  andDataType: (GPKGDataType) dataType
                        andMax: (NSNumber *) max
                    andNotNull: (BOOL) notNull
               andDefaultValue: (NSObject *) defaultValue
                 andPrimaryKey: (BOOL) primaryKey
              andAutoincrement: (BOOL) autoincrement
-              andGeometryType: (enum SFGeometryType) geometryType{
+              andGeometryType: (SFGeometryType) geometryType{
     self = [super initWithIndex:index andName:name andType:[self typeNameForName:name withDataType:dataType andGeometryType:geometryType] andDataType:dataType andMax:max andNotNull:notNull andDefaultValue:defaultValue andPrimaryKey:primaryKey andAutoincrement:autoincrement];
     if(self != nil){
         self.geometryType = geometryType;
@@ -150,7 +150,7 @@
     return self;
 }
 
--(NSString *) typeNameForName: (NSString *) name withDataType: (enum GPKGDataType) dataType andGeometryType: (enum SFGeometryType) geometryType{
+-(NSString *) typeNameForName: (NSString *) name withDataType: (GPKGDataType) dataType andGeometryType: (SFGeometryType) geometryType{
     NSString *type = nil;
     if(geometryType != SF_NONE && geometryType >= 0){
         type = [SFGeometryTypes name:geometryType];
@@ -160,8 +160,8 @@
     return type;
 }
 
--(enum SFGeometryType) geometryTypeOfTableColumn: (GPKGTableColumn *) tableColumn{
-    enum SFGeometryType geometryType = SF_NONE;
+-(SFGeometryType) geometryTypeOfTableColumn: (GPKGTableColumn *) tableColumn{
+    SFGeometryType geometryType = SF_NONE;
     if([tableColumn isDataType:GPKG_DT_BLOB]){
         geometryType = [SFGeometryTypes fromName:tableColumn.type];
     }

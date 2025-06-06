@@ -8,10 +8,10 @@
 
 #import "GPKGFeatureOverlayQueryCreateTest.h"
 #import "GPKGTestUtils.h"
-#import "GPKGFeatureOverlayQuery.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
 #import "GPKGFeatureOverlayQueryUtils.h"
+
+@import Projections;
+@import GeoPackage;
 
 @implementation GPKGFeatureOverlayQueryCreateTest
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTileGenerator.h"
-#import "GPKGFeatureTileTableLinker.h"
-#import "GPKGTileBoundingBoxUtils.h"
-#import "PROJProjectionConstants.h"
+#import <GeoPackage/GPKGFeatureTileGenerator.h>
+#import <GeoPackage/GPKGFeatureTileTableLinker.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
 
 @interface GPKGFeatureTileGenerator ()
 

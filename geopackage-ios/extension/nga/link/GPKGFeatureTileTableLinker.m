@@ -6,10 +6,10 @@
 //  Copyright © 2016 NGA. All rights reserved.
 //
 
-#import "GPKGFeatureTileTableLinker.h"
-#import "GPKGProperties.h"
-#import "GPKGFeatureTileLinkTableCreator.h"
-#import "GPKGNGAExtensions.h"
+#import <GeoPackage/GPKGFeatureTileTableLinker.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGFeatureTileLinkTableCreator.h>
+#import <GeoPackage/GPKGNGAExtensions.h>
 
 NSString * const GPKG_EXTENSION_FEATURE_TILE_LINK_NAME_NO_AUTHOR = @"feature_tile_link";
 NSString * const GPKG_PROP_EXTENSION_FEATURE_TILE_LINK_DEFINITION = @"geopackage.extensions.feature_tile_link";

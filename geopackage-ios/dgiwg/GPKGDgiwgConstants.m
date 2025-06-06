@@ -6,7 +6,7 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGDgiwgConstants.h"
+#import <GeoPackage/GPKGDgiwgConstants.h>
 
 NSInteger const GPKG_DGIWG_TILE_WIDTH = 256;
 NSInteger const GPKG_DGIWG_TILE_HEIGHT = 256;

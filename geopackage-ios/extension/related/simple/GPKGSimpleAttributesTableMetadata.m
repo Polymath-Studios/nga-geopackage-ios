@@ -6,8 +6,8 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGSimpleAttributesTableMetadata.h"
-#import "GPKGSimpleAttributesTable.h"
+#import <GeoPackage/GPKGSimpleAttributesTableMetadata.h>
+#import <GeoPackage/GPKGSimpleAttributesTable.h>
 
 @implementation GPKGSimpleAttributesTableMetadata
 

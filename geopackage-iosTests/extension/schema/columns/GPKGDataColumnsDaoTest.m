@@ -9,7 +9,8 @@
 #import "GPKGDataColumnsDaoTest.h"
 #import "GPKGTestSetupTeardown.h"
 #import "GPKGTestUtils.h"
-#import "GPKGSchemaExtension.h"
+
+@import GeoPackage;
 
 @implementation GPKGDataColumnsDaoTest
 

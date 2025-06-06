@@ -6,10 +6,9 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "GPKGPlatteCarreOptimize.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
-#import "GPKGTileBoundingBoxUtils.h"
+#import <GeoPackage/GPKGPlatteCarreOptimize.h>
+#import <GeoPackage/GPKGTileBoundingBoxUtils.h>
+#import <Projections/Projections.h>
 
 @implementation GPKGPlatteCarreOptimize
 

@@ -7,13 +7,12 @@
 //
 
 #import "GPKGFeatureIndexManagerUtils.h"
-#import "GPKGFeatureIndexManager.h"
 #import "GPKGTestUtils.h"
 #import "GPKGTestGeoPackageProgress.h"
-#import "PROJProjectionFactory.h"
-#import "PROJProjectionConstants.h"
 #import "GPKGFeatureIndexTestEnvelope.h"
 #import "GPKGGeoPackageTestUtils.h"
+
+@import Projections;
 
 @interface GPKGTestTimer : NSObject
 

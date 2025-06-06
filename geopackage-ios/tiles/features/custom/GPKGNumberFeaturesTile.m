@@ -6,10 +6,10 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "GPKGNumberFeaturesTile.h"
-#import "GPKGUtils.h"
-#import "GPKGProperties.h"
-#import "GPKGPropertyConstants.h"
+#import <GeoPackage/GPKGNumberFeaturesTile.h>
+#import <GeoPackage/GPKGUtils.h>
+#import <GeoPackage/GPKGProperties.h>
+#import <GeoPackage/GPKGPropertyConstants.h>
 
 @implementation GPKGNumberFeaturesTile
 

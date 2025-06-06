@@ -6,19 +6,19 @@
 //  Copyright © 2022 NGA. All rights reserved.
 //
 
-#import "GPKGCrsWktExtensionVersions.h"
+#import <GeoPackage/GPKGCrsWktExtensionVersions.h>
 
 @implementation GPKGCrsWktExtensionVersions
 
-+(enum GPKGCrsWktExtensionVersion) first{
++(GPKGCrsWktExtensionVersion) first{
     return GPKG_CRS_WKT_V_1;
 }
 
-+(enum GPKGCrsWktExtensionVersion) latest{
++(GPKGCrsWktExtensionVersion) latest{
     return GPKG_CRS_WKT_V_1_1;
 }
 
-+(NSString *) version: (enum GPKGCrsWktExtensionVersion) version{
++(NSString *) version: (GPKGCrsWktExtensionVersion) version{
     NSString *ver = nil;
     
     switch(version){
@@ -33,7 +33,7 @@
     return ver;
 }
 
-+(NSString *) suffix: (enum GPKGCrsWktExtensionVersion) version{
++(NSString *) suffix: (GPKGCrsWktExtensionVersion) version{
     NSString *suffix = nil;
     
     switch(version){
@@ -48,11 +48,11 @@
     return suffix;
 }
 
-+(BOOL) isVersion: (enum GPKGCrsWktExtensionVersion) version atMinimum: (enum GPKGCrsWktExtensionVersion) minimum{
++(BOOL) isVersion: (GPKGCrsWktExtensionVersion) version atMinimum: (GPKGCrsWktExtensionVersion) minimum{
     return version >= minimum;
 }
 
-+(NSArray<NSNumber *> *) atMinimum: (enum GPKGCrsWktExtensionVersion) version{
++(NSArray<NSNumber *> *) atMinimum: (GPKGCrsWktExtensionVersion) version{
     NSMutableArray<NSNumber *> *versions = [NSMutableArray array];
     
     switch(version){

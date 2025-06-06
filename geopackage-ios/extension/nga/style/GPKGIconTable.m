@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "GPKGIconTable.h"
+#import <GeoPackage/GPKGIconTable.h>
 
 NSString * const GPKG_IT_TABLE_NAME = @"nga_icon";
 NSString * const GPKG_IT_COLUMN_NAME = @"name";
